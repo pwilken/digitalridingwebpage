@@ -13,7 +13,7 @@ description: "go down for deep diving into..."
 short_url: ''
 google_analytics: UA-69281367-1
 disqus: username
-# edit baseurl to simply '/' if using as your personal page (instead of a project page)
+# edit / to simply '/' if using as your personal page (instead of a project page)
 baseurl: '/'
 
 # Permalinks
@@ -46,12 +46,12 @@ plugins: [jekyll-paginate]
 safe: false
 lsi: false
 username: pwilken
-repo: personalpage
-branch: master
+repo: digitalridingwebpage
+branch: gh-pages
 relative_source: ../jasper/
 destination: ../jasper-pages/
-production_url:  https://pierrewilken.de/
-source_url:  https://github.com/pwilken/personalpage/
+production_url:  https://digitalriding.de/
+source_url:  https://github.com/pwilken/digitalridingwebpage
 
 exclude:
   - README.md
