@@ -8,15 +8,16 @@ install:
   # Install Jekyll and dependencies
   - bundle install
 
-script: bundle exec rake site:deploy --quiet #--trace
+script: bundle exec rake site:deploy
 
 # Generate your secure token with the travis gem:
 # get Github token from your Travis CI profile page
 # gem install travis
 # GH_TOKEN from https://github.com/settings/tokens
 # travis encrypt 'GIT_NAME="YOUR_USERNAME" GIT_EMAIL="YOUR_EMAIL" GH_TOKEN=YOUR_TOKEN'
-env:
-  global:
-    secure: "fTx3T/ocB7LtjKzj1hLvn1tbG/UJTqr3y2MeR4Zqx13tVUVGvRBCy9yV0vYuBhtglCvOLVxrnbFbPJkbXYhlulHdfedvBPMWCDw+Kyaje3jL/vGjsCBDHi4xb04rbwcF4VaBn5I8lSAN5udTrAQLtdeLg8GuygeARrxo+ov5lzYHjB/8MXt2K8f5YgsTkAqGgqRl+OlPWmwl+u+gDfo2mgj+7wbDmTAzCeLlsu4cW8rtYPJOtjzm1DyN/z0Vw7qx1bxkYyYP344pvp78s/Sw+euiY9oBxe4kKv2p2Ni1GyRFtwM+ODOzQCXxz0M0/1o7gYeMOO32IE21uoYt0FmE3Pd8tJH6xERCMfdo3S/mxMno3LKi6sxIkzwW5F21q/bmTqLWLwfXRqzrZ4zGRuKu6bFkQFc1B519waCy1QJjcisyGkhZgzsPVfKwUw7W7DOjH0rK9xMln+4B+QMtKL1I+2pXzVT/3K2w5A0zt3r4FvoO0/Lqneao6m6/1TU8AtJjcA4gNRAvJXvf8Z9FRoDFkuF7LcE1Jh5Kmc8eJ6+Wn+04eVAVYTrfU1N7qYpxJP89t9iCf5kWNElgyW9PB5plMree1TYfo5p7SZ4leog5J1MptGSJGjz25hNtoNtUq5wzZxINmiszr7Uw401V6F98/cVFYm35jqnVNO2MaGRQU9Q="
-  only:
-    - master
+global:
+  env:
+    - "GIT_NAME=pwilken"
+    - "GIT_EMAIL=kontakt@pierrewilken.de"
+    - "GIT_TOKEN=U8C/0EBibxyhEvHsOY7vR+i8M2eRpDjVeHI92VFvFX9X8nELbS0TlIgez4GEfKOANoRUMPrH4Qu5tNg21fTFAhyd9zmDd2n0OBpEB/N8ZW7wpVqfM59906+tfgXQMxA6eQt8c4YkRa1gESAODVXNpRSyGnZuDbhwtTLfE6ug0LU6LONKe8dGjuNA7Nfdnp5fIQRmVcBzBtVtvjTtG16leIzzuPdQolTr0Hsupmb4rlwTc2Sl3pVbO7wVPr6e+M9+kkLAiPneOHCfSIdIdEy5bxhQpjZ/e6hZ8XnTBnc6oR9vI+19O5S0iiOoldn0vVArFZSsve0nWLdfdftj2MGPSTWYSJc7wDIRn+/ywgijYpAOLx0Duz6BlfZz9MUlZTStxTsc0c8z+fOICllyh/ozNZNMWH6vRWPe5jftBNmHM/7rjKN3jSSPKvFjeDOTMVbZhrjQafcie174wGohLxmph09HqjH52BQZBolZumiRdz4uKn/fYeJQEWviLGH+c0z6n9pHmcxDaesyQW3K/6UHyVSGydMYp7Xihw/qwFeQzG6gM1v4YQkOYvswFCFYt+VINIj4U9lkKiKAlaTWp1kw4cIQew9+aM8a/Wxb2klX0K56WVd8fqoP9ZgpvC0qB0X5mz1STeAD3pOgUmvBxQVyEjtTz/hJLAJids1+FwBaLv4="
+    #secure: "U8C/0EBibxyhEvHsOY7vR+i8M2eRpDjVeHI92VFvFX9X8nELbS0TlIgez4GEfKOANoRUMPrH4Qu5tNg21fTFAhyd9zmDd2n0OBpEB/N8ZW7wpVqfM59906+tfgXQMxA6eQt8c4YkRa1gESAODVXNpRSyGnZuDbhwtTLfE6ug0LU6LONKe8dGjuNA7Nfdnp5fIQRmVcBzBtVtvjTtG16leIzzuPdQolTr0Hsupmb4rlwTc2Sl3pVbO7wVPr6e+M9+kkLAiPneOHCfSIdIdEy5bxhQpjZ/e6hZ8XnTBnc6oR9vI+19O5S0iiOoldn0vVArFZSsve0nWLdfdftj2MGPSTWYSJc7wDIRn+/ywgijYpAOLx0Duz6BlfZz9MUlZTStxTsc0c8z+fOICllyh/ozNZNMWH6vRWPe5jftBNmHM/7rjKN3jSSPKvFjeDOTMVbZhrjQafcie174wGohLxmph09HqjH52BQZBolZumiRdz4uKn/fYeJQEWviLGH+c0z6n9pHmcxDaesyQW3K/6UHyVSGydMYp7Xihw/qwFeQzG6gM1v4YQkOYvswFCFYt+VINIj4U9lkKiKAlaTWp1kw4cIQew9+aM8a/Wxb2klX0K56WVd8fqoP9ZgpvC0qB0X5mz1STeAD3pOgUmvBxQVyEjtTz/hJLAJids1+FwBaLv4="
