@@ -49,10 +49,10 @@ lsi: false
 username: pwilken
 repo: digitalridingwebpage
 branch: gh-pages
-relative_source: .
+source: .
 destination: _site
-production_url:  https://digitalriding.de/
-source_url:  https://github.com/pwilken/digitalridingwebpage
+#production_url:  https://digitalriding.de/
+#source_url:  https://github.com/pwilken/digitalridingwebpage
 
 exclude:
   - README.md
