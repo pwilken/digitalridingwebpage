@@ -7,6 +7,7 @@ paginate: 5
 language: 'de-ge'
 
 # Website info
+domain: "digitalriding"
 name: 'Riding the digital wave'
 description: "go down for deep diving into..."
 
