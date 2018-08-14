@@ -16,4 +16,3 @@ global:
 branches:
   only:
   - gh-pages
-  - /.*/
