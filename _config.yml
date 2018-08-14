@@ -49,8 +49,8 @@ lsi: false
 username: pwilken
 repo: digitalridingwebpage
 branch: gh-pages
-relative_source: ../master/
-destination: ../gh-pages/
+relative_source: .
+destination: _site
 production_url:  https://digitalriding.de/
 source_url:  https://github.com/pwilken/digitalridingwebpage
 
