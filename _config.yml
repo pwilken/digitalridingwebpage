@@ -48,7 +48,7 @@ safe: false
 lsi: false
 username: pwilken
 repo: digitalridingwebpage
-branch: gh-pages
+branch: develop
 source: .
 destination: _site
 #production_url:  https://digitalriding.de/
