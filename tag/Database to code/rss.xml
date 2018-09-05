@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title></title>
+   
+   <link></link>
+   <description>go down for deep diving into...</description>
+   <language>de-ge</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Scaffolding - Code aus bestehender Datenbank generieren (Firebird Datenbank)</title>
+	  <link>//Database-to-code-firebird-de</link>
+	  <author></author>
+	  <pubDate>2018-04-21T08:45:00+00:00</pubDate>
+	  <guid>//Database-to-code-firebird-de</guid>
+	  <description><![CDATA[
+	     <h1 id="database-to-code-mit-einer-existierenden-firebird-datenbank">Database to Code mit einer existierenden Firebird Datenbank</h1>
+<p>Generieren von Models, Controller und Views in einer “ASP.Net Core Web Applikation” anhand existierender Firebird Datenbank.</p>
+
+<h2 id="schritt-1-erstelle-eine-aspnet-core-web-applikation">Schritt 1: Erstelle eine ASP.Net Core Web Applikation</h2>
+
+<h2 id="schritt-2-füge-die-folgenden-nuget-packages-hinzu">Schritt 2: Füge die folgenden nuget-packages hinzu</h2>
+<ul>
+  <li>EntityFrameworkCore.FirebirdSql</li>
+  <li>Microsoft.AspNetCore.All</li>
+  <li>Microsoft.NETCore.App</li>
+  <li>Microsoft.VisualStudio.Web.CodeGeneration.Design</li>
+</ul>
+
+<h2 id="schritt-3-erstelle-und-speichere-den-connection-string-zu-deiner-datenbank">Schritt 3: Erstelle und speichere den connection string zu deiner Datenbank</h2>
+<p>Using example values.</p>
+
+<p>String for dbfilename.fdb</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"User=sysdba;Password=masterkey;Database=/firebird/data/dbfilename.fdb;DataSource=127.0.0.1;
+Port=3050;Dialect=3;Charset=NONE;Role=;Connection lifetime=15;Pooling=true;MinPoolSize=0;
+MaxPoolSize=50;PacketSize=8192;ServerType=0;"</span>
+</code></pre></div></div>
+
+<h2 id="schritt-4-benutze-scaffold-um-dein-datenbank-model-zu-reversen">Schritt 4: Benutze Scaffold um dein Datenbank-Model zu reversen</h2>
+<p>Benutze den folgenden Befehl mit deinen angepassten Werten, z.B. in VisualStudio in der Paketverwaltungs-Konsole.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Scaffold-DbContext <span class="s2">"User=sysdba;Password=masterkey;Database=/firebird/data/dbfilename.fdb;
+DataSource=127.0.0.1;Port=3050;Dialect=3;Charset=NONE;Role=;Connection lifetime=15;
+Pooling=true;MinPoolSize=0;MaxPoolSize=50;PacketSize=8192;ServerType=0;"</span>
+EntityFrameworkCore.FirebirdSQL <span class="nt">-o</span> Models
+</code></pre></div></div>
+
+<h2 id="schritt-5-generiere-die-controller-und-views">Schritt 5: Generiere die Controller und Views</h2>
+<p>Rechtsklick auf Projekt -&gt; Add -&gt; New Scaffolded Item…
+-&gt; MVC Controller with views, using Entity Framework</p>
+
+<p><img src="http://pierrewilken.de/assets/img/dbtocode_fb.png" alt="Foo" /></p>
+
+<p>Es wird eine data context Klasse für alle Models der Datenbank generiert.</p>
+
+<h2 id="schritt-6-kleine-anpassungen">Schritt 6: Kleine Anpassungen</h2>
+<p>Add in Startup.cs -&gt; ConfigureServices(IServiceCollection services)</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>services.AddDbContext&lt;_firebird_data_dbfilename_fdbContext&gt;<span class="o">(</span>
+   options <span class="o">=&gt;</span> options.UseFirebird<span class="o">(</span>
+   Database.GetConnectionString<span class="o">()</span>
+ <span class="o">))</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Füge den folgenden Konstruktor in _firebird_data_dbfilename_fdbContext hinzu.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public _firebird_data_dbfilename_fdbContext<span class="o">(</span>DbContextOptions&lt;_firebird_data_dbfilename_fdbContext&gt; options<span class="o">)</span> 
+                                            base<span class="o">(</span>options<span class="o">)</span>
+<span class="o">{</span>            
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="schritt-7-genieße-die-resultate">Schritt 7: Genieße die Resultate</h2>
+<p>Die Anwendung einfach ausführen und am ende der Url den Controller-Namen ohne “Controller” hinzufügen.
+http://localhost:51710/AddContacts</p>
+
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

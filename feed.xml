@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Riding the digital wave - Articles</title>
+    <description>go down for deep diving into...</description>
+    <link>
+    </link>
+    
+      
+      <item>
+        <title>Scaffolding - Code aus bestehender Datenbank generieren (Firebird Datenbank)</title>
+        
+          <description>&lt;h1 id=&quot;database-to-code-mit-einer-existierenden-firebird-datenbank&quot;&gt;Database to Code mit einer existierenden Firebird Datenbank&lt;/h1&gt;
+&lt;p&gt;Generieren von Models, Controller und Views in einer “ASP.Net Core Web Applikation” anhand existierender Firebird Datenbank.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 21 Apr 2018 11:45:00 +0300</pubDate>
+        <link>
+        /Database-to-code-firebird-de</link>
+        <guid isPermaLink="true">/Database-to-code-firebird-de</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Einführung in den Einsatz von Kubernetes</title>
+        
+          <description>&lt;h2 id=&quot;wichtigsten-begrifflichkeiten&quot;&gt;Wichtigsten Begrifflichkeiten&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sat, 21 Apr 2018 11:30:00 +0300</pubDate>
+        <link>
+        /Einstieg-Kubernetes</link>
+        <guid isPermaLink="true">/Einstieg-Kubernetes</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Aufsetzen einer Build Pipeline - Github zum Docker Hub</title>
+        
+          <description>&lt;p&gt;Folgende Dinge werden für das Aufsetzen einer simplen Continues Integration und Delivery mit Github und dem Docker Hub benötigt:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Docker Hub Account&lt;/li&gt;
+  &lt;li&gt;Github Account&lt;/li&gt;
+  &lt;li&gt;Lauffähiges Projekt in Github mit Dockerfile&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Sat, 21 Apr 2018 11:00:00 +0300</pubDate>
+        <link>
+        /Build-Pipeline-Docker-Github-de</link>
+        <guid isPermaLink="true">/Build-Pipeline-Docker-Github-de</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>A Full and Comprehensive Style Test</title>
+        
+          <description>&lt;p&gt;This is just an &lt;em&gt;ipsis verbis&lt;/em&gt; copy of the first example running on the &lt;a href=&quot;http://demo.ghost.io&quot;&gt;Ghost Demo&lt;/a&gt;. This shows how you can use html styling to achieve your hopes.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 27 Sep 2014 10:18:00 +0000</pubDate>
+        <link>
+        /a-full-and-comprehensive-style-test</link>
+        <guid isPermaLink="true">/a-full-and-comprehensive-style-test</guid>
+      </item>
+      
+    
+  </channel>
+</rss>
