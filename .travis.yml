@@ -1,0 +1,12 @@
+sudo: false
+language: ruby
+cache: bundler
+rvm:
+- 2.4.2
+install:
+- bundle install
+script: bundle exec rake site:deploy --quiet
+env:
+    - GIT_NAME=pwilken
+branches:
+    on: develop
