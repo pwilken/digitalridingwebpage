@@ -16,6 +16,7 @@ google_analytics: UA-117726176-4
 disqus: username
 # edit / to simply '/' if using as your personal page (instead of a project page)
 baseurl: '/'
+url: "https://digitalriding.de"
 
 # Permalinks
 permalink: /:title
