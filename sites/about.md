@@ -1,13 +1,32 @@
 ---
 layout: page
-title: About
+title: Über uns
 navigation: true
 logo: 
 current: about
 ---
 
-This is a demo blog for Ghost, it contains dummy content which allows you to click around and see what a Ghost blog running the default theme looks like.
+Wir sind eine Gruppe von jungen IT-Spezialisten aus NRW mit unterschiedlichen Schwerpunkten besonders in den Bereichen:
+## Software
+* Planung
+* Entwicklung
+* Testing
+* Deployment
 
-We use this for testing and for reference!
+## DevOps
+* CI CD
 
-If you'd like to set up your own blog, head on over to [https://ghost.org](https://ghost.org) and sign up.
+## Microservice-Architekturen
+
+## Administration
+* Linux Server
+* Windows Server
+* Hyper-V
+  
+## Technologien und Sprachen
+* REST
+* C/C++
+* C# / .Net / .Net-Core
+* Java / Kotlin / Spring
+* Javascript / React / React-Native
+* Container technology / Docker
