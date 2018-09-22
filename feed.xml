@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>Lifehack - In-Ear-Kopfhörer Klang günstig verbessern + Abschirmung</title>
+        
+          <description>&lt;p&gt;Der Klang von In-Ear-Kopfhörern kann mit einem einfachen Trick kostengünstig verbessert werden.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 22 Sep 2018 22:00:00 +0300</pubDate>
+        <link>
+        https://digitalriding.de/Earphone-Lifehack-de</link>
+        <guid isPermaLink="true">https://digitalriding.de/Earphone-Lifehack-de</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Scaffolding - Code aus bestehender Datenbank generieren (Firebird Datenbank)</title>
         
           <description>&lt;h1 id=&quot;database-to-code-mit-einer-existierenden-firebird-datenbank&quot;&gt;Database to Code mit einer existierenden Firebird Datenbank&lt;/h1&gt;
@@ -59,13 +74,25 @@
     
       
       <item>
-        <title>A Full and Comprehensive Style Test</title>
+        <title>A Full And Comprehensive Style Test</title>
         
-          <description>&lt;p&gt;This is just an &lt;em&gt;ipsis verbis&lt;/em&gt; copy of the first example running on the &lt;a href=&quot;http://demo.ghost.io&quot;&gt;Ghost Demo&lt;/a&gt;. This shows how you can use html styling to achieve your hopes.&lt;/p&gt;
+          <description>&lt;!--
+---
+layout: post
+cover: 'assets/images/cover3.jpg'
+navigation: True
+title: A Full and Comprehensive Style Test
+date: 2014-09-27 10:18:00
+tags: test content
+subclass: 'post tag-test tag-content'
+logo: 
+author: casper
+categories: casper
+---
 
 </description>
         
-        <pubDate>Sat, 27 Sep 2014 10:18:00 +0000</pubDate>
+        <pubDate>Sat, 27 Sep 2014 00:00:00 +0000</pubDate>
         <link>
         https://digitalriding.de/a-full-and-comprehensive-style-test</link>
         <guid isPermaLink="true">https://digitalriding.de/a-full-and-comprehensive-style-test</guid>
