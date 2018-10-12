@@ -2,7 +2,7 @@
 layout: post
 title: Server Hardening - SSH
 lang: de
-ref: de-lh-iek
+ref: de-ssh
 date: 2018-10-12 18:50:00 +0300
 description: Eine Anleitung um einen Server gegen unerwünschte Gäste zu schützen
 cover: assets/images/shell.jpg
@@ -12,7 +12,6 @@ categories: Valentino B.
 subclass: 'post tag-fiction'
 navigation: true
 ---
-## Einleitung
 Mietest du einen Server? Wenn ja, hast du ihn so eingerichtet, dass du dir sicher sein kannst, dass nur befugte Personen zugreifen können? Was ist wenn ich dir erzähle, dass ständig jemand versucht über Brute-Force dein SSH Login zu erhalten? Das ganze kann man ganz leicht selber nachprüfen
 ```
 $ tail -f /var/auth.log
@@ -22,19 +21,19 @@ und einfach mal für eine kurze Zeit beobachten.
 Viele Leute scheren sich nicht das initiale Passwort zu ändern, einen neuen Benutzer anzulegen oder SSH angemessen zu konfigurieren. Wundern sollte man sich dann allerdings nicht, wenn man nach einiger Zeit nicht mehr auf den Server zugreifen kann.
 
 ## Was ist diese Secure Shell?
-Es ist ein Netzwerkprotokoll, was auf TCP aufbaut. Es wird benutzt, um eine verschlüsselte Verbindung zu einem Server herzustellen. Die Shell eines entfernten Computers steht somit einem zur Verfügung. Implementiert ist das ganze als klassisches Client - Server Modell.
+Es ist ein Netzwerkprotokoll, was auf TCP aufbaut. Es wird benutzt, um eine verschlüsselte Verbindung zu einem Server herzustellen. Die Shell eines entfernten Computers steht einem somit zur Verfügung. Implementiert ist das ganze als klassisches Client - Server Modell.
 
 ##  Wie es nicht sein sollte
 Man bekommt von seinem Anbieter den Benutzer und das Passwort mitgeteilt, um sich über SSH anzumelden. Der Benutzer ist in der Regel root.  
 
 Diese Anmeldeinformationen sollte man allerdings nur bei der ersten Anmeldung nutzen. 
 
->Das ist genauso wie, wenn man den Internet Explorer benutzt, um einen anderen Browser herunterzuladen.
+>Das ist genauso wie den Internet Explorer zu benutzen, um einen anderen Browser herunterzuladen.
 
 ## Der übermächtige root
 Es ist keine gute Idee ständig als root unterwegs zu sein. Der root Benutzer hat jegliche Rechte auf dem System und so kann es mal schnell vorkommen, dass man irgendein Befehl oder Befehlskette ausführt die dir deinen Server zerschießen. 
 
-Deshalb ist es keine schlechte Idee sich einen neuen Benutzer anzulegen!
+Deshalb ist es keine schlechte Idee einen neuen Benutzer anzulegen!
 
 ## Ein neuer Benutzer
 Da wir also nicht ständig als root unterwegs sein wollen, erstellen wir uns einen neuen Benutzer.
@@ -58,11 +57,10 @@ $ su - username
 
 ## Schlüsselpaar Generieren
 
-Es werden zwei Schlüssel generiert. Ein öffentlicher und ein privater Schlüssel. Der öffentliche Schlüssel befindet sich nachher auf dem Server. Der private Schlüssel befindet sich auf der Maschine, von wo du dich mit dem Server verbinden wirst. 
+Es werden zwei Schlüssel generiert. Ein öffentlicher und ein privater Schlüssel. Der öffentliche Schlüssel befindet sich nachher auf dem Server. Der private Schlüssel befindet sich auf der Maschine, von wo du dich aus mit dem Server verbindest. 
 >An dieser Stelle sollte darauf hingewiesen werden, dass der private Schlüssel nur **dir** bekannt sein sollte.
 
 #### Linux/Unix
-Hier sollte noch was hin
 ```
 $ ssh-keygen -b 4096
 ```
@@ -70,7 +68,7 @@ $ ssh-keygen -b 4096
 Mit 4096 Bit gehen wir mal auf Nummer sicher.  Im anschließenden Dialog wirst du gefragt, ob du ein Passwort festlegen möchtest. Das ist an dieser Stelle dir selbst überlassen.
 
 #### Windows
-Wenn das Windows Subsystem for Linux (WSL) aktiviert oder Cygwin installiert ist, dann läuft das Prozedere wie im Linux/Unix Abschnitt ab. Falls nicht kann ein graphisches Programm wie PuTTYgen verwendet werden.
+Wenn das Windows Subsystem for Linux (WSL) aktiviert oder Cygwin installiert ist, dann läuft das Prozedere wie im [Linux/Unix](#linuxunix) Abschnitt ab. Falls nicht kann ein graphisches Programm wie PuTTYgen verwendet werden.
 
 ## Keys Übertragen
 Der öffentliche Schlüssel muss zum Server übertragen werden. Das kann auf zwei Arten geschehen, wovon die erste aufgezeigte komfortabler ist.
@@ -143,9 +141,7 @@ $ SSH-2.0-OpenSSH_7.1
 > Das ist der Protokoll Anfang, in dem der Server dem Client mitteilt, welche SSH Protokoll Version  benutzt wird, um im folgenden weiter zu kommunizieren.
 
 ## Zusätzliche Absicherung mit Fail2Ban
-Damit kann man unerwünschte Gäste automatisch aussperren, die innerhalb eines Zeitintervalls eine Anzahl an Anmeldeversuchen überschritten haben. 
-
-Funktionieren tut dies über logs erkennen und bannen diese IP, indem die Firewall jegliche Pakete von ihnen mehr akzeptiert.
+Mit diesem tollen Programm kann man die IP von unerwünschte Gäste automatisch sperren lassen, die innerhalb eines festgelegten Zeitintervalls eine Anzahl an Anmeldeversuchen überschritten haben. 
 
 ### Installation
 Unter Debian Distributionen
@@ -183,3 +179,6 @@ Vielleicht wäre es noch ganz interessant zu wissen, wie man gebannte IPs einseh
 ```
 $ sudo cat /var/log/fail2ban.log | grep Ban
 ```
+
+## Ende
+Ich hoffe du konntest einiges aus diesem Blog Artikel mitnehmen. In Zukunft solltest du besser gewappnet sein :-) 
