@@ -122,6 +122,8 @@
             
                 
             
+                
+            
             <time class="post-date" datetime="2018-10-12">12 Oct 2018</time>
                 <!-- [[tags prefix=" on "]] -->
                 
@@ -145,8 +147,7 @@
 
         <section class="post-content">
 
-            <h2 id="einleitung">Einleitung</h2>
-<p>Mietest du einen Server? Wenn ja, hast du ihn so eingerichtet, dass du dir sicher sein kannst, dass nur befugte Personen zugreifen können? Was ist wenn ich dir erzähle, dass ständig jemand versucht über Brute-Force dein SSH Login zu erhalten? Das ganze kann man ganz leicht selber nachprüfen</p>
+            <p>Mietest du einen Server? Wenn ja, hast du ihn so eingerichtet, dass du dir sicher sein kannst, dass nur befugte Personen zugreifen können? Was ist wenn ich dir erzähle, dass ständig jemand versucht über Brute-Force dein SSH Login zu erhalten? Das ganze kann man ganz leicht selber nachprüfen</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ tail -f /var/auth.log
 </code></pre></div></div>
 <p>und einfach mal für eine kurze Zeit beobachten.</p>
@@ -154,7 +155,7 @@
 <p>Viele Leute scheren sich nicht das initiale Passwort zu ändern, einen neuen Benutzer anzulegen oder SSH angemessen zu konfigurieren. Wundern sollte man sich dann allerdings nicht, wenn man nach einiger Zeit nicht mehr auf den Server zugreifen kann.</p>
 
 <h2 id="was-ist-diese-secure-shell">Was ist diese Secure Shell?</h2>
-<p>Es ist ein Netzwerkprotokoll, was auf TCP aufbaut. Es wird benutzt, um eine verschlüsselte Verbindung zu einem Server herzustellen. Die Shell eines entfernten Computers steht somit einem zur Verfügung. Implementiert ist das ganze als klassisches Client - Server Modell.</p>
+<p>Es ist ein Netzwerkprotokoll, was auf TCP aufbaut. Es wird benutzt, um eine verschlüsselte Verbindung zu einem Server herzustellen. Die Shell eines entfernten Computers steht einem somit zur Verfügung. Implementiert ist das ganze als klassisches Client - Server Modell.</p>
 
 <h2 id="wie-es-nicht-sein-sollte">Wie es nicht sein sollte</h2>
 <p>Man bekommt von seinem Anbieter den Benutzer und das Passwort mitgeteilt, um sich über SSH anzumelden. Der Benutzer ist in der Regel root.</p>
@@ -162,13 +163,13 @@
 <p>Diese Anmeldeinformationen sollte man allerdings nur bei der ersten Anmeldung nutzen.</p>
 
 <blockquote>
-  <p>Das ist genauso wie, wenn man den Internet Explorer benutzt, um einen anderen Browser herunterzuladen.</p>
+  <p>Das ist genauso wie den Internet Explorer zu benutzen, um einen anderen Browser herunterzuladen.</p>
 </blockquote>
 
 <h2 id="der-übermächtige-root">Der übermächtige root</h2>
 <p>Es ist keine gute Idee ständig als root unterwegs zu sein. Der root Benutzer hat jegliche Rechte auf dem System und so kann es mal schnell vorkommen, dass man irgendein Befehl oder Befehlskette ausführt die dir deinen Server zerschießen.</p>
 
-<p>Deshalb ist es keine schlechte Idee sich einen neuen Benutzer anzulegen!</p>
+<p>Deshalb ist es keine schlechte Idee einen neuen Benutzer anzulegen!</p>
 
 <h2 id="ein-neuer-benutzer">Ein neuer Benutzer</h2>
 <p>Da wir also nicht ständig als root unterwegs sein wollen, erstellen wir uns einen neuen Benutzer.</p>
@@ -188,20 +189,19 @@
 
 <h2 id="schlüsselpaar-generieren">Schlüsselpaar Generieren</h2>
 
-<p>Es werden zwei Schlüssel generiert. Ein öffentlicher und ein privater Schlüssel. Der öffentliche Schlüssel befindet sich nachher auf dem Server. Der private Schlüssel befindet sich auf der Maschine, von wo du dich mit dem Server verbinden wirst.</p>
+<p>Es werden zwei Schlüssel generiert. Ein öffentlicher und ein privater Schlüssel. Der öffentliche Schlüssel befindet sich nachher auf dem Server. Der private Schlüssel befindet sich auf der Maschine, von wo du dich aus mit dem Server verbindest.</p>
 <blockquote>
   <p>An dieser Stelle sollte darauf hingewiesen werden, dass der private Schlüssel nur <strong>dir</strong> bekannt sein sollte.</p>
 </blockquote>
 
 <h4 id="linuxunix">Linux/Unix</h4>
-<p>Hier sollte noch was hin</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh-keygen -b 4096
 </code></pre></div></div>
 
 <p>Mit 4096 Bit gehen wir mal auf Nummer sicher.  Im anschließenden Dialog wirst du gefragt, ob du ein Passwort festlegen möchtest. Das ist an dieser Stelle dir selbst überlassen.</p>
 
 <h4 id="windows">Windows</h4>
-<p>Wenn das Windows Subsystem for Linux (WSL) aktiviert oder Cygwin installiert ist, dann läuft das Prozedere wie im Linux/Unix Abschnitt ab. Falls nicht kann ein graphisches Programm wie PuTTYgen verwendet werden.</p>
+<p>Wenn das Windows Subsystem for Linux (WSL) aktiviert oder Cygwin installiert ist, dann läuft das Prozedere wie im <a href="#linuxunix">Linux/Unix</a> Abschnitt ab. Falls nicht kann ein graphisches Programm wie PuTTYgen verwendet werden.</p>
 
 <h2 id="keys-übertragen">Keys Übertragen</h2>
 <p>Der öffentliche Schlüssel muss zum Server übertragen werden. Das kann auf zwei Arten geschehen, wovon die erste aufgezeigte komfortabler ist.</p>
@@ -268,9 +268,7 @@ $ SSH-2.0-OpenSSH_7.1
 </blockquote>
 
 <h2 id="zusätzliche-absicherung-mit-fail2ban">Zusätzliche Absicherung mit Fail2Ban</h2>
-<p>Damit kann man unerwünschte Gäste automatisch aussperren, die innerhalb eines Zeitintervalls eine Anzahl an Anmeldeversuchen überschritten haben.</p>
-
-<p>Funktionieren tut dies über logs erkennen und bannen diese IP, indem die Firewall jegliche Pakete von ihnen mehr akzeptiert.</p>
+<p>Mit diesem tollen Programm kann man die IP von unerwünschte Gäste automatisch sperren lassen, die innerhalb eines festgelegten Zeitintervalls eine Anzahl an Anmeldeversuchen überschritten haben.</p>
 
 <h3 id="installation">Installation</h3>
 <p>Unter Debian Distributionen</p>
@@ -302,6 +300,9 @@ enabled=true
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo cat /var/log/fail2ban.log | grep Ban
 </code></pre></div></div>
 
+<h2 id="ende">Ende</h2>
+<p>Ich hoffe du konntest einiges aus diesem Blog Artikel mitnehmen. In Zukunft solltest du besser gewappnet sein :-)</p>
+
 
         </section>
 
@@ -309,6 +310,8 @@ enabled=true
 
             <!-- Everything inside the #author tags pulls data from the author -->
             <!-- #author-->
+            
+                
             
                 
             
