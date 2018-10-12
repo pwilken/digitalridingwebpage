@@ -3,7 +3,7 @@ layout: post
 title: Server Hardening - SSH
 lang: de
 ref: de-lh-iek
-date: 
+date: 2018-10-12 18:50:00 +0300
 description: Eine Anleitung um einen Server gegen unerwünschte Gäste zu schützen
 cover: assets/images/shell.jpg
 tags: [Server, SSH, Hardening]
