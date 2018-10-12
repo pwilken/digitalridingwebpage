@@ -8,6 +8,25 @@
     
       
       <item>
+        <title>Server Hardening - SSH</title>
+        
+          <description>&lt;h2 id=&quot;einleitung&quot;&gt;Einleitung&lt;/h2&gt;
+&lt;p&gt;Mietest du einen Server? Wenn ja, hast du ihn so eingerichtet, dass du dir sicher sein kannst, dass nur befugte Personen zugreifen können? Was ist wenn ich dir erzähle, dass ständig jemand versucht über Brute-Force dein SSH Login zu erhalten? Das ganze kann man ganz leicht selber nachprüfen&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ tail -f /var/auth.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;und einfach mal für eine kurze Zeit beobachten.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 12 Oct 2018 18:50:00 +0300</pubDate>
+        <link>
+        https://digitalriding.de/Server-Hardening-SSH</link>
+        <guid isPermaLink="true">https://digitalriding.de/Server-Hardening-SSH</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Lifehack - In-Ear-Kopfhörer Klang günstig verbessern + Abschirmung</title>
         
           <description>&lt;p&gt;Der Klang von In-Ear-Kopfhörern kann mit einem einfachen Trick kostengünstig verbessert werden.&lt;/p&gt;
