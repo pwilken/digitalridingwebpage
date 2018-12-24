@@ -3,7 +3,7 @@ layout: post
 title: Einstieg in MonoGame (Learning by Sharing)
 lang: de
 description: Entwicklung eines Spiels mit MonoGame
-cover: /assets/images/screenshots/monogame/head01.png
+cover: assets/images/screenshots/monogame/head01.png
 tags: [MonoGame, GameDev, Learning by Sharing]
 author: sgoerzen
 categories: sgoerzen
