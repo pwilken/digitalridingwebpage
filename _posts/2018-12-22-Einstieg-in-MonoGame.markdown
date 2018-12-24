@@ -3,10 +3,10 @@ layout: post
 title: Einstieg in MonoGame (Learning by Sharing)
 lang: de
 description: Entwicklung eines Spiels mit MonoGame
-cover: assets/images/screenshots/monogame/head01.png
+cover: /assets/images/screenshots/monogame/head01.png
 tags: [MonoGame, GameDev, Learning by Sharing]
-author: Sergej G.
-categories: Sergej G.
+author: sgoerzen
+categories: sgoerzen
 subclass: 'post tag-fiction'
 navigation: true
 ---
@@ -77,4 +77,4 @@ Ich verwende aber JetBrains Rider, weil diese IDE auf allen Betriebssystemen ide
 
 Klick hier weiter für [2D](digitalriding.de) oder [3D](digitalriding.de).
 
-Header-Bild: https://www.polygon.com/2013/10/4/4801796/nintendo-bringing-monogame-framework-to-wii-u Image with http://www.monogame.net Logo
+Headerbild:https://www.polygon.com/2013/10/4/4801796/nintendo-bringing-monogame-framework-to-wii-u + MonoGame Logo
