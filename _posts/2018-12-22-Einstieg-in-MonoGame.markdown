@@ -18,6 +18,10 @@ Ich freue mich, wenn du mich bei meinem Lernprozess begleitest - vielleicht lern
 Bei den MonoGame Projekten wird je nach vorgeführten Techniken an einem 2D oder 3D Spiel entwickelt.
 Während der Entwicklung kommt eine Class Library mit nützlichen Klassen zu stande kommen, die für euch öffentlich zugänglich ist.
 
+Die Blogartikel zu 2D und 3D erscheinen vorerst abwechselnd.
+
+Die zu behandelnden Themen und Grundlagen sind grundsätzlich für alle Game Engines oder Frameworks gültig und du kannst somit nach dem Erlernen der Fertigkeiten, auch in anderen Frameworks verwenden.
+
 ## Vorgeschichte
 Mein Interesse für Programmierung begann in der Spieleentwicklung. Doch bevor ich mich selbständig in richtige Programmiersprachen eingearbeitet habe,
 bastelte ich (wie viele vermutlich) mit dem RPG Maker 2000 an kleinen Spielen.
@@ -71,4 +75,4 @@ Ich verwende aber JetBrains Rider, weil diese IDE auf allen Betriebssystemen ide
 10. Geh nun oben rechts auf "Edit Solution configurations..." und nehme sicher, dass folgende Einstellungen gesetzt sind ![Bild](/assets/images/screenshots/monogame/04.png "Project configuration 1") ![Bild](/assets/images/screenshots/monogame/05.png "Project configuration 2") 
 11. Abschließend kann das Projekt durch den Play-Button gestartet werden ![Bild](/assets/images/screenshots/monogame/06.png "Game Window")
 
-[Hier](digitalriding.de) kannst du weiter zu ersten Teil von 2D.
+Klick hier weiter für [2D](digitalriding.de) oder [3D](digitalriding.de).
