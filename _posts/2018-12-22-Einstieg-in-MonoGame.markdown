@@ -50,6 +50,8 @@ Der Unterschied von Unity3d zu MonoGame ist, dass Unity einen mächtigen Editor 
 
 Inspiriert durch OpenGL wollte jedoch mein akademischer Geist sich weiter mit Kernfragen beschäftigen. Ist der Kern verstanden, dann jede Engine und jedes Framework erst recht.
 
+Jeder, der gerne codet wird hier sehr viel Spaß haben!
+
 ## Das Setting
 Entwickelt wird mit einem MacOS High Sierra und der IDE Rider von JetBrains.
 
