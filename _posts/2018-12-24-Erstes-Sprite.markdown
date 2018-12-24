@@ -101,4 +101,7 @@ protected override void Draw(GameTime gameTime)
 
 Mit Keyboard.GetState können wir den Status der Tastatur ansprechen und somit Eingaben fragen. In diesem Code-Snippet zeichnen wir unser Sprite an einer bestimmten Position, die wir mit A und D verändern können.
 
+Das ist nun unser Ergebnis:
+![First Sprite](/assets/images/screenshots/monogame/09.png)
+
 Der Code entstandene Code kann [hier](https://github.com/SGoerzen/2dplatformer/tree/master/first-sprites) heruntergeladen werden.
