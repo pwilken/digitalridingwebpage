@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Einstieg in MonoGame - Learning by Sharing 1
+title: Einstieg in MonoGame (Learning by Sharing)
 lang: de
 description: Entwicklung eines Spiels mit MonoGame
 cover: 
@@ -14,6 +14,9 @@ Mit diesem Artikel führe ich eine neue Serie von mir ein: "Learning by Sharing"
 Dabei halte ich fest, was ich getan und was ich dabei gelernt habe.
 
 Ich freue mich, wenn du mich bei meinem Lernprozess begleitest - vielleicht lernst du auch etwas dabei.
+
+Bei den MonoGame Projekten wird je nach vorgeführten Techniken an einem 2D oder 3D Spiel entwickelt.
+Während der Entwicklung kommt eine Class Library mit nützlichen Klassen zu stande kommen, die für euch öffentlich zugänglich ist.
 
 ## Vorgeschichte
 Mein Interesse für Programmierung begann in der Spieleentwicklung. Doch bevor ich mich selbständig in richtige Programmiersprachen eingearbeitet habe,
@@ -41,7 +44,7 @@ Keine Frage: Unity3d ist klasse!
 Doch, wie gesagt, meine Sympathie für Xna ist groß. Bei MonoGame wurde sich an die Struktur von Xna gehalten und weiterentwickelt.
 Der Unterschied von Unity3d zu MonoGame ist, dass Unity einen mächtigen Editor und eine Physics-Engine hat.
 
-Inspiriert durch OpenGL wollte jedoch mein akademischer Geist sich mit Kernfragen weiterhin zu beschäftigen. Ist der Kern verstanden, dann jede Engine erst recht.
+Inspiriert durch OpenGL wollte jedoch mein akademischer Geist sich weiter mit Kernfragen beschäftigen. Ist der Kern verstanden, dann jede Engine und jedes Framework erst recht.
 
 ## Das Setting
 Entwickelt wird mit einem MacOS High Sierra und der IDE Rider von JetBrains.
@@ -51,8 +54,21 @@ Für Windows wird häufig die Visual Studio Version empfohlen, weil ein MonoGame
 
 [Download MonoGame](http://community.monogame.net/t/monogame-3-7-1-release/11173)
 
-Für Rider hab ich folgendes Template verwendet und entsprechend Assembly, Namespace und Namen geändert.
-
-[Download Rider Template](https://github.com/Limeoats/Monogame-Rider-Template)
+Ich verwende aber JetBrains Rider, weil diese IDE auf allen Betriebssystemen identisch ist. Es gibt dafür keine integrierte Templates o.ä. dafür aber eins im Netz. Folgendes Template habe ich verwendet:
 
 ### Einrichten in Rider
+
+1. Klick [hier](https://github.com/Limeoats/Monogame-Rider-Template) und downloade dir das Template 
+
+2. Benenne die Dateien MonogameRiderTemplate.sln, MonogameRiderTemplate.csproj und den Ordner MonogameRiderTemplate in deinen gewünschten Projektnamen um ![Bild](/assets/images/screenshots/monogame/01.png "Old Names") ![Bild](/assets/images/screenshots/monogame/02.png "New names")
+3. Öffne das Projekt und klick mit rechter Maustaste auf die Projektmappe und anschließend auf "Add existing project..."
+4. Wähle die vorher umbenannte .csproj-Datei aus
+5. Lösch im Projektbaum das Projekt MonogameRider
+6. Mit rechter Maustaste auf das neu eingebundene Projekt und "Properties...".
+7. In diesem Fenster änderst du dann noch "Assembly name" und "Root namespace" ![Bild](/assets/images/screenshots/monogame/03.png "Project properties")
+8. Änder ebenfalls in Datei "Properties/AssembyInfo.cs" alle gewünschten Einträge.
+9. Jetzt nur noch in "Source/Game.cs" und "Source/Program.cs" den Namespace "TheVillageOfLife" auf deinen gewünschten umändern
+10. Geh nun oben rechts auf "Edit Solution configurations..." und nehme sicher, dass folgende Einstellungen gesetzt sind ![Bild](/assets/images/screenshots/monogame/04.png "Project configuration 1") ![Bild](/assets/images/screenshots/monogame/05.png "Project configuration 2") 
+11. Abschließend kann das Projekt durch den Play-Button gestartet werden ![Bild](/assets/images/screenshots/monogame/06.png "Game Window")
+
+[Hier](digitalriding.de) kannst du weiter zu ersten Teil von 2D.
