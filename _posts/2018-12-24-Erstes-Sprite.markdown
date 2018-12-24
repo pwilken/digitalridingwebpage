@@ -9,6 +9,7 @@ author: sgoerzen
 categories: sgoerzen
 subclass: 'post tag-fiction'
 navigation: true
+comments: true
 ---
 
 In diesem Artikel lernst du was Sprites sind und wie man sie in MonoGame sinnvoll einbindet.
@@ -35,4 +36,69 @@ Dafür benötigen wir die Content Pipeline. Was das ist kannst du in einem ander
 
 Kopiere die Datei "Platform Game Assets/Character/png/2x/Body.png" in dein MonoGame Projekt. Ich habe dafür ein Ordner "Assets/Sprites" erstellt.
 
-https://github.com/SGoerzen/2dplatformer/tree/master/first-sprites
+### In die Pipeline importieren
+Nun benötigen wir das Pipeline Tool. Das Pipeline Tool wird aus unserer PNG-Datei eine .xnb Datei machen, die dann von der Pipeline in MonoGame gelesen werden kann. (Wie bereits erwähnt ist es an dieser Stelle nicht wichtig zu verstehen, warum das wichtig ist).
+
+In diesem Tool erstellst du eine neue Pipeline, die du in deinem Projekt speicherst und fügst dann dort einfach deine Bilddatei hinzu. Achte darauf beim Pfad gewünschten Pfad einzustellen. Wie das alles geht siehst du in meinen Screenshots.
+![Create Pipeline](/assets/images/screenshots/monogame/07.png) 
+![Pipeline Settings](/assets/images/screenshots/monogame/08.png)
+
+Danach musst du lediglich auf "Build" klicken, damit die xnb-Datei erstellt wird.
+
+Um sicher zu sein, dass es funktioniert hat, kannst du in deinem Ordner "bin/Debug" (oder Release) nachschauen, ob ein "Assets/Sprites/Body.xnb" erstellt wurde.
+
+### Sprite im Spiel anzeigen
+Nun muss das Sprite nur noch ins Spiel geladen werden. Das machen wir mit folgende Zeilen Code:
+
+```cs
+private Texture2D body;
+protected override void LoadContent()
+{
+    spriteBatch = new SpriteBatch(GraphicsDevice);
+
+    Content.RootDirectory = "Assets";
+
+    body = Content.Load<Texture2D>("Sprites/Body");
+}
+``` 
+Um nun noch etwas sinnvolles anzuzeigen, erstellen wir eine Variable für die Position und rendern unsere Textur.
+
+```cs
+private Vector2 position = Vector2.Zero;
+protected override void Update(GameTime gameTime)
+{
+    if (GamePad.GetState(PlayerIndex.One).Buttons.Back ==
+        ButtonState.Pressed || Keyboard.GetState().IsKeyDown(
+            Keys.Escape))
+    {
+        Exit();
+    }
+
+    if (Keyboard.GetState().IsKeyDown(Keys.A))
+    {
+        position.X--;
+    } else if (Keyboard.GetState().IsKeyDown(Keys.D))
+    {
+        position.X++;
+    }
+    
+    base.Update(gameTime);
+}
+
+protected override void Draw(GameTime gameTime)
+{
+    GraphicsDevice.Clear(Color.Black);
+
+    spriteBatch.Begin();
+    
+    spriteBatch.Draw(body, position, Color.White);
+    
+    spriteBatch.End();
+
+    base.Draw(gameTime);
+}
+```
+
+Mit Keyboard.GetState können wir den Status der Tastatur ansprechen und somit Eingaben fragen. In diesem Code-Snippet zeichnen wir unser Sprite an einer bestimmten Position, die wir mit A und D verändern können.
+
+Der Code entstandene Code kann [hier](https://github.com/SGoerzen/2dplatformer/tree/master/first-sprites) heruntergeladen werden.

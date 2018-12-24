@@ -1,0 +1,4 @@
+.language-cs .k { color: #0000CC; }
+.language-cs .k + .n { color: lightskyblue; }
+.language-cs .n { color: black;}
+/* TODO REPLACE TO BETTER ONE */
