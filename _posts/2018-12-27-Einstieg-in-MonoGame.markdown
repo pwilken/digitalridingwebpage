@@ -1,30 +1,32 @@
 ---
 layout: post
-title: Einstieg in MonoGame (Learning by Sharing)
+title: Einstieg in MonoGame
 lang: de
 description: Entwicklung eines Spiels mit MonoGame
 cover: assets/images/screenshots/monogame/head01.png
-tags: [MonoGame, GameDev, Learning by Sharing]
+tags: [MonoGame, GameDev, C#, Graphics]
 author: sgoerzen
 categories: sgoerzen
 subclass: 'post tag-fiction'
 navigation: true
 ---
-Mit diesem Artikel führe ich eine neue Serie von mir ein: "Learning by Sharing". In dieser Serie blogge ich meine Fortschritte in einem Themengebiet in welches ich mich einarbeite.
-Dabei halte ich fest, was ich getan und was ich dabei gelernt habe.
+Mit diesem Artikel beginne ich meine Blogserie zur Spieleprogrammierung.
+Dabei wird der Fokus auf verschiedene Techniken in Programmierung oder Computergrafik gelegt: vom einfachen Dreieck bis über zu effizienten Algorithmen oder Shader.
 
-Ich freue mich, wenn du mich bei meinem Lernprozess begleitest - vielleicht lernst du auch etwas dabei.
+Mein Nutzen ist dabei, die angewandten Methoden zu wiederholen oder neue auszuprobieren. Diese werde ich dann in Form von "Tutorials" hier festhalten. 
 
 Bei den MonoGame Projekten wird je nach vorgeführten Techniken an einem 2D oder 3D Spiel entwickelt.
 Während der Entwicklung kommt eine Class Library mit nützlichen Klassen zu stande kommen, die für euch öffentlich zugänglich ist.
 
 Die Blogartikel zu 2D und 3D erscheinen vorerst abwechselnd.
 
-Die zu behandelnden Themen und Grundlagen sind grundsätzlich für alle Game Engines oder Frameworks gültig und du kannst somit nach dem Erlernen der Fertigkeiten, auch in anderen Frameworks verwenden.
+Jedes zu behandelnde Thema ist grundsätzlich für jede Game-Engine oder jedes Graphics-Frameworks gültig und können somit dort angewendet werden.
 
-## Vorgeschichte
+Die Intention ist also, einmal lernen und überall anwenden! 
+
+## Meine Vorgeschichte in GameDev
 Mein Interesse für Programmierung begann in der Spieleentwicklung. Doch bevor ich mich selbständig in richtige Programmiersprachen eingearbeitet habe,
-bastelte ich (wie viele vermutlich) mit dem RPG Maker 2000 an kleinen Spielen.
+bastelte ich, wie vermutlich viele andere, mit dem RPG Maker 2000 an kleinen Spielen.
 In meiner Ausbildung erlernte ich die wunderschöne Programmiersprache C#.
 
 Irgendwann fragte ich mich, gibt es ein Game Framework, welches C# verwendet? Google lieferte mir als Antwort drei Buchstaben: Xna.
@@ -40,27 +42,33 @@ Deshalb entwickelte ich zusammen mit einem Kommolitonen in OpenGL und C++ ein Sp
 
 Nach Fertigstellung des LowPoly Spiels hab ich Blut geleckt: "Ich entwickel noch ein Spiel!".
 
-Da ich für XNA und C# aus früherer Zeit noch Sympathie empfinde, beschloss ich mich in MonoGame einzuarbeiten - und ihr dürft mich dabei begleiten.
+Da ich für XNA und C# aus früherer Zeit noch Sympathie empfinde, beschloss ich mich in MonoGame einzuarbeiten.
+
+Ich würde mich sehr darüber freuen, wenn du mich dabei begleitest.
 
 ## Warum MonoGame, wenn es doch Unity3d gibt?
 Keine Frage: Unity3d ist klasse!
 
-Doch, wie gesagt, meine Sympathie für Xna ist groß. Bei MonoGame wurde sich an die Struktur von Xna gehalten und weiterentwickelt.
+Doch, wie gesagt: meine Sympathie für Xna ist groß. Bei MonoGame wurde sich an die Struktur von Xna gehalten und weiterentwickelt.
 Der Unterschied von Unity3d zu MonoGame ist, dass Unity einen mächtigen Editor und eine Physics-Engine hat.
 
-Inspiriert durch OpenGL wollte jedoch mein akademischer Geist sich weiter mit Kernfragen beschäftigen. Ist der Kern verstanden, dann jede Engine und jedes Framework erst recht.
+Inspiriert durch OpenGL wollte jedoch mein akademischer Geist sich weiter mit Kernfragen beschäftigen:
+ Wie funktioniert Collision? Wie arbeitet die Render Pipeline? Wie funktionieren welche Transformationen?
+ 
+ Ist der Kern einmal verstanden, dann ist jede Engine ein klacks!
 
-Jeder, der gerne codet wird hier sehr viel Spaß haben!
+Jeder, der gerne codet wird hier sehr sicher viel Spaß haben!
 
 ## Das Setting
 Entwickelt wird mit einem MacOS High Sierra und der IDE Rider von JetBrains.
 
 Die Installation war unkompliziert. Man wählt lediglich  die passende Version und installiert diese.
-Für Windows wird häufig die Visual Studio Version empfohlen, weil ein MonoGame Projekt von dort aus wie üblich erstellt werden kann.
+
+Für Windows wird Visual Studio empfohlen, weil dort ein MonoGame Projekt, wie üblich erstellt werden kann
 
 [Download MonoGame](http://community.monogame.net/t/monogame-3-7-1-release/11173)
 
-Ich verwende aber JetBrains Rider, weil diese IDE auf allen Betriebssystemen identisch ist. Es gibt dafür keine integrierte Templates o.ä. dafür aber eins im Netz. Folgendes Template habe ich verwendet:
+Ich verwende aber JetBrains Rider, weil diese IDE auf allen Betriebssystemen identisch ist. Es gibt dafür zwar kein integriertes Template, wie bei Visual Studio, man kann aber eins im Internet finden:
 
 ### Einrichten in Rider
 

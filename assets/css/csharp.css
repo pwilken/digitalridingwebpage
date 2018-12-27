@@ -1,4 +1,5 @@
 .language-cs .k { color: #0000CC; }
 .language-cs .k + .n { color: lightskyblue; }
 .language-cs .n { color: black;}
+.highlight .cs { font-weight: 500; line-height:1;}
 /* TODO REPLACE TO BETTER ONE */
