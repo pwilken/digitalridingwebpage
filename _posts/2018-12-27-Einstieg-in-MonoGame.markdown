@@ -38,11 +38,11 @@ C# und dementsprechend Xna war aber damals auf Windows beschränkt und die Weite
 
 Einige Jahre später erlernte ich während meines Master Studiums Kenntnisse zu Computergrafik. 
 Außerdem durfte ich in einem Modul meines Studiums ein weiteres selbständiges Spiel entwickeln. Mein Interesse für Spieleentwicklung lebte immer noch und wurde dadurch aus einem jahrelangem Schlaf zu geweckt.
-Deshalb entwickelte ich zusammen mit einem Kommolitonen in OpenGL und C++ ein Spiel im LowPoly Grafikstil.
+Deshalb entwickelte ich zusammen mit einem Kommilitonen in OpenGL und C++ ein Spiel im LowPoly Grafikstil.
 
 Nach Fertigstellung des LowPoly Spiels hab ich Blut geleckt: "Ich entwickel noch ein Spiel!".
 
-Da ich für XNA und C# aus früherer Zeit noch Sympathie empfinde, beschloss ich mich in MonoGame einzuarbeiten.
+Da ich für XNA und C# aus früherer Zeit noch Sympathie empfinde und mein Fokus auf dem Verständnis der Kerntechniken liegt, beschloss ich mich in MonoGame einzuarbeiten.
 
 Ich würde mich sehr darüber freuen, wenn du mich dabei begleitest.
 
@@ -50,28 +50,30 @@ Ich würde mich sehr darüber freuen, wenn du mich dabei begleitest.
 Keine Frage: Unity3d ist klasse!
 
 Doch, wie gesagt: meine Sympathie für Xna ist groß. Bei MonoGame wurde sich an die Struktur von Xna gehalten und weiterentwickelt.
-Der Unterschied von Unity3d zu MonoGame ist, dass Unity einen mächtigen Editor und eine Physics-Engine hat.
+Doch der wesentliche Unterschied von Unity3d zu MonoGame ist, dass Unity einen mächtigen Editor und eine Physics-Engine hat und man deshalb nicht unbedingt verstehen muss, was man dort überhaupt benutzt.
 
-Inspiriert durch OpenGL wollte jedoch mein akademischer Geist sich weiter mit Kernfragen beschäftigen:
- Wie funktioniert Collision? Wie arbeitet die Render Pipeline? Wie funktionieren welche Transformationen?
+Inspiriert durch OpenGL wollte jedoch mein akademischer Geist sich weiter mit Kernfragen aber beschäftigen:
+Welche Möglichkeiten gibt es eine Kollision zu prüfen? Was kann man alles mit einer Render Pipeline machen? Welche Transformationen benötige ich für welche Aktion?
  
- Ist der Kern einmal verstanden, dann ist jede Engine ein klacks!
+Ist dieses Wissen einmal im Kopf verankert, dann ist jede sowieso Engine ein klacks!
 
-Jeder, der gerne codet wird hier sehr sicher viel Spaß haben!
+Jeder, der gerne codet wird hier also sicher viel Spaß haben!
 
 ## Das Setting
 Entwickelt wird mit einem MacOS High Sierra und der IDE Rider von JetBrains.
 
 Die Installation war unkompliziert. Man wählt lediglich  die passende Version und installiert diese.
 
-Für Windows wird Visual Studio empfohlen, weil dort ein MonoGame Projekt, wie üblich erstellt werden kann
+Für Windows wird Visual Studio empfohlen, weil dort ein MonoGame Projekt, wie üblich erstellt werden kann. An dieser Stelle ist auch zu erwähnen, dass es auch eine VS Version für Mac gibt, die man problemlos verwenden kann.
 
-[Download MonoGame](http://community.monogame.net/t/monogame-3-7-1-release/11173)
+[Hier](http://community.monogame.net/t/monogame-3-7-1-release/11173) findet du die Downloadsektion für das MonoGame Framework.
 
-Ich verwende aber JetBrains Rider, weil diese IDE auf allen Betriebssystemen identisch ist. Es gibt dafür zwar kein integriertes Template, wie bei Visual Studio, man kann aber eins im Internet finden:
+Ich verwende JetBrains Rider, weil diese IDE auf allen Betriebssystemen identisch ist. Es gibt dafür zwar kein integriertes Template, wie bei Visual Studio, man kann aber eins im Internet finden.
+
+Es folgt die Anleitung zur Rider IDE. Anleitungen zu anderen IDEs folgenden bald und werden hier nachträglich eingetragen.
 
 ### Einrichten in Rider
-
+An dieser Stelle sei erwähnt, dass Rider kostenpflichtig ist. Man kann sich jedoch als Schüler oder Student eine Studentlicense besorgen.
 1. Klick [hier](https://github.com/Limeoats/Monogame-Rider-Template) und downloade dir das Template 
 
 2. Benenne die Dateien MonogameRiderTemplate.sln, MonogameRiderTemplate.csproj und den Ordner MonogameRiderTemplate in deinen gewünschten Projektnamen um ![Bild](/assets/images/screenshots/monogame/01.png "Old Names") ![Bild](/assets/images/screenshots/monogame/02.png "New names")
