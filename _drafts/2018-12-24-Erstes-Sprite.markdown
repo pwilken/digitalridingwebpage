@@ -20,7 +20,7 @@ Sprites sind nichts anderes, als Bilddateien, die für unterschiedliche Zwecke v
 
 Zum Beispiel können sie dafür verwendet werden, grafische Benutzerelemente oder um einen Charakter  darzustellen.
 
-Da das Laden von einer (z.B. 2 MB großen) Datei schneller geht, als das Laden von 100 kleinen, die zusammen so viel ergeben, werden häufig s.g. Spritesets verwendet. Ein Spriteset enthält dann nämlich alle Animationframes des gewünschten Sprite, wie zum Beispiel die Charakterbewegungen.
+Da das Laden von einer (z.B. 2 MB großen) Datei schneller geht, als das Laden von 100 kleinen, die in der Summe 2 MB ergeben, werden häufig s.g. Spritesets verwendet. Ein Spriteset enthält dann nämlich alle Animationframes des gewünschten Sprite, wie zum Beispiel die Charakterbewegungen.
 
 ## Wo bekomme ich Sprites her?
 Sprites variieren je nach Grafikstil des Spiels. Je nachdem, was du benötigst kannst du mit einem Grafikboard welche zeichnen oder mit der Maus pixeln. Der beste Weg für Entwickler ist es sich an freien Assets zu bedienen oder welche zu kaufen.
@@ -32,7 +32,8 @@ Auf dieser Webseite gibt es viele schöne Assets. Falls dir eins gefällt scheue
 ## Sprite in MonoGame
 Wie bekomme ich nun ein Sprite in mein Spiel?
 
-Dafür benötigen wir die Content Pipeline. Was das ist kannst du in einem anderen Artikel nachlesen. In den ersten Schritten genügt es jedoch zu wissen, dass die Pipeline Dateien lädt und in eine entsprechende C#-Klasse aus MonoGame umwandelt.
+Dafür benötigen wir die Content Pipeline. Was das ist kannst du in einem späteren Artikel nachlesen. In den ersten Schritten genügt es jedoch zu wissen, dass die Pipeline Dateien lädt und in eine entsprechende C#-Klasse aus MonoGame umwandelt.
+In unserem Fall wird die Content Pipeline eine Bilddatei in die Klasse "Texture2D" umwandeln.
 
 Kopiere die Datei "Platform Game Assets/Character/png/2x/Body.png" in dein MonoGame Projekt. Ich habe dafür ein Ordner "Assets/Sprites" erstellt.
 
@@ -46,8 +47,7 @@ In diesem Tool erstellst du eine neue Pipeline, die du in deinem Projekt speiche
 Danach musst du lediglich auf "Build" klicken, damit die xnb-Datei erstellt wird.
 
 Um sicher zu sein, dass es funktioniert hat, kannst du in deinem Ordner "bin/Debug" (oder Release) nachschauen, ob ein "Assets/Sprites/Body.xnb" erstellt wurde.
-
-### Sprite im Spiel anzeigen
+### Textur mit Content Pipeline
 Nun muss das Sprite nur noch ins Spiel geladen werden. Das machen wir mit folgende Zeilen Code:
 
 ```cs
@@ -61,6 +61,17 @@ protected override void LoadContent()
     body = Content.Load<Texture2D>("Sprites/Body");
 }
 ``` 
+### Textur ohne Pipeline
+Falls du Schwierigkeiten mit der Content Pipeline oder andere Gründe hast, diese zu meiden, dann kannst du auch die Bilddateien so, wie sie sind zur kompilierten Exe Datei kopieren (oder von der IDE kopieren lassen) und dann wie folgt laden:
+```cs
+private Texture2D body;
+protected override void LoadContent()
+{
+    spriteBatch = new SpriteBatch(GraphicsDevice);
+    body = Texture2D.FromStream(GraphicsDevice, new System.IO.FileStream("Assets/Sprites/body.png", System.IO.FileMode.Open));
+}
+```
+### Sprite im Spiel anzeigen
 Um nun noch etwas sinnvolles anzuzeigen, erstellen wir eine Variable für die Position und rendern unsere Textur.
 
 ```cs
@@ -90,9 +101,7 @@ protected override void Draw(GameTime gameTime)
     GraphicsDevice.Clear(Color.Black);
 
     spriteBatch.Begin();
-    
     spriteBatch.Draw(body, position, Color.White);
-    
     spriteBatch.End();
 
     base.Draw(gameTime);

@@ -28,7 +28,7 @@ Da Xna ein Right-handed-system verwendet haben wir also folgende Orientierung vo
 6. Runter ist -Y
 
 ## Vertex / Vertices und Faces
-Ein 3D Objekt besteht aus einer Ansammlung von Knotenpunkte, die durch Kanten verbunden sind. Die Knotenpunkte sind meistens so miteinander verbunden, dass ein s.g. Face ein Dreieck ist.
+Ein 3D Objekt besteht aus einer Ansammlung von Knotenpunkte (Singular: Vertex, Plural: Vertices), die durch Kanten verbunden sind. Die Knotenpunkte sind meistens so miteinander verbunden, dass ein s.g. Face ein aus einem Dreieck besteht.
 
 In der Forschung oder auch bei CAD ist es manchmal nützlich andere "Primitiven" zu verwenden, wie zum Beispiel Quads (Rechtecke). Da Spiele aber in Echtzeit arbeiten müssen und Grafikkarten darauf ausgelegt sind effizient mit Dreiecken zu arbeiten, verwendet man hier eben Dreiecke. Außerdem können andere Formen, wie zum Beispiel ein Rechteck, aus Dreiecken konstruiert werden.
 
@@ -39,5 +39,9 @@ Vertices werden Informationen gegeben, die dann von der Grafikkarte ausgeführt 
 Wie in der Anwendungsentwicklung das "Hello World" ist das erstellen eines Dreiecks das analoge Verfahren in Graphic-Frameworks.
 
 Wer hätte es gedacht: für ein Dreieck benötigen wir 3 Vertices.
+
+Um etwas in der 3D Welt darzustellen, werden Shader benötigt. An dieser Stelle genügt uns zu wissen, dass das Programme für die Grafikkarte sind, in denen definiert ist, was wie dargestellt wird.
+MonoGame liefert uns eine Klasse "BasicEffect", die eine einfache Standarddarstellung ermöglicht. Dem Shader müssen wir bescheid sagen, wo sich unsere Kamera befindet, worauf sie schaut, wie unsere Perspektive ist und wo sich unser Objekt befindet.
+
 
 
