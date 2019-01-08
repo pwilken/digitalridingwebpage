@@ -3,7 +3,7 @@ layout: post
 title: MonoGame 2D - Erstes Sprite
 lang: de
 description: Erste Schritte in 2D in MonoGame Learning by Sharing
-cover: 
+cover: assets/images/screenshots/monogame/09.png
 tags: [MonoGame, 2D, Game, Platformer, Graphics]
 author: sgoerzen
 categories: sgoerzen

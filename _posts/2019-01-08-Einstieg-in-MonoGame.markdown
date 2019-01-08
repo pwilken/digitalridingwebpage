@@ -15,10 +15,10 @@ Dabei wird der Fokus auf verschiedene Techniken in Programmierung oder Computerg
 
 Mein Nutzen ist dabei, die angewandten Methoden zu wiederholen oder neue auszuprobieren. Diese werde ich dann in Form von "Tutorials" hier festhalten. 
 
-Bei den MonoGame Projekten wird je nach vorgeführten Techniken an einem 2D oder 3D Spiel entwickelt.
-Während der Entwicklung kommt eine Class Library mit nützlichen Klassen zu stande kommen, die für euch öffentlich zugänglich ist.
-
+Bei den MonoGame Projekten wird je nach vorgeführten Techniken an einem 2D oder 3D Spiel entwickelt und die Codeschnipsel werden bei Github zur Verfügung gestellt.
 Die Blogartikel zu 2D und 3D erscheinen vorerst abwechselnd.
+
+Ab und zu werde ich aber auch andere Themen in der Computergrafik behandeln.
 
 Jedes zu behandelnde Thema ist grundsätzlich für jede Game-Engine oder jedes Graphics-Frameworks gültig und können somit dort angewendet werden.
 
@@ -87,6 +87,6 @@ An dieser Stelle sei erwähnt, dass Rider kostenpflichtig ist. Man kann sich jed
 10. Geh nun oben rechts auf "Edit Solution configurations..." und nehme sicher, dass folgende Einstellungen gesetzt sind ![Bild](/assets/images/screenshots/monogame/04.png "Project configuration 1") ![Bild](/assets/images/screenshots/monogame/05.png "Project configuration 2") 
 11. Abschließend kann das Projekt durch den Play-Button gestartet werden ![Bild](/assets/images/screenshots/monogame/06.png "Game Window")
 
-Klick hier weiter für [2D](digitalriding.de) oder [3D](digitalriding.de).
+Klick hier weiter für [2D](/Erstes-Sprite) oder [3D](/Erstes-Dreieck).
 
 Headerbild:https://www.polygon.com/2013/10/4/4801796/nintendo-bringing-monogame-framework-to-wii-u + MonoGame Logo
