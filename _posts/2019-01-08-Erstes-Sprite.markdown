@@ -27,7 +27,7 @@ Sprites variieren je nach Grafikstil des Spiels. Je nachdem, was du benötigst, 
 
 Ich habe für unser gemeinsames Projekt eine bunte Sammlung gefunden: [hier](https://bayat.itch.io/platform-game-assets).
 
-Auf dieser Webseite gibt es viele schöne Assets.\
+Auf dieser Webseite gibt es viele schöne Assets.
 Und falls dir Assets gefallen, dann würde sich der Creator sicherlich über eine kleine Spende freuen.
 ## Sprite in MonoGame
 Wie bekomme ich nun ein Sprite in mein Spiel?

@@ -10,17 +10,17 @@ categories: sgoerzen
 subclass: 'post tag-fiction'
 navigation: true
 ---
-Bei 3D Spielen bewegen wir uns in einem Koordinaten System mit 3-Achsen: X, Y und Z. 2D Spiele haben so gesehen auf der Z Komponente immer den Wert 0. MonoGame bzw. Xna stellt uns Klassen zur Verfügung, um mit 2D oder 3D Koordinaten zur Verfügung: Vector2 und Vector3.
+Bei 3D Spielen bewegen wir uns in einem Koordinaten System mit 3-Achsen: X, Y und Z. So gesehen haben 2D Spiele auf der Z Komponente immer den Wert 0. MonoGame bzw. Xna stellt uns Klassen zur Verfügung, um mit 2D oder 3D Koordinaten zu arbeiten: Vector2 und Vector3.
 
 Sobald man sich mit der Entwicklung von 3D Spielen beschäftigt, kommt man nicht mehr drum herum sich ein wenig Grundlagen der Linearen Algebra anzueignen.
-Die komplexeren Berechnungen mit Matrizen hat uns bereits MonoGame durch das Xna Framework abgenommen.
+Die komplexeren Berechnungen mit Matrizen hat uns bereits MonoGame durch das XNA Framework abgenommen.
 
-Ich schreibe später noch ein Artikel, in welchem ich bisher verwendete Lineare Algebra Techniken sammeln und im Detail erklären werde.
+Ich schreibe später noch einen Artikel, in welchem ich bisher verwendete Lineare Algebra Techniken sammeln und im Detail erklären werde.
 
-Für diesen Artikel jedoch, genügt zu wissen, dass man Vektoren auch wie Punkte in einem Koordinatensystem (wie mans aus der Schule kennt) betrachten kann.
-Da mich zu viele Informationen in der 3D Programmierung damals überforderten, werde ich dich langsam in die Welt hineintasten. Das heißt Details werden erst wichtig, sobald diese auch wirklich notwendig sind.
+Für diesen Artikel jedoch genügt es zu wissen, dass man Vektoren genauso wie Punkte in einem Koordinatensystem (wie mans aus der Schule kennt) betrachten kann.
+Da mich zu viele Informationen in der 3D Programmierung damals überforderten, werde ich dich langsam in die Welt hineinführen. Das heißt, Details werden erst wichtig, sobald diese auch wirklich notwendig sind.
 
-Da Xna ein Right-handed-system verwendet haben wir also folgende Orientierung von der Ego Perspektive:
+Da XNA ein Right-handed-system verwendet, haben wir folgende Orientierung von der Ego Perspektive:
 1. Vorwärts ist -Z
 2. Rückwärts ist +Z
 3. Rechts ist +X
@@ -29,24 +29,25 @@ Da Xna ein Right-handed-system verwendet haben wir also folgende Orientierung vo
 6. Runter ist -Y
 
 ## Vertex / Vertices und Faces
-Ein 3D Objekt besteht aus einer Ansammlung von Knotenpunkte (Singular: Vertex, Plural: Vertices), die durch Kanten verbunden sind. Die Knotenpunkte sind meistens so miteinander verbunden, dass ein s.g. Face ein aus einem Dreieck besteht.
+Ein 3D Objekt besteht aus einer Ansammlung von Knotenpunkten (Singular: Vertex, Plural: Vertices), die durch Kanten verbunden sind. Die Knotenpunkte sind meistens so miteinander verbunden, dass ein s.g. Face aus einem Dreieck besteht.
 
-In der Forschung oder auch bei CAD ist es manchmal nützlich andere "Primitiven" zu verwenden, wie zum Beispiel Quads (Rechtecke). Da Spiele aber in Echtzeit arbeiten müssen und Grafikkarten darauf ausgelegt sind effizient mit Dreiecken zu arbeiten, verwendet man hier eben Dreiecke. Außerdem können andere Formen, wie zum Beispiel ein Rechteck, aus Dreiecken konstruiert werden.
+Mit Vertices können wir "Primitiven" erzeugen, wie zum Beispiel Dreiecke oder Linien.
+
+In der Forschung oder auch bei CAD ist es manchmal nützlich andere Primitiven zu verwenden, wie zum Beispiel Quads (Rechtecke). Da Spiele aber in Echtzeit arbeiten müssen und Grafikkarten darauf ausgelegt sind effizient mit Dreiecken zu arbeiten, verwendet man hier eben Dreiecke. Außerdem können andere Formen, wie zum Beispiel ein Rechteck, aus Dreiecken konstruiert werden.
 
 Vertices werden Informationen gegeben, die dann von der Grafikkarte ausgeführt werden. Zum Beispiel kann ein Farbwert und ein Vektor mitgegeben werden, damit die Grafikkarte weiß, wo der Knotenpunkt liegt und welche Farbe dieser hat.
 
 ## Hello World in GFX
-
-Wie in der Anwendungsentwicklung das "Hello World" ist das erstellen eines Dreiecks das analoge Verfahren in Graphic-Frameworks.
+Das Erstellen eines Dreiecks in Graphic Frameworks ist das analoge Verfahren zu dem "Hello World" in der Anwendungsentwicklung.
 
 Wer hätte es gedacht: für ein Dreieck benötigen wir 3 Vertices.
-Wir stellen uns folgende Situation vor: Die Kamera befindet sich direkt auf der Y-Achse und schaut auf den Ursprung runter. Dort liegt ein Dreieck mit den Punkten R(0,0,0), G(1,0,1) und B(-1,0,1) hinterlegt mit den Farben Rot, Grün und Blau.
+Wir stellen uns folgende Situation vor: Die Kamera befindet sich direkt auf der Y-Achse und schaut auf den Ursprung runter. Dort liegt ein Dreieck mit den Punkten R(0,0,0), G(1,0,1) und B(-1,0,1), hinterlegt mit den Farben Rot, Grün und Blau.
 
 ![First Triangle](assets/images/first-triangle.png)
 
 Um etwas aus der 3D Welt darstellen zu können, benötigen wir Shader. Für Shader wird es ein eigenes Kapitel geben.
 An dieser Stelle genügt uns lediglich zu wissen, dass Shader Programme sind, die von der Grafikkarte ausgeführt werden. Dort ist dann beschrieben, wie etwas dargestellt wird.
-MonoGame liefert uns eine Klasse "BasicEffect", die eine einfache Standarddarstellung ermöglicht. Diesen Shader müssen wir aber bescheid sagen, wo sich unsere Kamera befindet, worauf sie schaut, wie unsere Perspektive ist und wo sich unser Objekt befindet.
+MonoGame liefert uns eine Klasse "BasicEffect", die eine einfache Standarddarstellung ermöglicht. Diesen Shader müssen wir aber Bescheid geben, wo sich unsere Kamera befindet, worauf sie schaut, wie unsere Perspektive ist und wo sich unser Objekt befindet.
 
 Die Erklärung zum Code folgt unter dem LoadContent()-Snippet:
 ```cs
@@ -75,9 +76,9 @@ protected override void LoadContent()
 ```
 Wir erstellen ein Array mit den drei Vertices R, G und B.
 VertexPositionColor ist eine vorgefertige Struktur, für die als Information für den Shader deklariert ist, dass Sie eine Position und Farbe hat.
-Im Grunde kennt BasicEffect diese Deklaration und weiß, was zu tun ist. Die Details zu solchen Deklarationen werden im Shader Kapitel eher wichtig.
+Im Grunde kennt BasicEffect diese Deklaration und weiß, was zu tun ist. Die Details zu solchen Deklarationen werden erst im Shader Kapitel wichtig.
 
-Wie schon oben angedeutet, benötigt unser Shader (BasicEffect) Informationen zur Szene:
+Wie schon oben erwähnt, benötigt unser Shader (BasicEffect) Informationen zur Szene:
 VertexColorEnabled aktiviert den Support für die Farben bei den Vertices. Dieser ist standardmäßig auf false. Ohne Aktivierung bekommen wir ein weißes Dreieck.
 
 ### Projektionsmatrix
@@ -86,14 +87,14 @@ Zum Glück liefert MonoGame uns die Funktion
 ```cs 
 Matrix.CreatePerspective(float fieldOfView, float aspectRatio, float nearPlaneDistance, float farPlaneDistance);
 ```
-der wird Werte übergeben können und eine Projektionsmatrix erhalten.
+,der wir Werte übergeben können und eine Projektionsmatrix erhalten.
 Die Werte können, wie im LoadContent()-Snippet zu sehen, übernommen werden.
 
-Der Shader muss auch wissen, aus wessen Blickwinkel wir die Szene betrachten. Dabei Hilft uns die View Matrix.
-Aber vorher ein Exkurs zum lokalem und globalem Koordinatensystem:
+Der Shader muss auch wissen, aus wessen Blickwinkel wir die Szene betrachten. Dabei hilft uns die View Matrix.
+Aber vorher ein Exkurs zum lokalen und globalen Koordinatensystem:
 ### Lokales- und globales Koordinatensystem
-Stell dir das Sonnensystem vor. Wenn wir die Sonne als Zentrum sehen, dann hat die Sonne den Ursprung in (0,0,0) und alles andere hat dann Koordiatenpunkte relativ zur Sonne. Wenn wir aber nun deine Position auf der Erde berechnen wollen, dann können wir, um es zu vereinfachen, die Erde als Ursprung definieren. Die Erde hat somit ein Koordinatensystem. Wenn man nun deine Position im Sonnensystem bestimmen möchte, dann muss deine Position aus dem Blickwinkel der Sonne betrachtet werden und das geht mit der Viewmatrix der Sonne.\
-Betrachten wir dieses Beispiel, so würde das Koordinatensystem der Sonne "global" und das der Erde "lokal" genannt werden.\
+Stell dir das Sonnensystem vor. Wenn wir die Sonne als Zentrum sehen, dann hat die Sonne den Ursprung in (0,0,0) und alles andere hat dann Koordiatenpunkte relativ zur Sonne. Wenn wir aber nun deine Position auf der Erde berechnen wollen, dann können wir, um es zu vereinfachen, die Erde als Ursprung definieren. Die Erde hat somit ein Koordinatensystem. Wenn man nun deine Position im Sonnensystem bestimmen möchte, dann muss deine Position aus dem Blickwinkel der Sonne betrachtet werden und das geht mit der Viewmatrix der Sonne.
+Betrachten wir dieses Beispiel, so würde das Koordinatensystem der Sonne "global" und das der Erde "lokal" genannt werden.
 In der Spieleentwicklung hat jedes Objekt in der Szene ein lokales Koordinatensystem und wird dann in die Weltkoordinaten der Szene umgerechnet.
 
 ### View-Matrix
@@ -105,7 +106,7 @@ Matrix.CreateLookAt(Vector3 cameraPosition, Vector3 cameraTarget, Vector3 camera
 ```
 
 ## Rendering des Dreiecks
-Sind die Vertices und der Shader vorbereitet, kann gerendert werden!\
+Sind die Vertices und der Shader vorbereitet, kann gerendert werden!
 ```cs
 protected override void Draw(GameTime gameTime)
 {
