@@ -98,8 +98,8 @@ Betrachten wir dieses Beispiel, so würde das Koordinatensystem der Sonne "globa
 In der Spieleentwicklung hat jedes Objekt in der Szene ein lokales Koordinatensystem und wird dann in die Weltkoordinaten der Szene umgerechnet.
 
 ### View-Matrix
-Die Viewmatrix einer Kamera rechnet aber wiederrum die Weltkoordinaten in lokale Koordinaten der gewünschten Kamera um. Wenn wir nun dem Shader diese Matrix geben, dann arbeitet er aus der Sicht der gewünschten Kamera.
-Auch hierfür bietet uns MonoGame eine bequeme Funktion, damit wir die Matrix nicht selbst basteln müssen. Es werden lediglich die Kamera Position, der Punkt den die Kamera fixiert und der Up-Vektor der Kamera angegeben.
+Die Viewmatrix einer Kamera rechnet wiederrum die Weltkoordinaten in lokale Koordinaten der gewünschten Kamera um. Wenn wir nun dem Shader diese Matrix geben, dann arbeitet er aus der Sicht der gewünschten Kamera.
+Auch hierfür bietet uns MonoGame eine bequeme Funktion, damit wir die Matrix nicht selbst basteln müssen. Es werden lediglich die Kamera Position, der Punkt, den die Kamera fixiert, und der Up-Vektor der Kamera angegeben.
 Den Up-Vektor kann man sich wie einen Metallarm vorstellen, der die Kamera an der Oberseite festhält und dadurch bestimmt, wie die Kamera gedreht ist.
 ```cs
 Matrix.CreateLookAt(Vector3 cameraPosition, Vector3 cameraTarget, Vector3 cameraUpVector);
@@ -124,10 +124,12 @@ protected override void Draw(GameTime gameTime)
 Die Details zu "Passes" werden im Shader Artikel behandelt. Viel wichtiger ist gerade die Funktion "DrawUserPrimitives".
 
 
-MonoGame bietet uns an Dreieck- oder Linien als Primitiven zu verwenden. Primitiven sind die einfachste Form eines Objekts. Wir teilten in der Funktion der Grafikkarte mit, welche Liste an Vertices sie abarbeiten muss und in welcher Beziehung die Vertices zueinander stehen. Durch "TriangleList" haben wir gesagt, dass die Liste Dreiecke abbilden soll. Außerdem soll sie beim Arrayindex 0 starten und nur 1 Dreieck in der Liste finden.
+MonoGame bietet uns an, Dreiecke oder Linien als Primitiven zu verwenden. Primitiven sind die einfachste Form eines Objekts. Wir teilten in der Funktion der Grafikkarte mit, welche Liste an Vertices sie abarbeiten muss und in welcher Beziehung die Vertices zueinander stehen. Durch "TriangleList" haben wir gesagt, dass die Liste Dreiecke abbilden soll. Außerdem soll sie beim Arrayindex 0 starten und nur 1 Dreieck in der Liste finden.
 
-Fertig ist unser erstes Dreieck!:
+Fertig ist unser erstes Dreieck!
 
 Frage an dich: was benötigst du, um ein Rechteck zu machen, welches das gesamte Bild verdeckt? Spiel ein bisschen herum und finde es heraus!
 
 ![First Triangle Run](assets/images/screenshots/monogame/first-triangle.png)
+
+Der entstandene Code kann [hier](https://github.com/SGoerzen/3dgame/tree/master/First%20Triangle) heruntergeladen werden.
