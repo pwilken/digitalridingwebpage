@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title></title>
+   
+   <link>https://digitalriding.de</link>
+   <description>go down for deep diving into...</description>
+   <language>de-ge</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>MonoGame 2D - Erstes Sprite</title>
+	  <link>//Erstes-Sprite</link>
+	  <author></author>
+	  <pubDate>2019-01-08T00:00:00+00:00</pubDate>
+	  <guid>//Erstes-Sprite</guid>
+	  <description><![CDATA[
+	     <p>In diesem Artikel lernst du was Sprites sind und wie man sie in MonoGame sinnvoll einbindet.</p>
+
+<h2 id="was-sind-sprites">Was sind Sprites?</h2>
+<p>Für die Entwicklung von 2D Spielen sind Spritesets das A und O. Alles, was du siehst, besteht aus Sprites. 
+Sprites sind nichts anderes als Bilddateien, die für unterschiedliche Zwecke verwendet werden.</p>
+
+<p>Zum Beispiel können sie dafür verwendet werden, grafische Benutzerelemente oder um einen Charakter  darzustellen.</p>
+
+<p>Da das Laden von einer (z.B. 2 MB großen) Datei schneller geht als das Laden von 100 kleinen, die in der Summe 2 MB ergeben, werden häufig s.g. Spritesets verwendet. Ein Spriteset enthält dann alle Animationframes des gewünschten Sprite, wie zum Beispiel die Charakterbewegungen.</p>
+
+<h2 id="wo-bekomme-ich-sprites-her">Wo bekomme ich Sprites her?</h2>
+<p>Sprites variieren je nach Grafikstil des Spiels. Je nachdem, was du benötigst, kannst du mit einem Grafikboard welche zeichnen oder mit der Maus pixeln. Der beste Weg für Entwickler ist sich an freien Assets zu bedienen oder welche zu kaufen.</p>
+
+<p>Ich habe für unser gemeinsames Projekt eine bunte Sammlung gefunden: <a href="https://bayat.itch.io/platform-game-assets">hier</a>.</p>
+
+<p>Auf dieser Webseite gibt es viele schöne Assets.
+Und falls dir Assets gefallen, dann würde sich der Creator sicherlich über eine kleine Spende freuen.</p>
+<h2 id="sprite-in-monogame">Sprite in MonoGame</h2>
+<p>Wie bekomme ich nun ein Sprite in mein Spiel?</p>
+
+<p>Dafür benötigen wir die Content Pipeline. Was das ist kannst du in einem späteren Artikel nachlesen. In den ersten Schritten genügt es jedoch zu wissen, dass die Pipeline Dateien lädt und in eine entsprechende C#-Klasse aus MonoGame umwandelt.
+In unserem Fall wird die Content Pipeline eine Bilddatei in die Klasse “Texture2D” umwandeln.</p>
+
+<p>Kopiere die Datei “Platform Game Assets/Character/png/2x/Body.png” in dein MonoGame Projekt. Ich habe dafür ein Ordner “Assets/Sprites” erstellt.</p>
+
+<h3 id="in-die-pipeline-importieren">In die Pipeline importieren</h3>
+<p>Nun benötigen wir das Pipeline Tool. Das Pipeline Tool wird aus unserer PNG-Datei eine .xnb Datei machen, die dann von der Pipeline in MonoGame gelesen werden kann. (Wie bereits erwähnt, ist es an dieser Stelle nicht notwendig zu wissen, warum das wichtig ist).</p>
+
+<p>In diesem Tool erstellst du eine neue Pipeline, die du in deinem Projekt speicherst und fügst dann dort einfach deine Bilddatei hinzu. Achte darauf den gewünschten Pfad einzustellen. Wie das alles geht siehst du in meinen Screenshots.
+<img src="/assets/images/screenshots/monogame/07.png" alt="Create Pipeline" /> 
+<img src="/assets/images/screenshots/monogame/08.png" alt="Pipeline Settings" /></p>
+
+<p>Danach musst du lediglich auf “Build” klicken, damit die xnb-Datei erstellt wird.</p>
+
+<p>Um zu überprüfen, dass es funktioniert hat, kannst du in deinem Ordner “bin/Debug” (oder Release) nachschauen, ob ein “Assets/Sprites/Body.xnb” erstellt wurde.</p>
+<h3 id="textur-mit-content-pipeline">Textur mit Content Pipeline</h3>
+<p>Nun muss das Sprite nur noch ins Spiel geladen werden. Das machen wir mit folgenden Zeilen:</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="n">Texture2D</span> <span class="n">body</span><span class="p">;</span>
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadContent</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">spriteBatch</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SpriteBatch</span><span class="p">(</span><span class="n">GraphicsDevice</span><span class="p">);</span>
+
+    <span class="n">Content</span><span class="p">.</span><span class="n">RootDirectory</span> <span class="p">=</span> <span class="s">"Assets"</span><span class="p">;</span>
+
+    <span class="n">body</span> <span class="p">=</span> <span class="n">Content</span><span class="p">.</span><span class="n">Load</span><span class="p">&lt;</span><span class="n">Texture2D</span><span class="p">&gt;(</span><span class="s">"Sprites/Body"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="textur-ohne-pipeline">Textur ohne Pipeline</h3>
+<p>Falls du Schwierigkeiten mit der Content Pipeline oder andere Gründe hast, diese zu meiden, dann kannst du auch die Bilddateien so wie sie sind zur kompilierten Exe Datei kopieren (oder von der IDE kopieren lassen) und dann wie folgt laden:</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="n">Texture2D</span> <span class="n">body</span><span class="p">;</span>
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadContent</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">spriteBatch</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SpriteBatch</span><span class="p">(</span><span class="n">GraphicsDevice</span><span class="p">);</span>
+    <span class="n">body</span> <span class="p">=</span> <span class="n">Texture2D</span><span class="p">.</span><span class="nf">FromStream</span><span class="p">(</span><span class="n">GraphicsDevice</span><span class="p">,</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="nf">FileStream</span><span class="p">(</span><span class="s">"Assets/Sprites/body.png"</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="sprite-im-spiel-anzeigen">Sprite im Spiel anzeigen</h3>
+<p>Um nun noch etwas sinnvolles anzuzeigen, erstellen wir eine Variable für die Position und rendern unsere Textur.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="n">Vector2</span> <span class="n">position</span> <span class="p">=</span> <span class="n">Vector2</span><span class="p">.</span><span class="n">Zero</span><span class="p">;</span>
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Update</span><span class="p">(</span><span class="n">GameTime</span> <span class="n">gameTime</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">GamePad</span><span class="p">.</span><span class="nf">GetState</span><span class="p">(</span><span class="n">PlayerIndex</span><span class="p">.</span><span class="n">One</span><span class="p">).</span><span class="n">Buttons</span><span class="p">.</span><span class="n">Back</span> <span class="p">==</span>
+        <span class="n">ButtonState</span><span class="p">.</span><span class="n">Pressed</span> <span class="p">||</span> <span class="n">Keyboard</span><span class="p">.</span><span class="nf">GetState</span><span class="p">().</span><span class="nf">IsKeyDown</span><span class="p">(</span>
+            <span class="n">Keys</span><span class="p">.</span><span class="n">Escape</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="nf">Exit</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">Keyboard</span><span class="p">.</span><span class="nf">GetState</span><span class="p">().</span><span class="nf">IsKeyDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">A</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">position</span><span class="p">.</span><span class="n">X</span><span class="p">--;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">Keyboard</span><span class="p">.</span><span class="nf">GetState</span><span class="p">().</span><span class="nf">IsKeyDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">position</span><span class="p">.</span><span class="n">X</span><span class="p">++;</span>
+    <span class="p">}</span>
+    
+    <span class="k">base</span><span class="p">.</span><span class="nf">Update</span><span class="p">(</span><span class="n">gameTime</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Draw</span><span class="p">(</span><span class="n">GameTime</span> <span class="n">gameTime</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">GraphicsDevice</span><span class="p">.</span><span class="nf">Clear</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">Black</span><span class="p">);</span>
+
+    <span class="n">spriteBatch</span><span class="p">.</span><span class="nf">Begin</span><span class="p">();</span>
+    <span class="n">spriteBatch</span><span class="p">.</span><span class="nf">Draw</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">Color</span><span class="p">.</span><span class="n">White</span><span class="p">);</span>
+    <span class="n">spriteBatch</span><span class="p">.</span><span class="nf">End</span><span class="p">();</span>
+
+    <span class="k">base</span><span class="p">.</span><span class="nf">Draw</span><span class="p">(</span><span class="n">gameTime</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Mit Keyboard.GetState können wir den Status der Tastatur abrufen und somit Eingaben erfragen. In diesem Code-Snippet zeichnen wir unser Sprite an einer bestimmten Position, die wir mit A und D verändern können.</p>
+
+<p>Das ist nun unser Ergebnis:
+<img src="/assets/images/screenshots/monogame/09.png" alt="First Sprite" /></p>
+
+<p>Der entstandene Code kann <a href="https://github.com/SGoerzen/2dplatformer/tree/master/first-sprites">hier</a> heruntergeladen werden.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Einstieg in MonoGame</title>
+	  <link>//Einstieg-in-MonoGame</link>
+	  <author></author>
+	  <pubDate>2019-01-08T00:00:00+00:00</pubDate>
+	  <guid>//Einstieg-in-MonoGame</guid>
+	  <description><![CDATA[
+	     <p>Mit diesem Artikel beginne ich meine Blogserie zur Spieleprogrammierung.
+Dabei wird der Fokus auf verschiedene Techniken in Programmierung oder Computergrafik gelegt: vom einfachen Dreieck bis über zu effizienten Algorithmen oder Shader.</p>
+
+<p>Mein Nutzen dabei ist, die angewandten Methoden zu wiederholen oder neue auszuprobieren. Diese werde ich hier dann in Form von “Tutorials” hier festhalten.</p>
+
+<p>Bei den MonoGame Projekten wird, je nach vorgeführten Techniken, an einem 2D oder 3D Spiel entwickelt und die Codeschnipsel werden bei Github zur Verfügung gestellt.
+Die Blogartikel zu 2D und 3D erscheinen vorerst abwechselnd.</p>
+
+<p>Ab und zu werde ich aber auch andere Themen in der Computergrafik behandeln.</p>
+
+<p>Jedes zu behandelnde Thema ist grundsätzlich für jede Game-Engine oder jedes Graphics-Frameworks gültig und können somit dort angewendet werden.</p>
+
+<p>Die Intention ist also: einmal lernen und überall anwenden!</p>
+
+<h2 id="meine-vorgeschichte-in-gamedev">Meine Vorgeschichte in GameDev</h2>
+<p>Mein Interesse für Programmierung begann in der Spieleentwicklung. Doch bevor ich mich selbständig in richtige Programmiersprachen eingearbeitet habe,
+bastelte ich, wie vermutlich viele andere, mit dem RPG Maker 2000 an kleinen Spielen.
+In meiner Ausbildung erlernte ich die wunderschöne Programmiersprache C#.</p>
+
+<p>Irgendwann fragte ich mich, gibt es ein Game Framework, welches C# verwendet? Google lieferte mir als Antwort drei Buchstaben: XNA.</p>
+
+<p>Mein Verständnis beschränkte sich auf Grund von mangelnder Mathematik-Kenntnisse auf 2D. Die Struktur war aber leicht verstanden und nach Einarbeitung enstand ein SpaceInvaders Klon zusammen mit einem Mitschüler im Rahmen eines Schulprojekts.
+So sammelte ich meine ersten Erfahrungen mit richtiger Spieleentwicklung.</p>
+
+<p>C# und dementsprechend XNA war aber damals auf Windows beschränkt und die Weiterentwicklung vom Framework wurde mit Version 4.0 leider auch eingestellt. Sie hinterließen eine große Community und viele Fans.</p>
+
+<p>Einige Jahre später erlernte ich während meines Master Studiums Kenntnisse zur Computergrafik. 
+Außerdem durfte ich in einem Modul meines Studiums ein weiteres selbständiges Spiel entwickeln. Mein Interesse für Spieleentwicklung lebte immer noch und wurde dadurch aus einem jahrelangem Schlaf geweckt.
+Deshalb entwickelte ich zusammen mit einem Kommilitonen in OpenGL und C++ ein Spiel im LowPoly Grafikstil.</p>
+
+<p>Nach Fertigstellung des LowPoly Spiels hab ich Blut geleckt: “Ich entwickel noch ein Spiel!”.</p>
+
+<p>Da ich für XNA und C# aus früherer Zeit noch Sympathie empfinde und mein Fokus auf dem Verständnis der Kerntechniken liegt, beschloss ich mich in MonoGame einzuarbeiten.</p>
+
+<p>Ich würde mich sehr darüber freuen, wenn du mich dabei begleitest.</p>
+
+<h2 id="warum-monogame-wenn-es-doch-unity3d-gibt">Warum MonoGame, wenn es doch Unity3d gibt?</h2>
+<p>Keine Frage: Unity3d ist klasse!</p>
+
+<p>Doch wie gesagt: meine Sympathie für XNA ist groß. Bei MonoGame wurde sich an die Struktur von XNA gehalten und weiterentwickelt.
+Der wesentliche Unterschied von Unity3d zu MonoGame ist, dass Unity einen mächtigen Editor und eine Physics-Engine hat und man deshalb nicht unbedingt verstehen muss, was man dort überhaupt benutzt.</p>
+
+<p>Inspiriert durch OpenGL wollte sich mein akademischer Geist jedoch weiter mit Kernfragen beschäftigen:
+Welche Möglichkeiten gibt es eine Kollision zu prüfen? Was kann man alles mit einer Render Pipeline machen? Welche Transformationen benötige ich für welche Aktion?</p>
+
+<p>Ist dieses Wissen einmal im Kopf verankert, ist jede weitere Engine ein klacks!</p>
+
+<p>Jeder, der gerne codet, wird hier also sicher viel Spaß haben!</p>
+
+<h2 id="das-setting">Das Setting</h2>
+<p>Entwickelt wird mit einem MacOS High Sierra und der IDE Rider von JetBrains.</p>
+
+<p>Die Installation war unkompliziert. Man wählt lediglich  die passende Version und installiert diese.</p>
+
+<p>Für Windows wird Visual Studio empfohlen, weil MonoGame dort Templates anbietet und somit neue Projektmappen schnell erstellt sind. An dieser Stelle ist auch zu erwähnen, dass es auch eine VS Version für Mac gibt, die man problemlos verwenden kann.</p>
+
+<p><a href="http://community.monogame.net/t/monogame-3-7-1-release/11173">Hier</a> findet du die Downloadsektion für das MonoGame Framework.</p>
+
+<p>Ich verwende JetBrains Rider, weil diese IDE auf allen Betriebssystemen identisch ist. Es gibt dafür zwar kein integriertes Template, wie bei Visual Studio, man kann aber eins im Internet finden.</p>
+
+<p>Es folgt die Anleitung zur Rider IDE. Anleitungen zu anderen IDEs folgenden bald und werden hier nachträglich eingetragen.</p>
+
+<h3 id="einrichten-in-rider">Einrichten in Rider</h3>
+<p>An dieser Stelle sei erwähnt, dass Rider kostenpflichtig ist. Man kann sich jedoch als Schüler oder Student eine Studentlicense besorgen.</p>
+<ol>
+  <li>Klicke <a href="https://github.com/Limeoats/Monogame-Rider-Template">hier</a> und downloade dir das Template</li>
+  <li>Benenne die Dateien MonogameRiderTemplate.sln, MonogameRiderTemplate.csproj und den Ordner MonogameRiderTemplate in deinen gewünschten Projektnamen um <img src="/assets/images/screenshots/monogame/01.png" alt="Bild" title="Old Names" /> <img src="/assets/images/screenshots/monogame/02.png" alt="Bild" title="New names" /></li>
+  <li>Öffne das Projekt und klick mit rechter Maustaste auf die Projektmappe und anschließend auf “Add existing project…”</li>
+  <li>Wähle die vorher umbenannte .csproj-Datei aus</li>
+  <li>Lösche im Projektbaum das Projekt MonogameRider</li>
+  <li>Mit rechter Maustaste auf das neu eingebundene Projekt klicken und “Properties…” auswählen.</li>
+  <li>In diesem Fenster änderst du dann noch “Assembly name” und “Root namespace” <img src="/assets/images/screenshots/monogame/03.png" alt="Bild" title="Project properties" /></li>
+  <li>Ändere ebenfalls in Datei “Properties/AssembyInfo.cs” alle gewünschten Einträge.</li>
+  <li>Jetzt nur noch in “Source/Game.cs” und “Source/Program.cs” den Namespace “TheVillageOfLife” auf deinen gewünschten umändern</li>
+  <li>Geh nun oben rechts auf “Edit Solution configurations…” und gehe sicher, dass folgende Einstellungen gesetzt sind <img src="/assets/images/screenshots/monogame/04.png" alt="Bild" title="Project configuration 1" /> <img src="/assets/images/screenshots/monogame/05.png" alt="Bild" title="Project configuration 2" /></li>
+  <li>Abschließend kann das Projekt durch den Play-Button gestartet werden <img src="/assets/images/screenshots/monogame/06.png" alt="Bild" title="Game Window" /></li>
+</ol>
+
+<p>Klick hier weiter für <a href="/Erstes-Sprite">2D</a> oder <a href="/Erstes-Dreieck">3D</a>.</p>
+
+<p>Headerbild:https://www.polygon.com/2013/10/4/4801796/nintendo-bringing-monogame-framework-to-wii-u + MonoGame Logo</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

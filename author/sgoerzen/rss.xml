@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title></title>
+   
+   <link>https://digitalriding.de</link>
+   <description>go down for deep diving into...</description>
+   <language>de-ge</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>MonoGame 2D - Erstes Sprite</title>
+	  <link>//Erstes-Sprite</link>
+	  <author></author>
+	  <pubDate>2019-01-08T00:00:00+00:00</pubDate>
+	  <guid>//Erstes-Sprite</guid>
+	  <description><![CDATA[
+	     <p>In diesem Artikel lernst du was Sprites sind und wie man sie in MonoGame sinnvoll einbindet.</p>
+
+<h2 id="was-sind-sprites">Was sind Sprites?</h2>
+<p>Für die Entwicklung von 2D Spielen sind Spritesets das A und O. Alles, was du siehst, besteht aus Sprites. 
+Sprites sind nichts anderes als Bilddateien, die für unterschiedliche Zwecke verwendet werden.</p>
+
+<p>Zum Beispiel können sie dafür verwendet werden, grafische Benutzerelemente oder um einen Charakter  darzustellen.</p>
+
+<p>Da das Laden von einer (z.B. 2 MB großen) Datei schneller geht als das Laden von 100 kleinen, die in der Summe 2 MB ergeben, werden häufig s.g. Spritesets verwendet. Ein Spriteset enthält dann alle Animationframes des gewünschten Sprite, wie zum Beispiel die Charakterbewegungen.</p>
+
+<h2 id="wo-bekomme-ich-sprites-her">Wo bekomme ich Sprites her?</h2>
+<p>Sprites variieren je nach Grafikstil des Spiels. Je nachdem, was du benötigst, kannst du mit einem Grafikboard welche zeichnen oder mit der Maus pixeln. Der beste Weg für Entwickler ist sich an freien Assets zu bedienen oder welche zu kaufen.</p>
+
+<p>Ich habe für unser gemeinsames Projekt eine bunte Sammlung gefunden: <a href="https://bayat.itch.io/platform-game-assets">hier</a>.</p>
+
+<p>Auf dieser Webseite gibt es viele schöne Assets.
+Und falls dir Assets gefallen, dann würde sich der Creator sicherlich über eine kleine Spende freuen.</p>
+<h2 id="sprite-in-monogame">Sprite in MonoGame</h2>
+<p>Wie bekomme ich nun ein Sprite in mein Spiel?</p>
+
+<p>Dafür benötigen wir die Content Pipeline. Was das ist kannst du in einem späteren Artikel nachlesen. In den ersten Schritten genügt es jedoch zu wissen, dass die Pipeline Dateien lädt und in eine entsprechende C#-Klasse aus MonoGame umwandelt.
+In unserem Fall wird die Content Pipeline eine Bilddatei in die Klasse “Texture2D” umwandeln.</p>
+
+<p>Kopiere die Datei “Platform Game Assets/Character/png/2x/Body.png” in dein MonoGame Projekt. Ich habe dafür ein Ordner “Assets/Sprites” erstellt.</p>
+
+<h3 id="in-die-pipeline-importieren">In die Pipeline importieren</h3>
+<p>Nun benötigen wir das Pipeline Tool. Das Pipeline Tool wird aus unserer PNG-Datei eine .xnb Datei machen, die dann von der Pipeline in MonoGame gelesen werden kann. (Wie bereits erwähnt, ist es an dieser Stelle nicht notwendig zu wissen, warum das wichtig ist).</p>
+
+<p>In diesem Tool erstellst du eine neue Pipeline, die du in deinem Projekt speicherst und fügst dann dort einfach deine Bilddatei hinzu. Achte darauf den gewünschten Pfad einzustellen. Wie das alles geht siehst du in meinen Screenshots.
+<img src="/assets/images/screenshots/monogame/07.png" alt="Create Pipeline" /> 
+<img src="/assets/images/screenshots/monogame/08.png" alt="Pipeline Settings" /></p>
+
+<p>Danach musst du lediglich auf “Build” klicken, damit die xnb-Datei erstellt wird.</p>
+
+<p>Um zu überprüfen, dass es funktioniert hat, kannst du in deinem Ordner “bin/Debug” (oder Release) nachschauen, ob ein “Assets/Sprites/Body.xnb” erstellt wurde.</p>
+<h3 id="textur-mit-content-pipeline">Textur mit Content Pipeline</h3>
+<p>Nun muss das Sprite nur noch ins Spiel geladen werden. Das machen wir mit folgenden Zeilen:</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="n">Texture2D</span> <span class="n">body</span><span class="p">;</span>
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadContent</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">spriteBatch</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SpriteBatch</span><span class="p">(</span><span class="n">GraphicsDevice</span><span class="p">);</span>
+
+    <span class="n">Content</span><span class="p">.</span><span class="n">RootDirectory</span> <span class="p">=</span> <span class="s">"Assets"</span><span class="p">;</span>
+
+    <span class="n">body</span> <span class="p">=</span> <span class="n">Content</span><span class="p">.</span><span class="n">Load</span><span class="p">&lt;</span><span class="n">Texture2D</span><span class="p">&gt;(</span><span class="s">"Sprites/Body"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="textur-ohne-pipeline">Textur ohne Pipeline</h3>
+<p>Falls du Schwierigkeiten mit der Content Pipeline oder andere Gründe hast, diese zu meiden, dann kannst du auch die Bilddateien so wie sie sind zur kompilierten Exe Datei kopieren (oder von der IDE kopieren lassen) und dann wie folgt laden:</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="n">Texture2D</span> <span class="n">body</span><span class="p">;</span>
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadContent</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">spriteBatch</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SpriteBatch</span><span class="p">(</span><span class="n">GraphicsDevice</span><span class="p">);</span>
+    <span class="n">body</span> <span class="p">=</span> <span class="n">Texture2D</span><span class="p">.</span><span class="nf">FromStream</span><span class="p">(</span><span class="n">GraphicsDevice</span><span class="p">,</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="nf">FileStream</span><span class="p">(</span><span class="s">"Assets/Sprites/body.png"</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="sprite-im-spiel-anzeigen">Sprite im Spiel anzeigen</h3>
+<p>Um nun noch etwas sinnvolles anzuzeigen, erstellen wir eine Variable für die Position und rendern unsere Textur.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="n">Vector2</span> <span class="n">position</span> <span class="p">=</span> <span class="n">Vector2</span><span class="p">.</span><span class="n">Zero</span><span class="p">;</span>
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Update</span><span class="p">(</span><span class="n">GameTime</span> <span class="n">gameTime</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">GamePad</span><span class="p">.</span><span class="nf">GetState</span><span class="p">(</span><span class="n">PlayerIndex</span><span class="p">.</span><span class="n">One</span><span class="p">).</span><span class="n">Buttons</span><span class="p">.</span><span class="n">Back</span> <span class="p">==</span>
+        <span class="n">ButtonState</span><span class="p">.</span><span class="n">Pressed</span> <span class="p">||</span> <span class="n">Keyboard</span><span class="p">.</span><span class="nf">GetState</span><span class="p">().</span><span class="nf">IsKeyDown</span><span class="p">(</span>
+            <span class="n">Keys</span><span class="p">.</span><span class="n">Escape</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="nf">Exit</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">Keyboard</span><span class="p">.</span><span class="nf">GetState</span><span class="p">().</span><span class="nf">IsKeyDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">A</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">position</span><span class="p">.</span><span class="n">X</span><span class="p">--;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">Keyboard</span><span class="p">.</span><span class="nf">GetState</span><span class="p">().</span><span class="nf">IsKeyDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">position</span><span class="p">.</span><span class="n">X</span><span class="p">++;</span>
+    <span class="p">}</span>
+    
+    <span class="k">base</span><span class="p">.</span><span class="nf">Update</span><span class="p">(</span><span class="n">gameTime</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Draw</span><span class="p">(</span><span class="n">GameTime</span> <span class="n">gameTime</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">GraphicsDevice</span><span class="p">.</span><span class="nf">Clear</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">Black</span><span class="p">);</span>
+
+    <span class="n">spriteBatch</span><span class="p">.</span><span class="nf">Begin</span><span class="p">();</span>
+    <span class="n">spriteBatch</span><span class="p">.</span><span class="nf">Draw</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">Color</span><span class="p">.</span><span class="n">White</span><span class="p">);</span>
+    <span class="n">spriteBatch</span><span class="p">.</span><span class="nf">End</span><span class="p">();</span>
+
+    <span class="k">base</span><span class="p">.</span><span class="nf">Draw</span><span class="p">(</span><span class="n">gameTime</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Mit Keyboard.GetState können wir den Status der Tastatur abrufen und somit Eingaben erfragen. In diesem Code-Snippet zeichnen wir unser Sprite an einer bestimmten Position, die wir mit A und D verändern können.</p>
+
+<p>Das ist nun unser Ergebnis:
+<img src="/assets/images/screenshots/monogame/09.png" alt="First Sprite" /></p>
+
+<p>Der entstandene Code kann <a href="https://github.com/SGoerzen/2dplatformer/tree/master/first-sprites">hier</a> heruntergeladen werden.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>MonoGame 3D - Erstes Dreieck</title>
+	  <link>//Erstes-Dreieck</link>
+	  <author></author>
+	  <pubDate>2019-01-08T00:00:00+00:00</pubDate>
+	  <guid>//Erstes-Dreieck</guid>
+	  <description><![CDATA[
+	     <p>Bei 3D Spielen bewegen wir uns in einem Koordinaten System mit 3-Achsen: X, Y und Z. So gesehen haben 2D Spiele auf der Z Komponente immer den Wert 0. MonoGame bzw. Xna stellt uns Klassen zur Verfügung, um mit 2D oder 3D Koordinaten zu arbeiten: Vector2 und Vector3.</p>
+
+<p>Sobald man sich mit der Entwicklung von 3D Spielen beschäftigt, kommt man nicht mehr drum herum sich ein wenig Grundlagen der Linearen Algebra anzueignen.
+Die komplexeren Berechnungen mit Matrizen hat uns bereits MonoGame durch das XNA Framework abgenommen.</p>
+
+<p>Ich schreibe später noch einen Artikel, in welchem ich bisher verwendete Lineare Algebra Techniken sammeln und im Detail erklären werde.</p>
+
+<p>Für diesen Artikel jedoch genügt es zu wissen, dass man Vektoren genauso wie Punkte in einem Koordinatensystem (wie mans aus der Schule kennt) betrachten kann.
+Da mich zu viele Informationen in der 3D Programmierung damals überforderten, werde ich dich langsam in die Welt hineinführen. Das heißt, Details werden erst wichtig, sobald diese auch wirklich notwendig sind.</p>
+
+<p>Da XNA ein Right-handed-system verwendet, haben wir folgende Orientierung von der Ego Perspektive:</p>
+<ol>
+  <li>Vorwärts ist -Z</li>
+  <li>Rückwärts ist +Z</li>
+  <li>Rechts ist +X</li>
+  <li>Links ist -X</li>
+  <li>Hoch ist +Y</li>
+  <li>Runter ist -Y</li>
+</ol>
+
+<h2 id="vertex--vertices-und-faces">Vertex / Vertices und Faces</h2>
+<p>Ein 3D Objekt besteht aus einer Ansammlung von Knotenpunkten (Singular: Vertex, Plural: Vertices), die durch Kanten verbunden sind. Die Knotenpunkte sind meistens so miteinander verbunden, dass ein s.g. Face aus einem Dreieck besteht.</p>
+
+<p>Mit Vertices können wir “Primitiven” erzeugen, wie zum Beispiel Dreiecke oder Linien.</p>
+
+<p>In der Forschung oder auch bei CAD ist es manchmal nützlich andere Primitiven zu verwenden, wie zum Beispiel Quads (Rechtecke). Da Spiele aber in Echtzeit arbeiten müssen und Grafikkarten darauf ausgelegt sind effizient mit Dreiecken zu arbeiten, verwendet man hier eben Dreiecke. Außerdem können andere Formen, wie zum Beispiel ein Rechteck, aus Dreiecken konstruiert werden.</p>
+
+<p>Vertices werden Informationen gegeben, die dann von der Grafikkarte ausgeführt werden. Zum Beispiel kann ein Farbwert und ein Vektor mitgegeben werden, damit die Grafikkarte weiß, wo der Knotenpunkt liegt und welche Farbe dieser hat.</p>
+
+<h2 id="hello-world-in-gfx">Hello World in GFX</h2>
+<p>Das Erstellen eines Dreiecks in Graphic Frameworks ist das analoge Verfahren zu dem “Hello World” in der Anwendungsentwicklung.</p>
+
+<p>Wer hätte es gedacht: für ein Dreieck benötigen wir 3 Vertices.
+Wir stellen uns folgende Situation vor: Die Kamera befindet sich direkt auf der Y-Achse und schaut auf den Ursprung runter. Dort liegt ein Dreieck mit den Punkten R(0,0,0), G(1,0,1) und B(-1,0,1), hinterlegt mit den Farben Rot, Grün und Blau.</p>
+
+<p><img src="assets/images/first-triangle.png" alt="First Triangle" /></p>
+
+<p>Um etwas aus der 3D Welt darstellen zu können, benötigen wir Shader. Für Shader wird es ein eigenes Kapitel geben.
+An dieser Stelle genügt uns lediglich zu wissen, dass Shader Programme sind, die von der Grafikkarte ausgeführt werden. Dort ist dann beschrieben, wie etwas dargestellt wird.
+MonoGame liefert uns eine Klasse “BasicEffect”, die eine einfache Standarddarstellung ermöglicht. Diesen Shader müssen wir aber Bescheid geben, wo sich unsere Kamera befindet, worauf sie schaut, wie unsere Perspektive ist und wo sich unser Objekt befindet.</p>
+
+<p>Die Erklärung zum Code folgt unter dem LoadContent()-Snippet:</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="n">VertexPositionColor</span><span class="p">[]</span> <span class="n">vertices</span><span class="p">;</span>
+<span class="k">private</span> <span class="n">BasicEffect</span> <span class="n">effect</span><span class="p">;</span>
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadContent</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">spriteBatch</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SpriteBatch</span><span class="p">(</span><span class="n">GraphicsDevice</span><span class="p">);</span>
+
+    <span class="n">vertices</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span>
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="nf">VertexPositionColor</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">),</span> <span class="n">Color</span><span class="p">.</span><span class="n">Red</span><span class="p">),</span> <span class="c1">// R</span>
+        <span class="k">new</span> <span class="nf">VertexPositionColor</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">Color</span><span class="p">.</span><span class="n">Green</span><span class="p">),</span> <span class="c1">// G </span>
+        <span class="k">new</span> <span class="nf">VertexPositionColor</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">Color</span><span class="p">.</span><span class="n">Blue</span><span class="p">),</span> <span class="c1">// B</span>
+    <span class="p">};</span>
+    
+    <span class="n">effect</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BasicEffect</span><span class="p">(</span><span class="n">GraphicsDevice</span><span class="p">);</span>
+    <span class="n">effect</span><span class="p">.</span><span class="n">VertexColorEnabled</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>            
+    
+    <span class="n">effect</span><span class="p">.</span><span class="n">Projection</span> <span class="p">=</span> <span class="n">Matrix</span><span class="p">.</span><span class="nf">CreatePerspective</span><span class="p">((</span><span class="kt">float</span><span class="p">)</span> <span class="n">GraphicsDevice</span><span class="p">.</span><span class="n">PresentationParameters</span><span class="p">.</span><span class="n">BackBufferWidth</span> <span class="p">/</span>
+                                                 <span class="n">GraphicsDevice</span><span class="p">.</span><span class="n">PresentationParameters</span><span class="p">.</span><span class="n">BackBufferHeight</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span>
+
+    <span class="kt">var</span> <span class="n">cameraPosition</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+    <span class="n">effect</span><span class="p">.</span><span class="n">View</span> <span class="p">=</span> <span class="n">Matrix</span><span class="p">.</span><span class="nf">CreateLookAt</span><span class="p">(</span><span class="n">cameraPosition</span><span class="p">,</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Zero</span><span class="p">,</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Forward</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Wir erstellen ein Array mit den drei Vertices R, G und B.
+VertexPositionColor ist eine vorgefertige Struktur, für die als Information für den Shader deklariert ist, dass Sie eine Position und Farbe hat.
+Im Grunde kennt BasicEffect diese Deklaration und weiß, was zu tun ist. Die Details zu solchen Deklarationen werden erst im Shader Kapitel wichtig.</p>
+
+<p>Wie schon oben erwähnt, benötigt unser Shader (BasicEffect) Informationen zur Szene:
+VertexColorEnabled aktiviert den Support für die Farben bei den Vertices. Dieser ist standardmäßig auf false. Ohne Aktivierung bekommen wir ein weißes Dreieck.</p>
+
+<h3 id="projektionsmatrix">Projektionsmatrix</h3>
+<p>Die Projektionsmatrix übersetzt die 3D Szene in das 2D Bild, welches auf dem Bildschirm erscheint. Details darüber sind ein eigenes Kapitel wert.
+Zum Glück liefert MonoGame uns die Funktion</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Matrix</span><span class="p">.</span><span class="nf">CreatePerspective</span><span class="p">(</span><span class="kt">float</span> <span class="n">fieldOfView</span><span class="p">,</span> <span class="kt">float</span> <span class="n">aspectRatio</span><span class="p">,</span> <span class="kt">float</span> <span class="n">nearPlaneDistance</span><span class="p">,</span> <span class="kt">float</span> <span class="n">farPlaneDistance</span><span class="p">);</span>
+</code></pre></div></div>
+<p>,der wir Werte übergeben können und eine Projektionsmatrix erhalten.
+Die Werte können, wie im LoadContent()-Snippet zu sehen, übernommen werden.</p>
+
+<p>Der Shader muss auch wissen, aus wessen Blickwinkel wir die Szene betrachten. Dabei hilft uns die View Matrix.
+Aber vorher ein Exkurs zum lokalen und globalen Koordinatensystem:</p>
+<h3 id="lokales--und-globales-koordinatensystem">Lokales- und globales Koordinatensystem</h3>
+<p>Stell dir das Sonnensystem vor. Wenn wir die Sonne als Zentrum sehen, dann hat die Sonne den Ursprung in (0,0,0) und alles andere hat dann Koordiatenpunkte relativ zur Sonne. Wenn wir aber nun deine Position auf der Erde berechnen wollen, dann können wir, um es zu vereinfachen, die Erde als Ursprung definieren. Die Erde hat somit ein Koordinatensystem. Wenn man nun deine Position im Sonnensystem bestimmen möchte, dann muss deine Position aus dem Blickwinkel der Sonne betrachtet werden und das geht mit der Viewmatrix der Sonne.
+Betrachten wir dieses Beispiel, so würde das Koordinatensystem der Sonne “global” und das der Erde “lokal” genannt werden.
+In der Spieleentwicklung hat jedes Objekt in der Szene ein lokales Koordinatensystem und wird dann in die Weltkoordinaten der Szene umgerechnet.</p>
+
+<h3 id="view-matrix">View-Matrix</h3>
+<p>Die Viewmatrix einer Kamera rechnet wiederrum die Weltkoordinaten in lokale Koordinaten der gewünschten Kamera um. Wenn wir nun dem Shader diese Matrix geben, dann arbeitet er aus der Sicht der gewünschten Kamera.
+Auch hierfür bietet uns MonoGame eine bequeme Funktion, damit wir die Matrix nicht selbst basteln müssen. Es werden lediglich die Kamera Position, der Punkt, den die Kamera fixiert, und der Up-Vektor der Kamera angegeben.
+Den Up-Vektor kann man sich wie einen Metallarm vorstellen, der die Kamera an der Oberseite festhält und dadurch bestimmt, wie die Kamera gedreht ist.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Matrix</span><span class="p">.</span><span class="nf">CreateLookAt</span><span class="p">(</span><span class="n">Vector3</span> <span class="n">cameraPosition</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">cameraTarget</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">cameraUpVector</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="rendering-des-dreiecks">Rendering des Dreiecks</h2>
+<p>Sind die Vertices und der Shader vorbereitet, kann gerendert werden!</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Draw</span><span class="p">(</span><span class="n">GameTime</span> <span class="n">gameTime</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">GraphicsDevice</span><span class="p">.</span><span class="nf">Clear</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">CornflowerBlue</span><span class="p">);</span>
+    
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">p</span> <span class="k">in</span> <span class="n">effect</span><span class="p">.</span><span class="n">CurrentTechnique</span><span class="p">.</span><span class="n">Passes</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">p</span><span class="p">.</span><span class="nf">Apply</span><span class="p">();</span>
+        <span class="n">GraphicsDevice</span><span class="p">.</span><span class="n">DrawUserPrimitives</span><span class="p">&lt;</span><span class="n">VertexPositionColor</span><span class="p">&gt;(</span><span class="n">PrimitiveType</span><span class="p">.</span><span class="n">TriangleList</span><span class="p">,</span> <span class="n">vertices</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">base</span><span class="p">.</span><span class="nf">Draw</span><span class="p">(</span><span class="n">gameTime</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Die Details zu “Passes” werden im Shader Artikel behandelt. Viel wichtiger ist gerade die Funktion “DrawUserPrimitives”.</p>
+
+<p>MonoGame bietet uns an, Dreiecke oder Linien als Primitiven zu verwenden. Primitiven sind die einfachste Form eines Objekts. Wir teilten in der Funktion der Grafikkarte mit, welche Liste an Vertices sie abarbeiten muss und in welcher Beziehung die Vertices zueinander stehen. Durch “TriangleList” haben wir gesagt, dass die Liste Dreiecke abbilden soll. Außerdem soll sie beim Arrayindex 0 starten und nur 1 Dreieck in der Liste finden.</p>
+
+<p>Fertig ist unser erstes Dreieck!</p>
+
+<p>Frage an dich: was benötigst du, um ein Rechteck zu machen, welches das gesamte Bild verdeckt? Spiel ein bisschen herum und finde es heraus!</p>
+
+<p><img src="assets/images/screenshots/monogame/first-triangle.png" alt="First Triangle Run" /></p>
+
+<p>Der entstandene Code kann <a href="https://github.com/SGoerzen/3dgame/tree/master/First%20Triangle">hier</a> heruntergeladen werden.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Einstieg in MonoGame</title>
+	  <link>//Einstieg-in-MonoGame</link>
+	  <author></author>
+	  <pubDate>2019-01-08T00:00:00+00:00</pubDate>
+	  <guid>//Einstieg-in-MonoGame</guid>
+	  <description><![CDATA[
+	     <p>Mit diesem Artikel beginne ich meine Blogserie zur Spieleprogrammierung.
+Dabei wird der Fokus auf verschiedene Techniken in Programmierung oder Computergrafik gelegt: vom einfachen Dreieck bis über zu effizienten Algorithmen oder Shader.</p>
+
+<p>Mein Nutzen dabei ist, die angewandten Methoden zu wiederholen oder neue auszuprobieren. Diese werde ich hier dann in Form von “Tutorials” hier festhalten.</p>
+
+<p>Bei den MonoGame Projekten wird, je nach vorgeführten Techniken, an einem 2D oder 3D Spiel entwickelt und die Codeschnipsel werden bei Github zur Verfügung gestellt.
+Die Blogartikel zu 2D und 3D erscheinen vorerst abwechselnd.</p>
+
+<p>Ab und zu werde ich aber auch andere Themen in der Computergrafik behandeln.</p>
+
+<p>Jedes zu behandelnde Thema ist grundsätzlich für jede Game-Engine oder jedes Graphics-Frameworks gültig und können somit dort angewendet werden.</p>
+
+<p>Die Intention ist also: einmal lernen und überall anwenden!</p>
+
+<h2 id="meine-vorgeschichte-in-gamedev">Meine Vorgeschichte in GameDev</h2>
+<p>Mein Interesse für Programmierung begann in der Spieleentwicklung. Doch bevor ich mich selbständig in richtige Programmiersprachen eingearbeitet habe,
+bastelte ich, wie vermutlich viele andere, mit dem RPG Maker 2000 an kleinen Spielen.
+In meiner Ausbildung erlernte ich die wunderschöne Programmiersprache C#.</p>
+
+<p>Irgendwann fragte ich mich, gibt es ein Game Framework, welches C# verwendet? Google lieferte mir als Antwort drei Buchstaben: XNA.</p>
+
+<p>Mein Verständnis beschränkte sich auf Grund von mangelnder Mathematik-Kenntnisse auf 2D. Die Struktur war aber leicht verstanden und nach Einarbeitung enstand ein SpaceInvaders Klon zusammen mit einem Mitschüler im Rahmen eines Schulprojekts.
+So sammelte ich meine ersten Erfahrungen mit richtiger Spieleentwicklung.</p>
+
+<p>C# und dementsprechend XNA war aber damals auf Windows beschränkt und die Weiterentwicklung vom Framework wurde mit Version 4.0 leider auch eingestellt. Sie hinterließen eine große Community und viele Fans.</p>
+
+<p>Einige Jahre später erlernte ich während meines Master Studiums Kenntnisse zur Computergrafik. 
+Außerdem durfte ich in einem Modul meines Studiums ein weiteres selbständiges Spiel entwickeln. Mein Interesse für Spieleentwicklung lebte immer noch und wurde dadurch aus einem jahrelangem Schlaf geweckt.
+Deshalb entwickelte ich zusammen mit einem Kommilitonen in OpenGL und C++ ein Spiel im LowPoly Grafikstil.</p>
+
+<p>Nach Fertigstellung des LowPoly Spiels hab ich Blut geleckt: “Ich entwickel noch ein Spiel!”.</p>
+
+<p>Da ich für XNA und C# aus früherer Zeit noch Sympathie empfinde und mein Fokus auf dem Verständnis der Kerntechniken liegt, beschloss ich mich in MonoGame einzuarbeiten.</p>
+
+<p>Ich würde mich sehr darüber freuen, wenn du mich dabei begleitest.</p>
+
+<h2 id="warum-monogame-wenn-es-doch-unity3d-gibt">Warum MonoGame, wenn es doch Unity3d gibt?</h2>
+<p>Keine Frage: Unity3d ist klasse!</p>
+
+<p>Doch wie gesagt: meine Sympathie für XNA ist groß. Bei MonoGame wurde sich an die Struktur von XNA gehalten und weiterentwickelt.
+Der wesentliche Unterschied von Unity3d zu MonoGame ist, dass Unity einen mächtigen Editor und eine Physics-Engine hat und man deshalb nicht unbedingt verstehen muss, was man dort überhaupt benutzt.</p>
+
+<p>Inspiriert durch OpenGL wollte sich mein akademischer Geist jedoch weiter mit Kernfragen beschäftigen:
+Welche Möglichkeiten gibt es eine Kollision zu prüfen? Was kann man alles mit einer Render Pipeline machen? Welche Transformationen benötige ich für welche Aktion?</p>
+
+<p>Ist dieses Wissen einmal im Kopf verankert, ist jede weitere Engine ein klacks!</p>
+
+<p>Jeder, der gerne codet, wird hier also sicher viel Spaß haben!</p>
+
+<h2 id="das-setting">Das Setting</h2>
+<p>Entwickelt wird mit einem MacOS High Sierra und der IDE Rider von JetBrains.</p>
+
+<p>Die Installation war unkompliziert. Man wählt lediglich  die passende Version und installiert diese.</p>
+
+<p>Für Windows wird Visual Studio empfohlen, weil MonoGame dort Templates anbietet und somit neue Projektmappen schnell erstellt sind. An dieser Stelle ist auch zu erwähnen, dass es auch eine VS Version für Mac gibt, die man problemlos verwenden kann.</p>
+
+<p><a href="http://community.monogame.net/t/monogame-3-7-1-release/11173">Hier</a> findet du die Downloadsektion für das MonoGame Framework.</p>
+
+<p>Ich verwende JetBrains Rider, weil diese IDE auf allen Betriebssystemen identisch ist. Es gibt dafür zwar kein integriertes Template, wie bei Visual Studio, man kann aber eins im Internet finden.</p>
+
+<p>Es folgt die Anleitung zur Rider IDE. Anleitungen zu anderen IDEs folgenden bald und werden hier nachträglich eingetragen.</p>
+
+<h3 id="einrichten-in-rider">Einrichten in Rider</h3>
+<p>An dieser Stelle sei erwähnt, dass Rider kostenpflichtig ist. Man kann sich jedoch als Schüler oder Student eine Studentlicense besorgen.</p>
+<ol>
+  <li>Klicke <a href="https://github.com/Limeoats/Monogame-Rider-Template">hier</a> und downloade dir das Template</li>
+  <li>Benenne die Dateien MonogameRiderTemplate.sln, MonogameRiderTemplate.csproj und den Ordner MonogameRiderTemplate in deinen gewünschten Projektnamen um <img src="/assets/images/screenshots/monogame/01.png" alt="Bild" title="Old Names" /> <img src="/assets/images/screenshots/monogame/02.png" alt="Bild" title="New names" /></li>
+  <li>Öffne das Projekt und klick mit rechter Maustaste auf die Projektmappe und anschließend auf “Add existing project…”</li>
+  <li>Wähle die vorher umbenannte .csproj-Datei aus</li>
+  <li>Lösche im Projektbaum das Projekt MonogameRider</li>
+  <li>Mit rechter Maustaste auf das neu eingebundene Projekt klicken und “Properties…” auswählen.</li>
+  <li>In diesem Fenster änderst du dann noch “Assembly name” und “Root namespace” <img src="/assets/images/screenshots/monogame/03.png" alt="Bild" title="Project properties" /></li>
+  <li>Ändere ebenfalls in Datei “Properties/AssembyInfo.cs” alle gewünschten Einträge.</li>
+  <li>Jetzt nur noch in “Source/Game.cs” und “Source/Program.cs” den Namespace “TheVillageOfLife” auf deinen gewünschten umändern</li>
+  <li>Geh nun oben rechts auf “Edit Solution configurations…” und gehe sicher, dass folgende Einstellungen gesetzt sind <img src="/assets/images/screenshots/monogame/04.png" alt="Bild" title="Project configuration 1" /> <img src="/assets/images/screenshots/monogame/05.png" alt="Bild" title="Project configuration 2" /></li>
+  <li>Abschließend kann das Projekt durch den Play-Button gestartet werden <img src="/assets/images/screenshots/monogame/06.png" alt="Bild" title="Game Window" /></li>
+</ol>
+
+<p>Klick hier weiter für <a href="/Erstes-Sprite">2D</a> oder <a href="/Erstes-Dreieck">3D</a>.</p>
+
+<p>Headerbild:https://www.polygon.com/2013/10/4/4801796/nintendo-bringing-monogame-framework-to-wii-u + MonoGame Logo</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

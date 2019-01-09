@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title></title>
+   
+   <link>https://digitalriding.de</link>
+   <description>go down for deep diving into...</description>
+   <language>de-ge</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>MonoGame 2D - Erstes Sprite</title>
+	  <link>//Erstes-Sprite</link>
+	  <author></author>
+	  <pubDate>2019-01-08T00:00:00+00:00</pubDate>
+	  <guid>//Erstes-Sprite</guid>
+	  <description><![CDATA[
+	     <p>In diesem Artikel lernst du was Sprites sind und wie man sie in MonoGame sinnvoll einbindet.</p>
+
+<h2 id="was-sind-sprites">Was sind Sprites?</h2>
+<p>Für die Entwicklung von 2D Spielen sind Spritesets das A und O. Alles, was du siehst, besteht aus Sprites. 
+Sprites sind nichts anderes als Bilddateien, die für unterschiedliche Zwecke verwendet werden.</p>
+
+<p>Zum Beispiel können sie dafür verwendet werden, grafische Benutzerelemente oder um einen Charakter  darzustellen.</p>
+
+<p>Da das Laden von einer (z.B. 2 MB großen) Datei schneller geht als das Laden von 100 kleinen, die in der Summe 2 MB ergeben, werden häufig s.g. Spritesets verwendet. Ein Spriteset enthält dann alle Animationframes des gewünschten Sprite, wie zum Beispiel die Charakterbewegungen.</p>
+
+<h2 id="wo-bekomme-ich-sprites-her">Wo bekomme ich Sprites her?</h2>
+<p>Sprites variieren je nach Grafikstil des Spiels. Je nachdem, was du benötigst, kannst du mit einem Grafikboard welche zeichnen oder mit der Maus pixeln. Der beste Weg für Entwickler ist sich an freien Assets zu bedienen oder welche zu kaufen.</p>
+
+<p>Ich habe für unser gemeinsames Projekt eine bunte Sammlung gefunden: <a href="https://bayat.itch.io/platform-game-assets">hier</a>.</p>
+
+<p>Auf dieser Webseite gibt es viele schöne Assets.
+Und falls dir Assets gefallen, dann würde sich der Creator sicherlich über eine kleine Spende freuen.</p>
+<h2 id="sprite-in-monogame">Sprite in MonoGame</h2>
+<p>Wie bekomme ich nun ein Sprite in mein Spiel?</p>
+
+<p>Dafür benötigen wir die Content Pipeline. Was das ist kannst du in einem späteren Artikel nachlesen. In den ersten Schritten genügt es jedoch zu wissen, dass die Pipeline Dateien lädt und in eine entsprechende C#-Klasse aus MonoGame umwandelt.
+In unserem Fall wird die Content Pipeline eine Bilddatei in die Klasse “Texture2D” umwandeln.</p>
+
+<p>Kopiere die Datei “Platform Game Assets/Character/png/2x/Body.png” in dein MonoGame Projekt. Ich habe dafür ein Ordner “Assets/Sprites” erstellt.</p>
+
+<h3 id="in-die-pipeline-importieren">In die Pipeline importieren</h3>
+<p>Nun benötigen wir das Pipeline Tool. Das Pipeline Tool wird aus unserer PNG-Datei eine .xnb Datei machen, die dann von der Pipeline in MonoGame gelesen werden kann. (Wie bereits erwähnt, ist es an dieser Stelle nicht notwendig zu wissen, warum das wichtig ist).</p>
+
+<p>In diesem Tool erstellst du eine neue Pipeline, die du in deinem Projekt speicherst und fügst dann dort einfach deine Bilddatei hinzu. Achte darauf den gewünschten Pfad einzustellen. Wie das alles geht siehst du in meinen Screenshots.
+<img src="/assets/images/screenshots/monogame/07.png" alt="Create Pipeline" /> 
+<img src="/assets/images/screenshots/monogame/08.png" alt="Pipeline Settings" /></p>
+
+<p>Danach musst du lediglich auf “Build” klicken, damit die xnb-Datei erstellt wird.</p>
+
+<p>Um zu überprüfen, dass es funktioniert hat, kannst du in deinem Ordner “bin/Debug” (oder Release) nachschauen, ob ein “Assets/Sprites/Body.xnb” erstellt wurde.</p>
+<h3 id="textur-mit-content-pipeline">Textur mit Content Pipeline</h3>
+<p>Nun muss das Sprite nur noch ins Spiel geladen werden. Das machen wir mit folgenden Zeilen:</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="n">Texture2D</span> <span class="n">body</span><span class="p">;</span>
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadContent</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">spriteBatch</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SpriteBatch</span><span class="p">(</span><span class="n">GraphicsDevice</span><span class="p">);</span>
+
+    <span class="n">Content</span><span class="p">.</span><span class="n">RootDirectory</span> <span class="p">=</span> <span class="s">"Assets"</span><span class="p">;</span>
+
+    <span class="n">body</span> <span class="p">=</span> <span class="n">Content</span><span class="p">.</span><span class="n">Load</span><span class="p">&lt;</span><span class="n">Texture2D</span><span class="p">&gt;(</span><span class="s">"Sprites/Body"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="textur-ohne-pipeline">Textur ohne Pipeline</h3>
+<p>Falls du Schwierigkeiten mit der Content Pipeline oder andere Gründe hast, diese zu meiden, dann kannst du auch die Bilddateien so wie sie sind zur kompilierten Exe Datei kopieren (oder von der IDE kopieren lassen) und dann wie folgt laden:</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="n">Texture2D</span> <span class="n">body</span><span class="p">;</span>
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadContent</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">spriteBatch</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SpriteBatch</span><span class="p">(</span><span class="n">GraphicsDevice</span><span class="p">);</span>
+    <span class="n">body</span> <span class="p">=</span> <span class="n">Texture2D</span><span class="p">.</span><span class="nf">FromStream</span><span class="p">(</span><span class="n">GraphicsDevice</span><span class="p">,</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="nf">FileStream</span><span class="p">(</span><span class="s">"Assets/Sprites/body.png"</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="sprite-im-spiel-anzeigen">Sprite im Spiel anzeigen</h3>
+<p>Um nun noch etwas sinnvolles anzuzeigen, erstellen wir eine Variable für die Position und rendern unsere Textur.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="n">Vector2</span> <span class="n">position</span> <span class="p">=</span> <span class="n">Vector2</span><span class="p">.</span><span class="n">Zero</span><span class="p">;</span>
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Update</span><span class="p">(</span><span class="n">GameTime</span> <span class="n">gameTime</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">GamePad</span><span class="p">.</span><span class="nf">GetState</span><span class="p">(</span><span class="n">PlayerIndex</span><span class="p">.</span><span class="n">One</span><span class="p">).</span><span class="n">Buttons</span><span class="p">.</span><span class="n">Back</span> <span class="p">==</span>
+        <span class="n">ButtonState</span><span class="p">.</span><span class="n">Pressed</span> <span class="p">||</span> <span class="n">Keyboard</span><span class="p">.</span><span class="nf">GetState</span><span class="p">().</span><span class="nf">IsKeyDown</span><span class="p">(</span>
+            <span class="n">Keys</span><span class="p">.</span><span class="n">Escape</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="nf">Exit</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">Keyboard</span><span class="p">.</span><span class="nf">GetState</span><span class="p">().</span><span class="nf">IsKeyDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">A</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">position</span><span class="p">.</span><span class="n">X</span><span class="p">--;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">Keyboard</span><span class="p">.</span><span class="nf">GetState</span><span class="p">().</span><span class="nf">IsKeyDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">position</span><span class="p">.</span><span class="n">X</span><span class="p">++;</span>
+    <span class="p">}</span>
+    
+    <span class="k">base</span><span class="p">.</span><span class="nf">Update</span><span class="p">(</span><span class="n">gameTime</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Draw</span><span class="p">(</span><span class="n">GameTime</span> <span class="n">gameTime</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">GraphicsDevice</span><span class="p">.</span><span class="nf">Clear</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">Black</span><span class="p">);</span>
+
+    <span class="n">spriteBatch</span><span class="p">.</span><span class="nf">Begin</span><span class="p">();</span>
+    <span class="n">spriteBatch</span><span class="p">.</span><span class="nf">Draw</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">Color</span><span class="p">.</span><span class="n">White</span><span class="p">);</span>
+    <span class="n">spriteBatch</span><span class="p">.</span><span class="nf">End</span><span class="p">();</span>
+
+    <span class="k">base</span><span class="p">.</span><span class="nf">Draw</span><span class="p">(</span><span class="n">gameTime</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Mit Keyboard.GetState können wir den Status der Tastatur abrufen und somit Eingaben erfragen. In diesem Code-Snippet zeichnen wir unser Sprite an einer bestimmten Position, die wir mit A und D verändern können.</p>
+
+<p>Das ist nun unser Ergebnis:
+<img src="/assets/images/screenshots/monogame/09.png" alt="First Sprite" /></p>
+
+<p>Der entstandene Code kann <a href="https://github.com/SGoerzen/2dplatformer/tree/master/first-sprites">hier</a> heruntergeladen werden.</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

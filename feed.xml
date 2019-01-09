@@ -8,6 +8,52 @@
     
       
       <item>
+        <title>MonoGame 2D - Erstes Sprite</title>
+        
+          <description>&lt;p&gt;In diesem Artikel lernst du was Sprites sind und wie man sie in MonoGame sinnvoll einbindet.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+        <link>
+        https://digitalriding.de/Erstes-Sprite</link>
+        <guid isPermaLink="true">https://digitalriding.de/Erstes-Sprite</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>MonoGame 3D - Erstes Dreieck</title>
+        
+          <description>&lt;p&gt;Bei 3D Spielen bewegen wir uns in einem Koordinaten System mit 3-Achsen: X, Y und Z. So gesehen haben 2D Spiele auf der Z Komponente immer den Wert 0. MonoGame bzw. Xna stellt uns Klassen zur Verfügung, um mit 2D oder 3D Koordinaten zu arbeiten: Vector2 und Vector3.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+        <link>
+        https://digitalriding.de/Erstes-Dreieck</link>
+        <guid isPermaLink="true">https://digitalriding.de/Erstes-Dreieck</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Einstieg in MonoGame</title>
+        
+          <description>&lt;p&gt;Mit diesem Artikel beginne ich meine Blogserie zur Spieleprogrammierung.
+Dabei wird der Fokus auf verschiedene Techniken in Programmierung oder Computergrafik gelegt: vom einfachen Dreieck bis über zu effizienten Algorithmen oder Shader.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+        <link>
+        https://digitalriding.de/Einstieg-in-MonoGame</link>
+        <guid isPermaLink="true">https://digitalriding.de/Einstieg-in-MonoGame</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Server Hardening - SSH</title>
         
           <description>&lt;p&gt;Mietest du einen Server? Wenn ja, hast du ihn so eingerichtet, dass du dir sicher sein kannst, dass nur befugte Personen zugreifen können? Was ist wenn ich dir erzähle, dass ständig jemand versucht über Brute-Force dein SSH Login zu erhalten? Das ganze kann man ganz leicht selber nachprüfen&lt;/p&gt;
