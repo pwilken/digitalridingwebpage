@@ -4,7 +4,7 @@ title: MonoGame 3D - Erstes Dreieck
 lang: de
 description: 
 cover: assets/images/screenshots/monogame/first-triangle.png
-tags: []
+tags: [MonoGame, 3D, Game, Graphics]
 author: sgoerzen
 categories: sgoerzen
 subclass: 'post tag-fiction'
