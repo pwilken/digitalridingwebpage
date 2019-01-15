@@ -58,7 +58,7 @@ Zudem erkennt man die IP-Adresse des Senders. Diese Information findet man im HT
 Die IP-Adresse des Senders wird allerdings nicht mit angegeben.</p>
 
 <h4 id="elite-proxy">Elite Proxy</h4>
-<p>Die Königsklasse sind die Elite Proxies, denn diese kann man nicht erkennen.</p>
+<p>Die Königsklasse sind die Elite Proxies, denn diese geben keine Information Preis.</p>
 
 <h4 id="socks-sockets-proxy">SOCKS (SOCKetS) Proxy</h4>
 <p>Im Vergleich zu den Web-Proxies ist ein SOCKS Proxy Protokollunabhängig und kann somit für weitere Dienste genutzt werden, beispielsweise für BitTorrent.</p>
@@ -97,6 +97,8 @@ Ich habe jetzt beispielhaft zwei rausgesucht, es gibt aber noch einige mehr.</p>
   <li><a href="https://iphub.info/">https://iphub.info/</a></li>
   <li><a href="https://www.neutrinoapi.com/api/ip-blocklist/">https://www.neutrinoapi.com/api/ip-blocklist/</a></li>
 </ul>
+
+<h3 id="active-proxy-checking">Active Proxy checking</h3>
 
 <p>Es gibt sicherlich noch einige Kriterien die ich wahrscheinlich vergessen habe…</p>
 
