@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>Author</title>
+    <title>Riding the digital wave</title>
     <meta name="description" content="go down for deep diving into..." />
 
     <!-- Mobile Meta -->
@@ -27,31 +27,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="https://digitalriding.de/author/B" />
+        <link rel="canonical" href="https://digitalriding.de/tag/Security/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Riding the digital wave" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Author" />
+    <meta property="og:title" content="Riding the digital wave" />
     <meta property="og:description" content="go down for deep diving into..." />
-    <meta property="og:url" content="https://digitalriding.de/author/B" />
-    <meta property="og:image" content="/assets/images/underwater-3.jpg" />
+    <meta property="og:url" content="https://digitalriding.de/tag/Security/" />
+    <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Author" />
+    <meta name="twitter:title" content="Riding the digital wave" />
     <meta name="twitter:description" content="go down for deep diving into..." />
-    <meta name="twitter:url" content="https://digitalriding.de/author/B" />
-    <meta name="twitter:image:src" content="/assets/images/underwater-3.jpg" />
+    <meta name="twitter:url" content="https://digitalriding.de/tag/Security/" />
+    <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Riding the digital wave",
-    "name": "Author",
-    "url": "https://digitalriding.de/author/B",
-    "image": "/assets/images/underwater-3.jpg",
+    "name": "Riding the digital wave",
+    "url": "https://digitalriding.de/tag/Security/",
+    "image": "/assets/images/cover2.jpg",
     "description": "go down for deep diving into..."
 }
     </script>
@@ -61,7 +61,7 @@
 
 
 </head>
-<body class="author-template nav-closed">
+<body class="tag-template nav-closed">
 
     <!-- The blog navigation links -->
     <div class="nav">
@@ -95,37 +95,36 @@
     <div class="site-wrapper">
 
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- < default}} -->
+        <!-- dynamically overriding backgrounds for tags as well as descriptions -->
+
+
+<!-- default -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- The big featured header -->
-
-<!-- Everything inside the #author tags pulls data from the author -->
-<!-- #author  -->
-    <header class="main-header author-head " style="background-image: url(/assets/images/underwater-3.jpg) ">
-        <nav class="main-nav overlay clearfix">
-            <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
-            
-                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-            
-        </nav>
-    </header>
-
-    <section class="author-profile inner">
+<!-- If we have a tag cover, display that - else blog cover - else nothing -->
+<header class="main-header tag-head " style="background-image: url(/assets/images/cover2.jpg) ">
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
         
-            
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
         
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Security</h1>
+            <h2 class="page-description">
             
-        
+			    A 1-post collection
             
-        
-    </section>
-<!-- /author -->
+            </h2>
+        </div>
+    </div>
+</header>
 
 <!-- The main content area on the homepage -->
 <main id="content" class="content" role="main">
 
-    <!-- The tag below includes the post loop - partials/loop.hbs  -->
+    <!-- The tag below includes the post loop - partials/loop.hbs -->
         <!-- Previous/next page links - only displayed on page 2+ -->
     <div class="extra-pagination inner">
         
@@ -138,43 +137,6 @@
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/Server-Hardening-SSH">Server Hardening - SSH</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Mietest du einen Server? Wenn ja, hast du ihn so eingerichtet, dass du dir sicher sein kannst, dass nur befugte Personen zugreifen können? Was ist wenn... <a class="read-more" href="/Server-Hardening-SSH">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-            
-                
-            
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/Server'>Server</a>,
-                    
-                
-                    
-                       <a href='/tag/SSH'>Ssh</a>,
-                    
-                
-                    
-                       <a href='/tag/Hardening'>Hardening</a>
-                    
-                
-            
-            <time class="post-date" datetime="2018-10-12">12 Oct 2018</time>
-        </footer>
-    </article>
     
     <article class="post">
         <header class="post-header">
