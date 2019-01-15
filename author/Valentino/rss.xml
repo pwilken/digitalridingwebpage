@@ -141,8 +141,9 @@ Hier teste mal selbst
 <p>Falls weiteres Interesse an dem Thema besteht, würde ich einen Artikel dazu schreiben der sich nur dem Thema widmet.</p>
 
 <h2 id="beispiele">Beispiele</h2>
+<h3 id="deep-packet-inspection">Deep Packet Inspection</h3>
 <p>Ein Bild von einem HTTP Header, der von einem transparenten Proxy gesendet wurde.
-Der Eintrag <code class="highlighter-rouge">X-Forwarded-For</code> offenbart dies.
+Der Eintrag <code class="highlighter-rouge">X-Forwarded-For</code> zeigt dies.
 <img src="/assets/images/screenshots/proxy/deep-packet-inspection.png" alt="Deep Packet Inspection" /></p>
 
 <p>Die folgenden Codebeispiele sind in der Sprache Kotlin geschrieben und sollen mal kurz demonstrieren,
