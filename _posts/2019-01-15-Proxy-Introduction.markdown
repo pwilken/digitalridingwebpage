@@ -11,7 +11,6 @@ subclass: 'post tag-fiction'
 navigation: true
 ---
 
-# Ein täuschender Stellvertreter namens John Proxy
 Lieber Leser, ich weiß dass die Überschrift auf eine spannende Geschichte hindeutet, 
 indem John Proxy wahrscheinlich ein unglaublich gutaussehender Hauptprotagonist wäre, der in Wahrheit ein anderes Leben führt, als vorher angenommen. 
 Ich muss dich leider enttäuschen. Es geht wirklich nur um Netzwerk Proxies. 
