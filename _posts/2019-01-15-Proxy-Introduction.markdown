@@ -128,8 +128,9 @@ Hier teste mal selbst
 Falls weiteres Interesse an dem Thema besteht, würde ich einen Artikel dazu schreiben der sich nur dem Thema widmet.
 
 ## Beispiele
+### Deep Packet Inspection
 Ein Bild von einem HTTP Header, der von einem transparenten Proxy gesendet wurde.
-Der Eintrag ``X-Forwarded-For`` offenbart dies.
+Der Eintrag ``X-Forwarded-For`` zeigt dies.
 ![Deep Packet Inspection](/assets/images/screenshots/proxy/deep-packet-inspection.png) 
 
 Die folgenden Codebeispiele sind in der Sprache Kotlin geschrieben und sollen mal kurz demonstrieren,
