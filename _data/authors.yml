@@ -7,10 +7,6 @@ pierrewilken:
   bio: German Softwaredeveloper
   assets: assets/images/pierre-wilken.jpg
 
-valentinob:
-  username: valentinob
-  name: Valentino B.
-
 sgoerzen:
   username: sgoerzen
   name: Sergej Görzen
@@ -19,3 +15,12 @@ sgoerzen:
   url: Mein Xing Profil
   bio: German Software-Engineer
   assets: assets/images/sergej-goerzen.jpg
+
+valentinob:
+  username: valentinob
+  name: Valentino B.
+  location: Deutschland
+  url_full: https://ososystem.de
+  url: ososystem
+  bio: German Software-Engineer
+  assets: assets/images/valentinob.jpg

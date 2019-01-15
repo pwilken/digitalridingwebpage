@@ -5,8 +5,8 @@ lang: de
 description: Eine Einführung zu Proxies 
 cover: assets/images/fingerprint.jpg
 tags: [Proxy, Security, Network, Kotlin]
-author: Valentino B.
-categories: Valentino B.
+author: valentinob
+categories: valentinob
 subclass: 'post tag-fiction'
 navigation: true
 ---
@@ -70,7 +70,7 @@ Ok du hast mich erwischt. Es war alles von Anfang an nur eine Lüge!
 
 ### Accountgebunden
 Bei der Registrierung von deinem Account, hast du wahrscheinlich noch keinen Proxy oder VPN Dienst nutzt. 
-Zudem hast du eine deutsche Kreditkarte, streamst Inhalte aber aus Amerika? Ziemlich auffällig, meinst du nicht auch?
+Zudem hast du eine deutsche Kreditkarte, streamst Inhalte aber aus Amerika. Ziemlich auffällig, meinst du nicht auch?
 
 ### Gleiche IP
 Ein VPN Anbieter hat eine Vielzahl von Servern die kunterbunt in aller Welt verteilt sind. 

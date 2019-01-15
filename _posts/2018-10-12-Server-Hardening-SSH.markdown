@@ -2,13 +2,11 @@
 layout: post
 title: Server Hardening - SSH
 lang: de
-ref: de-ssh
-date: 2018-10-12 18:50:00 +0300
 description: Eine Anleitung um einen Server gegen unerwünschte Gäste zu schützen
 cover: assets/images/shell.jpg
 tags: [Server, SSH, Hardening]
-author: Valentino B.
-categories: Valentino B.
+author: valentinob
+categories: valentinob
 subclass: 'post tag-fiction'
 navigation: true
 ---
