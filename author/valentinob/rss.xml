@@ -79,7 +79,7 @@ Er stellt nun die Anfrage an den entsprechenden Server und liefert dir die Antwo
 
 <h3 id="accountgebunden">Accountgebunden</h3>
 <p>Bei der Registrierung von deinem Account, hast du wahrscheinlich noch keinen Proxy oder VPN Dienst nutzt. 
-Zudem hast du eine deutsche Kreditkarte, streamst Inhalte aber aus Amerika? Ziemlich auffällig, meinst du nicht auch?</p>
+Zudem hast du eine deutsche Kreditkarte, streamst Inhalte aber aus Amerika. Ziemlich auffällig, meinst du nicht auch?</p>
 
 <h3 id="gleiche-ip">Gleiche IP</h3>
 <p>Ein VPN Anbieter hat eine Vielzahl von Servern die kunterbunt in aller Welt verteilt sind. 
@@ -190,7 +190,7 @@ wie man einen Proxy erkennt bzw. einen selber implementiert. Dependencies die ic
 	  <title>Server Hardening - SSH</title>
 	  <link>//Server-Hardening-SSH</link>
 	  <author></author>
-	  <pubDate>2018-10-12T15:50:00+00:00</pubDate>
+	  <pubDate>2018-10-12T00:00:00+00:00</pubDate>
 	  <guid>//Server-Hardening-SSH</guid>
 	  <description><![CDATA[
 	     <p>Mietest du einen Server? Wenn ja, hast du ihn so eingerichtet, dass du dir sicher sein kannst, dass nur befugte Personen zugreifen können? Was ist wenn ich dir erzähle, dass ständig jemand versucht über Brute-Force dein SSH Login zu erhalten? Das ganze kann man ganz leicht selber nachprüfen</p>
