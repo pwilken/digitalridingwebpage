@@ -24,22 +24,22 @@ Dieser Begriff wird in der Informatik noch den Design Patterns zugeordnet (Proxy
 ### Was ist ein Proxy?
 Ein Proxy ist ein Knotenpunkt im Netzwerk, der Pakete entgegennimmt und diese dann an ein Ziel weiterleitet. 
 Er gibt sich somit als Stellvertreter des ursprünglichen Senders aus.
-Der Empfänger sendet die Antwort zum Proxy der wiederum das Paket zum ursprünglichen Sender schickt.
+Der Empfänger sendet die Antwort zum Proxy, der wiederum das Paket zum ursprünglichen Sender schickt.
 
 ### Aufgabengebiete
 Die Aufgaben eines Proxies sind vielseitig, da man recht viel damit anstellen kann.
-Hier mal eine kleine Auflistung 
+Hier mal eine kleine Auflistung:
 * Verschleierung von IP-Adressen
 * Sperrung von bestimmten Webseiten innerhalb eines Netzwerkes
 * Caching von Inhalten z.B. Webseite
 * Abschottung mehrere Server durch einen Reverse Proxy
 
 ### Welche Arten gibt es?
-Proxies werden oft in Zusammenhang mit dem Web gebracht, da man sie da recht häufig nutzt. 
+Proxies werden oft im Zusammenhang mit dem Web gebracht, da man sie da recht häufig nutzt. 
 Um da nochmal eine bessere Unterscheidung zu machen werde ich von Web-Proxy sprechen, 
 wenn es sich um Proxies handelt die mit HTTP zu tun haben, da Proxy ein übergeordneter Begriff ist.
 
-Im folgenden werden die verschiedenen Proxy Typen näher beschrieben
+Im folgenden werden die verschiedenen Proxy Typen näher beschrieben.
 #### Transparenter Proxy
 Transparente Proxies offenbaren, dass die jeweilige Anfrage von dir versendet wurde. 
 Zudem erkennt man die IP-Adresse des Senders. Diese Information findet man im HTTP Header mitunter als ``X-Forwarded-For``.
@@ -49,10 +49,10 @@ Anonyme Proxies offenbaren, dass die jeweilige Anfrage von dir versendet wurde.
 Die IP-Adresse des Senders wird allerdings nicht mit angegeben.
 
 #### Elite Proxy
-Die Königsklasse sind die Elite Proxies denn diese kann man nicht erkennen.
+Die Königsklasse sind die Elite Proxies, denn diese kann man nicht erkennen.
 
 #### SOCKS (SOCKetS) Proxy
-Im Vergleich zu den Web-Proxies ist ein SOCKS Proxy Protokollunabhängig und kann somit für weitere Dienste genutzt werden beispielsweise für BitTorrent.
+Im Vergleich zu den Web-Proxies ist ein SOCKS Proxy Protokollunabhängig und kann somit für weitere Dienste genutzt werden, beispielsweise für BitTorrent.
 
 #### Reverse Proxy
 Durch die Abschottung der Server ist der Reverse Proxy der einzige Eintrittspunkt.
@@ -68,12 +68,12 @@ Er stellt nun die Anfrage an den entsprechenden Server und liefert dir die Antwo
 ## Du lügst doch. Netflix erkennt wenn ich einen Elite Proxy oder VPN Dienst benutze!!!!11
 Ok du hast mich erwischt. Es war alles von Anfang an nur eine Lüge!
 
-### Account
+### Accountgebunden
 Bei der Registrierung von deinem Account, hast du wahrscheinlich noch keinen Proxy oder VPN Dienst nutzt. 
-Zudem hast du eine deutsche Kreditkarte, aber streamst Inhalte aus Amerika? Ziemlich auffällig. Meinst du nicht auch?
+Zudem hast du eine deutsche Kreditkarte, streamst Inhalte aber aus Amerika? Ziemlich auffällig, meinst du nicht auch?
 
 ### Gleiche IP
-Ein VPN Anbieter hat eine vielzahl von Servern die kunterbunt in aller Welt verteilt sind. 
+Ein VPN Anbieter hat eine Vielzahl von Servern die kunterbunt in aller Welt verteilt sind. 
 Wenn mehrere Personen diesen VPN Anbieter benutzen, kann es vorkommen, dass du die gleiche IP-Adresse mit einer Person teilst. 
 Beim abgleichen der Logs ist sowas recht schnell zu erkennen.
 
@@ -95,7 +95,7 @@ Berechtigte Frage. Schauen wir uns beides mal im Detail an.
  
 Es gibt Applikationen an denen man einstellen kann, ob man einen Proxy verwenden möchte. 
 Man kann auch im Betriebssystem selber einstellen, für welches Protokoll ein Proxy genutzt werden soll.
-Das ist auch schon der erste Punkt der grundlegend anders ist, denn wir reden von einer Applikation oder ein Protokoll. 
+Das ist auch schon der erste Punkt der grundlegend anders ist, denn wir reden von einer Applikation oder einem Protokoll. 
 Wenn wir von einer kompletten Verschlüsselung Gebrauch machen wollen, kommen wir um ein VPN nicht drum herum.
  
 Über VPN wird im besten Fall die ganze Netzwerkkommunikation geleitet und somit **verschlüsselt**. 
@@ -104,11 +104,11 @@ D.h die Teilstrecke ist verschlüsselt, da man ja am Ende einen Inhalt abfragen 
 Der DNS Server muss ja die DNS Anfrage interpretieren können. 
 Der Weg von dir zu deinem VPN Dienstleister ist auch ersichtlich nur sind die Daten von deinem ISP nicht einsehbar.
  
-Wenn sie VPN benutzen, dann gibt meist eine dazugehörige Applikation (auch als Smartphone App des öfteren) vom Dienstleister, 
-um weitere Einstellungen vorzunehmen. Man kann z.B. auswählen, welchen Server man von welcher Nation benutzen möchte, ob man in Intervallen die Server wechselt etc.
+Wenn man VPN benutzt, dann gibt meist eine dazugehörige Applikation (auch als Smartphone App des öfteren) vom Dienstleister, 
+um weitere Einstellungen vorzunehmen. Man kann z.B. auswählen welchen Server man von welcher Nation benutzen möchte, ob man in Intervallen die Server wechselt etc.
 
-VPN ist allerdings auch kein heiliger Gral, da sie nie sicher sein können, ob ein Unternehmen ihren Traffic loggt oder nicht.
-Glauben sie nicht immer was auf deren Seite steht, denn es ist letztendlich ein Unternehmen und ist auf Gewinn aus.
+VPN ist allerdings auch kein heiliger Gral, da du dir nie sicher sein kannst, ob ein Unternehmen deinen Traffic loggt oder nicht.
+Glaube nicht immer was auf deren Seite steht, denn es ist letztendlich ein Unternehmen und ist auf Gewinn aus.
 
 >Denn wie war das nochmal? Daten sind der Rohstoff des 21. Jahrhunderts.
 
@@ -169,6 +169,6 @@ proxyServer.get("/*") { ctx ->
 ```
 
 ## Ende
-Ich hoffe du hast dich nicht gelangweilt und ich konnte mein Versprechen halten. Falls ihr Themenvorschläge habt, gebt uns bitte bescheid.
+Ich hoffe du hast dich nicht gelangweilt und ich konnte mein Versprechen halten. Falls ihr Themenvorschläge habt, gebt uns bitte Bescheid. :-)
 
-Man sieht sich im nächsten Artikel der sich um Dependency Injection handeln wird! :-)
+Man sieht sich im nächsten Artikel der sich um **Dependency Injection** handeln wird!
