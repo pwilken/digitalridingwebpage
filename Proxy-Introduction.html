@@ -178,16 +178,17 @@ Hier mal eine kleine Auflistung</p>
 </ul>
 
 <h3 id="welche-arten-gibt-es">Welche Arten gibt es?</h3>
-<p>Proxies werden oft in Zusammenhang mit dem Web gebracht, da man sie da recht häufig nutzt um Inhalte … 
-Um da nochmal eine bessere Unterscheidung zu machen werde ich von Web-Proxy sprechen, da Proxy ein übergeordneter Begriff ist.</p>
+<p>Proxies werden oft in Zusammenhang mit dem Web gebracht, da man sie da recht häufig nutzt. 
+Um da nochmal eine bessere Unterscheidung zu machen werde ich von Web-Proxy sprechen, 
+wenn es sich um Proxies handelt die mit HTTP zu tun haben, da Proxy ein übergeordneter Begriff ist.</p>
 
 <p>Im folgenden werden die verschiedenen Proxy Typen näher beschrieben</p>
 <h4 id="transparenter-proxy">Transparenter Proxy</h4>
-<p>Transparente Proxies offenbaren, dass die jeweilige Anfrage von ihnen versendet wurde. 
+<p>Transparente Proxies offenbaren, dass die jeweilige Anfrage von dir versendet wurde. 
 Zudem erkennt man die IP-Adresse des Senders. Diese Information findet man im HTTP Header mitunter als <code class="highlighter-rouge">X-Forwarded-For</code>.</p>
 
 <h4 id="anonymer-proxy">Anonymer Proxy</h4>
-<p>Anonyme Proxies offenbaren, dass die jeweilige Anfrage von ihnen versendet wurde. 
+<p>Anonyme Proxies offenbaren, dass die jeweilige Anfrage von dir versendet wurde. 
 Die IP-Adresse des Senders wird allerdings nicht mit angegeben.</p>
 
 <h4 id="elite-proxy">Elite Proxy</h4>
@@ -197,12 +198,12 @@ Die IP-Adresse des Senders wird allerdings nicht mit angegeben.</p>
 <p>Im Vergleich zu den Web-Proxies ist ein SOCKS Proxy Protokollunabhängig und kann somit für weitere Dienste genutzt werden beispielsweise für BitTorrent.</p>
 
 <h4 id="reverse-proxy">Reverse Proxy</h4>
-<p>Durch die Abschottung der Servern ist der Reverse Proxy nur der einzige Eintrittspunkt.
-Die abgeschotteten Server kommunizieren müssen somit nicht im Internet erreichbar sein. 
-Zudem kann man einen Reverse Proxy als Load Balancer benutzen, der die jeweiligen Anfragen auf verschiedenen Servern einer Applikation verteilt.</p>
+<p>Durch die Abschottung der Server ist der Reverse Proxy der einzige Eintrittspunkt.
+Die abgeschotteten Server sind somit nicht Internet erreichbar. 
+Zudem kann man einen Reverse Proxy als Load Balancer nutzen, der die jeweiligen Anfragen auf verschiedenen Servern einer Applikation verteilt.</p>
 
 <h3 id="wie-funktioniert-das-ganze">Wie funktioniert das ganze?</h3>
-<p>Du als Client musst die Ip-Adresse des Web-Proxy Server kennen.
+<p>Du als Client musst die IP-Adresse des Web-Proxy Server kennen.
 Deine Anfragen die du über HTTP stellst, werden dann über den Proxy geleitet.<br />
 Dieser Web-Proxy Server untersucht den HTTP Header und kann dadurch die angefragte Ressource identifizieren.
 Er stellt nun die Anfrage an den entsprechenden Server und liefert dir die Antwort zurück.</p>
@@ -233,7 +234,7 @@ Ich habe jetzt beispielhaft zwei rausgesucht, es gibt aber noch einige mehr.</p>
   <li>https://www.neutrinoapi.com/api/ip-blocklist/</li>
 </ul>
 
-<p>Und noch einige mehr die ich wahrscheinlich vergessen habe…</p>
+<p>Es gibt sicherlich noch einige Kriterien die ich wahrscheinlich vergessen habe…</p>
 
 <h2 id="abgrenzung-zu-vpns">Abgrenzung zu VPNs</h2>
 <p><em>Ein Elite Proxy kostet mich doch nichts. Wieso sollte ich ein VPN Dienst nutzen?</em>
@@ -248,19 +249,21 @@ Wenn wir von einer kompletten Verschlüsselung Gebrauch machen wollen, kommen wi
 Ich habe verschlüsselt fett gedruckt, da man immer bedenken muss, dass Netzwerkpakete immer adressiert sind. 
 D.h die Teilstrecke ist verschlüsselt, da man ja am Ende einen Inhalt abfragen möchten. 
 Der DNS Server muss ja die DNS Anfrage interpretieren können. 
-Der Weg von Ihnen zu ihrem VPN Dienstleister ist auch ersichtlich nur sind die Daten von ihrem ISP nicht einsehbar.</p>
+Der Weg von dir zu deinem VPN Dienstleister ist auch ersichtlich nur sind die Daten von deinem ISP nicht einsehbar.</p>
 
 <p>Wenn sie VPN benutzen, dann gibt meist eine dazugehörige Applikation (auch als Smartphone App des öfteren) vom Dienstleister, 
-um weitere Einstellungen vorzunehmen. Man kann z.B. auswählen, welchen Server man von welcher Nation benutzen möchte, bzw. ob man in Intervallen die Server wechselt etc.</p>
+um weitere Einstellungen vorzunehmen. Man kann z.B. auswählen, welchen Server man von welcher Nation benutzen möchte, ob man in Intervallen die Server wechselt etc.</p>
 
 <p>VPN ist allerdings auch kein heiliger Gral, da sie nie sicher sein können, ob ein Unternehmen ihren Traffic loggt oder nicht.
-Glauben sie nicht immer was auf deren Seite steht, denn es ist letztendlich ein Unternehmen und ist auf Gewinn aus.
-Wie war das nochmal? Daten sind der Rohstoff des 21. Jahrhunderts.
-Das Internet ist Neuland. Hmm, dann sollte Deutschland ziemlich weit hinten legen, was diesen Rohstoff ausgeht.</p>
+Glauben sie nicht immer was auf deren Seite steht, denn es ist letztendlich ein Unternehmen und ist auf Gewinn aus.</p>
+
+<blockquote>
+  <p>Denn wie war das nochmal? Daten sind der Rohstoff des 21. Jahrhunderts.</p>
+</blockquote>
 
 <h3 id="anonymität">Anonymität</h3>
 <p>Das ist ein sehr komplexes Thema, worüber man einige Bücher schreiben könnte.
-Es ist unheimlich schwierig wahre Anonymität zu genießen, denn dafür muss man unheimlich viele Variablen in Betracht ziehen.
+Es ist unheimlich schwierig wahre Anonymität zu erhalten, denn dafür muss man unheimlich viele Variablen in Betracht ziehen.
 Man muss sein Verhalten ändern, entsprechende Programme nutzen und ständig up to date sein. 
 Es kann nämlich ziemlich schnell passieren, dass man etwas preisgibt, was man versucht hat zu verschleiern.
 Beispielsweise gibt es Browser Plugins die deine IP-Adresse leaken können. 
@@ -275,6 +278,7 @@ https://firstpartysimulator.net/</p>
 
 <h2 id="beispiele">Beispiele</h2>
 <p>Ein Bild von einem HTTP Header, der von einem transparenten Proxy gesendet wurde.
+Der Eintrag <code class="highlighter-rouge">X-Forwarded-For</code> offenbart dies.
 <img src="/assets/images/screenshots/proxy/deep-packet-inspection.png" alt="Deep Packet Inspection" /></p>
 
 <p>Die folgenden Codebeispiele sind in der Sprache Kotlin geschrieben und sollen mal kurz demonstrieren,
@@ -312,8 +316,8 @@ wie man einen Proxy erkennt bzw. einen selber implementiert.</p>
 </code></pre></div></div>
 
 <h2 id="ende">Ende</h2>
-<p>Ich hoffe du hast dich nicht gelangweilt und ich konnte mein versprechen halten.<br />
-Falls ihr Themenvorschläge habt, gebt uns bescheid.</p>
+<p>Ich hoffe du hast dich nicht gelangweilt und ich konnte mein Versprechen halten.<br />
+Falls ihr Themenvorschläge habt, gebt uns bitte bescheid.</p>
 
 <p>Man sieht sich im nächsten Artikel der sich um Dependency Injection handeln wird! :-)</p>
 
