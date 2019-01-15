@@ -142,7 +142,11 @@
                     
                 
                     
-                       <a href='/tag/Network'>Network</a>
+                       <a href='/tag/Network'>Network</a>,
+                    
+                
+                    
+                       <a href='/tag/Kotlin'>Kotlin</a>
                     
                 
                 
@@ -207,8 +211,6 @@ Deine Anfragen die du über HTTP stellst, werden dann über den Proxy geleitet.<
 Dieser Web-Proxy Server untersucht den HTTP Header und kann dadurch die angefragte Ressource identifizieren.
 Er stellt nun die Anfrage an den entsprechenden Server und liefert dir die Antwort zurück.</p>
 
-<p><a href="#eine-sehr-triviale-implementierung-eines-transparenten-proxies-fr-das-http-verb-get">Eine sehr triviale Implementierung eines transparenten Proxies für das HTTP Verb GET</a></p>
-
 <h2 id="du-lügst-doch-netflix-erkennt-wenn-ich-einen-elite-proxy-oder-vpn-dienst-benutze11">Du lügst doch. Netflix erkennt wenn ich einen Elite Proxy oder VPN Dienst benutze!!!!11</h2>
 <p>Ok du hast mich erwischt. Es war alles von Anfang an nur eine Lüge!</p>
 
@@ -229,8 +231,8 @@ Es gibt sogar recht viele entsprechende APIs dafür.
 Ich will natürlich keine Werbung machen, allerdings will ich meine Aussage nicht so stehen lassen. 
 Ich habe jetzt beispielhaft zwei rausgesucht, es gibt aber noch einige mehr.</p>
 <ul>
-  <li>https://iphub.info/</li>
-  <li>https://www.neutrinoapi.com/api/ip-blocklist/</li>
+  <li><a href="https://iphub.info/">https://iphub.info/</a></li>
+  <li><a href="https://www.neutrinoapi.com/api/ip-blocklist/">https://www.neutrinoapi.com/api/ip-blocklist/</a></li>
 </ul>
 
 <p>Es gibt sicherlich noch einige Kriterien die ich wahrscheinlich vergessen habe…</p>
@@ -271,7 +273,7 @@ Zudem gibt es weitere Protokolle wie WebRTC, welches auch mal eben die IP-Adress
 
 <p>Nahezu jeder Benutzer kann schon alleine anhand eines einzigartigen Fingerabdrucks des Browsers ermittelt werden. 
 Hier teste mal selbst 
-https://firstpartysimulator.net/</p>
+<a href="https://firstpartysimulator.net">https://firstpartysimulator.net</a></p>
 
 <p>Falls weiteres Interesse an dem Thema besteht, würde ich einen Artikel dazu schreiben der sich nur dem Thema widmet.</p>
 
@@ -281,7 +283,7 @@ Der Eintrag <code class="highlighter-rouge">X-Forwarded-For</code> offenbart die
 <img src="/assets/images/screenshots/proxy/deep-packet-inspection.png" alt="Deep Packet Inspection" /></p>
 
 <p>Die folgenden Codebeispiele sind in der Sprache Kotlin geschrieben und sollen mal kurz demonstrieren,
-wie man einen Proxy erkennt bzw. einen selber implementiert.</p>
+wie man einen Proxy erkennt bzw. einen selber implementiert. Dependencies die ich benutzt habe sind: <code class="highlighter-rouge">Javalin</code> und <code class="highlighter-rouge">khttp</code></p>
 
 <h3 id="auslesen-der-nutzer-ip-bei-einem-transparenten-proxy">Auslesen der Nutzer IP bei einem transparenten Proxy</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fun extractIp(request: HttpServletRequest): String {
@@ -302,8 +304,6 @@ wie man einen Proxy erkennt bzw. einen selber implementiert.</p>
 </code></pre></div></div>
 
 <h3 id="eine-sehr-triviale-implementierung-eines-transparenten-proxies-für-das-http-verb-get">Eine sehr triviale Implementierung eines transparenten Proxies für das HTTP Verb GET</h3>
-
-<p>Benutzte Dependencies: <code class="highlighter-rouge">Javalin</code> und <code class="highlighter-rouge">khttp</code></p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>proxyServer.get("/*") { ctx -&gt;
     val request = ctx.req
     val queryString = if (request.queryString.isNullOrEmpty()) "" else "?${request.queryString}"
@@ -315,8 +315,7 @@ wie man einen Proxy erkennt bzw. einen selber implementiert.</p>
 </code></pre></div></div>
 
 <h2 id="ende">Ende</h2>
-<p>Ich hoffe du hast dich nicht gelangweilt und ich konnte mein Versprechen halten.<br />
-Falls ihr Themenvorschläge habt, gebt uns bitte bescheid.</p>
+<p>Ich hoffe du hast dich nicht gelangweilt und ich konnte mein Versprechen halten. Falls ihr Themenvorschläge habt, gebt uns bitte bescheid.</p>
 
 <p>Man sieht sich im nächsten Artikel der sich um Dependency Injection handeln wird! :-)</p>
 
