@@ -4,7 +4,7 @@ title: Ein täuschender Stellvertreter namens John Proxy
 lang: de
 description: Eine Einführung zu Proxies 
 cover: assets/images/fingerprint.jpg
-tags: [Proxy, Security, Network]
+tags: [Proxy, Security, Network, Kotlin]
 author: Valentino B.
 categories: Valentino B.
 subclass: 'post tag-fiction'
@@ -65,8 +65,6 @@ Deine Anfragen die du über HTTP stellst, werden dann über den Proxy geleitet.
 Dieser Web-Proxy Server untersucht den HTTP Header und kann dadurch die angefragte Ressource identifizieren.
 Er stellt nun die Anfrage an den entsprechenden Server und liefert dir die Antwort zurück.
 
-[Eine sehr triviale Implementierung eines transparenten Proxies für das HTTP Verb GET](#eine-sehr-triviale-implementierung-eines-transparenten-proxies-fr-das-http-verb-get)
-
 ## Du lügst doch. Netflix erkennt wenn ich einen Elite Proxy oder VPN Dienst benutze!!!!11
 Ok du hast mich erwischt. Es war alles von Anfang an nur eine Lüge!
 
@@ -86,8 +84,8 @@ D.h man könnte wahrscheinlich einen großen Teil anhand einer Blacklist identif
 Es gibt sogar recht viele entsprechende APIs dafür.
 Ich will natürlich keine Werbung machen, allerdings will ich meine Aussage nicht so stehen lassen. 
 Ich habe jetzt beispielhaft zwei rausgesucht, es gibt aber noch einige mehr.
-* https://iphub.info/
-* https://www.neutrinoapi.com/api/ip-blocklist/
+* [https://iphub.info/](https://iphub.info/)
+* [https://www.neutrinoapi.com/api/ip-blocklist/](https://www.neutrinoapi.com/api/ip-blocklist/)
 
 Es gibt sicherlich noch einige Kriterien die ich wahrscheinlich vergessen habe...
 
@@ -125,7 +123,7 @@ Zudem gibt es weitere Protokolle wie WebRTC, welches auch mal eben die IP-Adress
 
 Nahezu jeder Benutzer kann schon alleine anhand eines einzigartigen Fingerabdrucks des Browsers ermittelt werden. 
 Hier teste mal selbst 
-https://firstpartysimulator.net/
+[https://firstpartysimulator.net](https://firstpartysimulator.net)
 
 Falls weiteres Interesse an dem Thema besteht, würde ich einen Artikel dazu schreiben der sich nur dem Thema widmet.
 
@@ -135,7 +133,7 @@ Der Eintrag ``X-Forwarded-For`` offenbart dies.
 ![Deep Packet Inspection](/assets/images/screenshots/proxy/deep-packet-inspection.png) 
 
 Die folgenden Codebeispiele sind in der Sprache Kotlin geschrieben und sollen mal kurz demonstrieren,
-wie man einen Proxy erkennt bzw. einen selber implementiert.
+wie man einen Proxy erkennt bzw. einen selber implementiert. Dependencies die ich benutzt habe sind: ``Javalin`` und ``khttp``
 
 ### Auslesen der Nutzer IP bei einem transparenten Proxy
 ```
@@ -158,8 +156,6 @@ fun usingProxy(request: HttpServletRequest): Boolean {
 ```
 
 ### Eine sehr triviale Implementierung eines transparenten Proxies für das HTTP Verb GET
-
-Benutzte Dependencies: ``Javalin`` und ``khttp``
 ```
 proxyServer.get("/*") { ctx ->
     val request = ctx.req
@@ -172,7 +168,6 @@ proxyServer.get("/*") { ctx ->
 ```
 
 ## Ende
-Ich hoffe du hast dich nicht gelangweilt und ich konnte mein Versprechen halten.  
-Falls ihr Themenvorschläge habt, gebt uns bitte bescheid.
+Ich hoffe du hast dich nicht gelangweilt und ich konnte mein Versprechen halten. Falls ihr Themenvorschläge habt, gebt uns bitte bescheid.
 
 Man sieht sich im nächsten Artikel der sich um Dependency Injection handeln wird! :-)
