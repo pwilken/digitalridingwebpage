@@ -36,16 +36,17 @@ Hier mal eine kleine Auflistung
 * Abschottung mehrere Server durch einen Reverse Proxy
 
 ### Welche Arten gibt es?
-Proxies werden oft in Zusammenhang mit dem Web gebracht, da man sie da recht häufig nutzt um Inhalte ... 
-Um da nochmal eine bessere Unterscheidung zu machen werde ich von Web-Proxy sprechen, da Proxy ein übergeordneter Begriff ist.
+Proxies werden oft in Zusammenhang mit dem Web gebracht, da man sie da recht häufig nutzt. 
+Um da nochmal eine bessere Unterscheidung zu machen werde ich von Web-Proxy sprechen, 
+wenn es sich um Proxies handelt die mit HTTP zu tun haben, da Proxy ein übergeordneter Begriff ist.
 
 Im folgenden werden die verschiedenen Proxy Typen näher beschrieben
 #### Transparenter Proxy
-Transparente Proxies offenbaren, dass die jeweilige Anfrage von ihnen versendet wurde. 
+Transparente Proxies offenbaren, dass die jeweilige Anfrage von dir versendet wurde. 
 Zudem erkennt man die IP-Adresse des Senders. Diese Information findet man im HTTP Header mitunter als ``X-Forwarded-For``.
 
 #### Anonymer Proxy
-Anonyme Proxies offenbaren, dass die jeweilige Anfrage von ihnen versendet wurde. 
+Anonyme Proxies offenbaren, dass die jeweilige Anfrage von dir versendet wurde. 
 Die IP-Adresse des Senders wird allerdings nicht mit angegeben.
 
 #### Elite Proxy
@@ -55,12 +56,12 @@ Die Königsklasse sind die Elite Proxies denn diese kann man nicht erkennen.
 Im Vergleich zu den Web-Proxies ist ein SOCKS Proxy Protokollunabhängig und kann somit für weitere Dienste genutzt werden beispielsweise für BitTorrent.
 
 #### Reverse Proxy
-Durch die Abschottung der Servern ist der Reverse Proxy nur der einzige Eintrittspunkt.
-Die abgeschotteten Server kommunizieren müssen somit nicht im Internet erreichbar sein. 
-Zudem kann man einen Reverse Proxy als Load Balancer benutzen, der die jeweiligen Anfragen auf verschiedenen Servern einer Applikation verteilt.
+Durch die Abschottung der Server ist der Reverse Proxy der einzige Eintrittspunkt.
+Die abgeschotteten Server sind somit nicht Internet erreichbar. 
+Zudem kann man einen Reverse Proxy als Load Balancer nutzen, der die jeweiligen Anfragen auf verschiedenen Servern einer Applikation verteilt.
 
 ### Wie funktioniert das ganze?
-Du als Client musst die Ip-Adresse des Web-Proxy Server kennen.
+Du als Client musst die IP-Adresse des Web-Proxy Server kennen.
 Deine Anfragen die du über HTTP stellst, werden dann über den Proxy geleitet.  
 Dieser Web-Proxy Server untersucht den HTTP Header und kann dadurch die angefragte Ressource identifizieren.
 Er stellt nun die Anfrage an den entsprechenden Server und liefert dir die Antwort zurück.
@@ -89,7 +90,7 @@ Ich habe jetzt beispielhaft zwei rausgesucht, es gibt aber noch einige mehr.
 * https://iphub.info/
 * https://www.neutrinoapi.com/api/ip-blocklist/
 
-Und noch einige mehr die ich wahrscheinlich vergessen habe...
+Es gibt sicherlich noch einige Kriterien die ich wahrscheinlich vergessen habe...
 
 ## Abgrenzung zu VPNs
 *Ein Elite Proxy kostet mich doch nichts. Wieso sollte ich ein VPN Dienst nutzen?*
@@ -104,19 +105,19 @@ Wenn wir von einer kompletten Verschlüsselung Gebrauch machen wollen, kommen wi
 Ich habe verschlüsselt fett gedruckt, da man immer bedenken muss, dass Netzwerkpakete immer adressiert sind. 
 D.h die Teilstrecke ist verschlüsselt, da man ja am Ende einen Inhalt abfragen möchten. 
 Der DNS Server muss ja die DNS Anfrage interpretieren können. 
-Der Weg von Ihnen zu ihrem VPN Dienstleister ist auch ersichtlich nur sind die Daten von ihrem ISP nicht einsehbar.
+Der Weg von dir zu deinem VPN Dienstleister ist auch ersichtlich nur sind die Daten von deinem ISP nicht einsehbar.
  
 Wenn sie VPN benutzen, dann gibt meist eine dazugehörige Applikation (auch als Smartphone App des öfteren) vom Dienstleister, 
-um weitere Einstellungen vorzunehmen. Man kann z.B. auswählen, welchen Server man von welcher Nation benutzen möchte, bzw. ob man in Intervallen die Server wechselt etc.
+um weitere Einstellungen vorzunehmen. Man kann z.B. auswählen, welchen Server man von welcher Nation benutzen möchte, ob man in Intervallen die Server wechselt etc.
 
 VPN ist allerdings auch kein heiliger Gral, da sie nie sicher sein können, ob ein Unternehmen ihren Traffic loggt oder nicht.
 Glauben sie nicht immer was auf deren Seite steht, denn es ist letztendlich ein Unternehmen und ist auf Gewinn aus.
-Wie war das nochmal? Daten sind der Rohstoff des 21. Jahrhunderts.
-Das Internet ist Neuland. Hmm, dann sollte Deutschland ziemlich weit hinten legen, was diesen Rohstoff ausgeht.
+
+>Denn wie war das nochmal? Daten sind der Rohstoff des 21. Jahrhunderts.
 
 ### Anonymität
 Das ist ein sehr komplexes Thema, worüber man einige Bücher schreiben könnte.
-Es ist unheimlich schwierig wahre Anonymität zu genießen, denn dafür muss man unheimlich viele Variablen in Betracht ziehen.
+Es ist unheimlich schwierig wahre Anonymität zu erhalten, denn dafür muss man unheimlich viele Variablen in Betracht ziehen.
 Man muss sein Verhalten ändern, entsprechende Programme nutzen und ständig up to date sein. 
 Es kann nämlich ziemlich schnell passieren, dass man etwas preisgibt, was man versucht hat zu verschleiern.
 Beispielsweise gibt es Browser Plugins die deine IP-Adresse leaken können. 
@@ -131,6 +132,7 @@ Falls weiteres Interesse an dem Thema besteht, würde ich einen Artikel dazu sch
 
 ## Beispiele
 Ein Bild von einem HTTP Header, der von einem transparenten Proxy gesendet wurde.
+Der Eintrag ``X-Forwarded-For`` offenbart dies.
 ![Deep Packet Inspection](/assets/images/screenshots/proxy/deep-packet-inspection.png) 
 
 Die folgenden Codebeispiele sind in der Sprache Kotlin geschrieben und sollen mal kurz demonstrieren,
@@ -171,7 +173,7 @@ proxyServer.get("/*") { ctx ->
 ```
 
 ## Ende
-Ich hoffe du hast dich nicht gelangweilt und ich konnte mein versprechen halten.  
-Falls ihr Themenvorschläge habt, gebt uns bescheid.
+Ich hoffe du hast dich nicht gelangweilt und ich konnte mein Versprechen halten.  
+Falls ihr Themenvorschläge habt, gebt uns bitte bescheid.
 
 Man sieht sich im nächsten Artikel der sich um Dependency Injection handeln wird! :-)
