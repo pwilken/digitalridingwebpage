@@ -49,7 +49,7 @@ Anonyme Proxies offenbaren, dass die jeweilige Anfrage von dir versendet wurde.
 Die IP-Adresse des Senders wird allerdings nicht mit angegeben.
 
 #### Elite Proxy
-Die Königsklasse sind die Elite Proxies, denn diese kann man nicht erkennen.
+Die Königsklasse sind die Elite Proxies, denn diese geben keine Information Preis.
 
 #### SOCKS (SOCKetS) Proxy
 Im Vergleich zu den Web-Proxies ist ein SOCKS Proxy Protokollunabhängig und kann somit für weitere Dienste genutzt werden, beispielsweise für BitTorrent.
@@ -86,6 +86,8 @@ Ich will natürlich keine Werbung machen, allerdings will ich meine Aussage nich
 Ich habe jetzt beispielhaft zwei rausgesucht, es gibt aber noch einige mehr.
 * [https://iphub.info/](https://iphub.info/)
 * [https://www.neutrinoapi.com/api/ip-blocklist/](https://www.neutrinoapi.com/api/ip-blocklist/)
+
+### Active Proxy checking
 
 Es gibt sicherlich noch einige Kriterien die ich wahrscheinlich vergessen habe...
 

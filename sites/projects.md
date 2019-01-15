@@ -8,7 +8,7 @@ current: projects
 
 
 <div style="display:inline-block; width:45px; height:45px;">
-    <img src="assets/images/oso-icon.png" alt="Logo OSO-System" height="42" width="42"/>
+    <img src="/assets/images/oso-icon.png" alt="Logo OSO-System" height="42" width="42"/>
 </div>
 <div style="display:inline-block; width:15em; height:45px;">
     <h2>OSO-System</h2>
