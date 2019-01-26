@@ -8,6 +8,26 @@
     
       
       <item>
+        <title>Dependency Injection</title>
+        
+          <description>&lt;p&gt;In der Welt der Software Architektur sind mit der Zeit einige Muster (engl. Patterns) entstanden,
+womit man komplexe Probleme meistens auf die gleiche Art und Weise lösen kann.
+Vielleicht sind dir einige dieser Patterns bereits bekannt, weil du davon gelesen oder sie angewendet hast.
+Heute geht es um das sagenumwobene Design Pattern Dependency Injection (DI) zu deutsch  «Abhängigkeiten injizieren».
+Was es nun genau mit DI auf sich hat, lieber Leser, das werde ich dir in diesem Artikel näher bringen. 
+Nun ab ans Eingemachte!&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 26 Jan 2019 00:00:00 +0000</pubDate>
+        <link>
+        https://digitalriding.de/Dependency-Injection</link>
+        <guid isPermaLink="true">https://digitalriding.de/Dependency-Injection</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Ein täuschender Stellvertreter namens John Proxy</title>
         
           <description>&lt;p&gt;Lieber Leser, ich weiß dass die Überschrift auf eine spannende Geschichte hindeutet, 
