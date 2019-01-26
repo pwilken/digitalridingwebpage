@@ -45,6 +45,11 @@
                 {% endfor %}
             {% endif %}
             <time class="post-date" datetime="{{ post.date | date:'%Y-%m-%d' }}">{{ post.date | date_to_string }}</time>
+            <div class="post-optional-information" style="position:relative;">
+                {% if post.level %}
+                    {% include degree-element.html level=post.level animated=true type="post-list" %}
+                {% endif %}
+            </div>
         </footer>
     </article>
     {% endfor %}

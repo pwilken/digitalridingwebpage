@@ -9,6 +9,7 @@ author: sgoerzen
 categories: sgoerzen
 subclass: 'post tag-fiction'
 navigation: true
+level: 0
 ---
 Mit diesem Artikel beginne ich meine Blogserie zur Spieleprogrammierung.
 Dabei wird der Fokus auf verschiedene Techniken in Programmierung oder Computergrafik gelegt: vom einfachen Dreieck bis über zu effizienten Algorithmen oder Shader.

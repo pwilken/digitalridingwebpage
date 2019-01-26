@@ -1,0 +1,29 @@
+{% assign level = include.level %}
+{% assign classes = {{include.type}} %}
+
+{% if include.animated %}
+    {% assign levelVal = 0 %}
+{% else %}
+    {% assign levelVal = include.level %}
+{% endif %}
+<div class="degree-element-wrapper {{classes}}">
+    <div class="degree-element" data-level="{{levelVal}}" data-level-ani="{{level}}">
+        <!-- x/6 * 471 -->
+        <svg class="meter">
+            <circle r="150" cx="50%" cy="50%" stroke="#EE5E2C" stroke-width="60" stroke-dasharray="471, 943" fill="none">
+            </circle>
+            <circle r="150" cx="50%" cy="50%" stroke="#F18D35" stroke-width="60" stroke-dasharray="392.5, 943" fill="none">
+            </circle>
+            <circle r="150" cx="50%" cy="50%" stroke="#F6B944" stroke-width="60" stroke-dasharray="314, 943" fill="none">
+            </circle>
+            <circle r="150" cx="50%" cy="50%" stroke="#E2DF46" stroke-width="60" stroke-dasharray="235.5, 943" fill="none">
+            </circle>
+            <circle r="150" cx="50%" cy="50%" stroke="#B0C93A" stroke-width="60" stroke-dasharray="157, 943" fill="none">
+            </circle>
+            <circle r="150" cx="50%" cy="50%" stroke="#81a82f" stroke-width="60" stroke-dasharray="78.5, 943" fill="none">
+            </circle>
+        </svg>
+        <div class="pointer"></div>
+    </div>
+    <div class="meter-name">Difficulty</div>
+</div>

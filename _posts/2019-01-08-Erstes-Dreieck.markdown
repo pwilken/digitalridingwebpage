@@ -9,6 +9,7 @@ author: sgoerzen
 categories: sgoerzen
 subclass: 'post tag-fiction'
 navigation: true
+level: 1
 ---
 Bei 3D Spielen bewegen wir uns in einem Koordinaten System mit 3-Achsen: X, Y und Z. So gesehen haben 2D Spiele auf der Z Komponente immer den Wert 0. MonoGame bzw. Xna stellt uns Klassen zur Verfügung, um mit 2D oder 3D Koordinaten zu arbeiten: Vector2 und Vector3.
 
