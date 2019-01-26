@@ -110,7 +110,7 @@
     -webkit-transform: scale(.2);
     transform: scale(.3);
     position: absolute;
-    top: 5px;
+    top: -86px;
     left: calc(50% - 219px);
 }
 .degree-element-wrapper.post-list {
@@ -132,7 +132,7 @@
     }
 
     .degree-element-wrapper.post-details{
-        top: -8px;
+        top: -94px;
         left: calc(50% - 211px);
         margin: 5px 0;
     }
