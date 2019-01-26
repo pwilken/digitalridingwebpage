@@ -132,7 +132,8 @@
     }
 
     .degree-element-wrapper.post-details{
-        top: -24px;
+        top: -8px;
         left: calc(50% - 211px);
+        margin: 5px 0;
     }
 }
