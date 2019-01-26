@@ -48,7 +48,7 @@ D.h man muss eine Art Vertrag einhalten.
 
 ---
 
-Code technisch kann man es so darstellen
+Code technisch kann man es so darstellen:
  
 Deklaration von Interfaces
 ```
@@ -72,8 +72,8 @@ mit DI
 class ATXFormat constructor(val powerSupply: PowerSupply) : Mainboard
 ```
 
-Das Mainboard hat eine Abhangigkeit zum Netzteil. 
-Das kann man so Ausdrücken ``Mainboard -> PowerSupply``
+Das Mainboard hat eine Abhängigkeit zum Netzteil. 
+Das kann man so ausdrücken ``Mainboard -> PowerSupply``
 
 # Vorteile
 Ja die gibt es in der Tat. Wenn du dir das obige Beispiel nochmal anschaust, 
@@ -92,15 +92,14 @@ Das ist auch nachvollziehbar, wenn man noch nicht an etwas größeren Projekten 
 Fakt ist aber das Software ab einer gewissen Größe unheimlich komplex wird, sowohl technisch als auch in der Domäne.
 Es treten dann Probleme auf, wofür schlaue Köpfe längst eine Musterlösung parat haben.
 Diese Musterlösungen wurden festgehalten und als Buch veröffentlicht. 
-Für alle die es interessiert es ist das Buch "Design Patterns. Elements of Reusable Object-Oriented Software".
+Für alle die es interessiert, es ist das Buch "Design Patterns. Elements of Reusable Object-Oriented Software".
 
-Sry für den kleinen Abschweif. Das soll kein Aufsatz über Design Patterns an sich werden.
+Sry für den kleinen Abschweif. Das soll kein Aufsatz über Design Patterns werden.
 
-Nun zurück zum wesentlichen. Wenn du ein kleines Programm schreibst, dann werden die Vorteile nicht ersichtlich sein.
-Ein Objekt was du konstruiert hat entweder primitive Typen oder ein bis zwei weitere Objekte als Parameter.
+Nun zurück zum Wesentlichen. Wenn du ein kleines Programm schreibst, dann werden die Vorteile nicht ersichtlich sein.
 Bevor man dann ins Overengineering (Aufwand ist höher als der Nutzen) kommt, kann man es auch so lassen.
-Wenn du aber weißt dass in Zukunft noch einiges dran gemacht wird und das Programm wachsen wird, 
-dann kann man vorsorgen und DI kann seine stärken ausspielen.
+Wenn du aber weißt, dass in Zukunft noch einiges dran gemacht wird und das Programm wachsen wird, 
+dann kann man vorsorgen und DI kann seine Stärken ausspielen.
 
 # Arten
 Es gibt verschiedene Arten dieses Pattern umzusetzen.
@@ -116,7 +115,7 @@ Bekannt in der Java Welt durch Annotationen.
 Jap. Es ist nunmal so. Ich erkläre dir auch wieso.
 
 Konstruktoren sind aus einem gewissen Grund dar. Nachdem du ein Objekt instanziiert hast, sollte es in einem konsistenten Zustand sein.
-Mit Setter Methoden kann man das nicht erreichen. Man kann z.B. NullPointerExceptions bekommen, 
+Mit Setter Methoden kann man das nicht erreichen. Man kann z.B. eine ``NullPointerException`` bekommen, 
 wenn man eine Methode aufruft, die eine Property benutzt, die noch nicht gesetzt wurde.
 >Du kannst natürlich Setter Methoden anbieten, wenn du zur Laufzeit irgendwas ändern möchtest.
 
@@ -132,27 +131,31 @@ Wenn man das ganze betrachtet bleibt nur noch Constructor Injection übrig.
 Dependencies müssen untereinander verdrahtet werden.
 Dabei können unterschiedliche Strukturen entstehen die einen Graphen repräsentieren (Dependency Graph). 
  
-Dependencies unter Objekten verlaufen selten linear, so wie in dem Beispiel ``A -> B -> C``.
+Dependencies unter Objekten verlaufen selten linear.
+```
+A -> B -> C
+```
  
-Oft ist es so, dass regelrechte Bäume entstehen
+Oft ist es so, dass regelrechte Bäume entstehen.
 ```
      B -> C
  A ->         F
      D -> E ->
               G
 ```
-Das war jetzt nur ein simples Beispiel. In der Praxis ist sowas Standard. 
+Das war jetzt nur ein simples Beispiel. 
+In der Praxis ist sowas Standard. 
 
 Mit dem Mantra im Sinn, das Klassen nicht allzu groß werden dürfen und somit alles aufgesplittet wird,
 können regelrechte Abhängigkeits Explosionen entstehen.
-Diese Strukturen von Hand zu Verdrahten ist nicht ohne.
-Und zugegebenermassen, wir Informatiker sind faul. 
+Diese Strukturen von Hand zu verdrahten ist nicht ohne.
+Und zugegebenermaßen, wir Informatiker sind faul. 
 Da wir uns das Leben einfacher machen wollen, 
 gibt es auch bereits eine Lösung dafür und zwar Inversion of Control Container.
 
 # DI != IoC
 Inversion of Control (IoC) zu Deutsch «Umkehrung der Steuerung» lässt den Benutzer in den Vordergrund treten.
-Nehmen wir mal eine Konsolenprogramm welches deine Eingabe erfordert.
+Nehmen wir mal ein Konsolenprogramm welches deine Eingabe erfordert.
 Das Programm steuert den Fluss deiner Interaktion. 
 Zu keinem Zeitpunkt kannst du deine Adresse angeben, wenn dein Name gefordert wird.
 In einer GUI sieht es anders aus, da du jedes Feld in beliebiger Reihenfolge füllen kannst. 
@@ -160,8 +163,8 @@ Da liegt die Macht in deiner Hand.
 
 Betrachten wir das ganze eine Ebene tiefer. 
 Nehmen wir mal Callbacks als Beispiel.
-Wenn ein Event innerhalb deiner Applikation veroeffentlich wird oder wenn jemand auf einem Button in einer UI klickt. 
-Du als Client kannst selber bestimmen, was passieren soll, nachdem diese Aktion eingetreten ist.
+Wenn ein Event innerhalb deiner Applikation veröffentlicht wird oder wenn jemand auf einem Button in einer UI klickt. 
+Du als Client kannst selber bestimmen was passieren soll, nachdem diese Aktion eingetreten ist.
 
 DI ist nichts anderes als eine Form von IoC. 
 Der Client hat hier die Verantwortung die Dependencies zu verdrahten und ist recht flexibel damit, 
@@ -173,21 +176,21 @@ Es gibt Libraries und Frameworks in gängigen Programmiersprachen, die solche Io
 Nehmen wir mal Java als Beispiel, da ist das Spring Framework die erste Anlaufstelle.
  
 Die wesentliche Aufgaben eines IoC Containers sind
-* Konstruierung des Dependency Graphs
+* Konstruktion des Dependency Graphs
 * Life Cycle Management von Objekten (Man kann sich als Client in verschiedene Zyklen eines Objekts einhaken z.B. nachdem es konstruiert wurde)
 * Injizierung von Konfigurations Werten
 
 ## Let's program an IoC Container
-Da wir nun über die ganze Theorie bescheid wissen, wird’s jetzt richtig spannend.
+Da wir nun über die ganze Theorie Bescheid wissen, wird’s jetzt richtig spannend.
 
 Ich habe einen simplen IoC Container in Kotlin programmiert.
 Das Beispiel ist etwas länger geworden und somit habe ich ein Repository auf GitHub angelegt.
-Ich habe es da auch ausgiebig beschrieben und kommentiert, allerdings in Englisch.
+Ich habe es da auch ausgiebig beschrieben und kommentiert, allerdings auf Englisch.
 
-https://github.com/Valefant/Addict
+[https://github.com/Valefant/Addict](https://github.com/Valefant/Addict)
 
 # Ende
 Ich hoffe du konntest einiges aus diesem Artikel mitnehmen.
-Falls ihr weitere Vorschläge habt welche Themen wir als nächste behandeln sollen, gebt uns bitte Bescheid. :-)
+Falls ihr weitere Vorschläge habt welche Themen wir als nächstes behandeln sollen, gebt uns bitte Bescheid. :-)
  
 Mach dich jedenfalls auf den nächsten Artikel gefasst, denn da nehmen wir WebSockets näher unter die Lupe.
