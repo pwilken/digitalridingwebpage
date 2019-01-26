@@ -104,7 +104,15 @@
     transform:rotate(75deg);
 }
 
-
+.degree-element-wrapper.post-details {
+    -o-transform: scale(.2);
+    -moz-transform: scale(.2);
+    -webkit-transform: scale(.2);
+    transform: scale(.3);
+    position: absolute;
+    top: 5px;
+    left: calc(50% - 219px);
+}
 .degree-element-wrapper.post-list {
     -o-transform:scale(.2);
     -moz-transform:scale(.2);
@@ -121,5 +129,10 @@
     /* TODO LATER */
     .degree-element-wrapper.post-list {
         display:none;
+    }
+
+    .degree-element-wrapper.post-details{
+        top: -24px;
+        left: calc(50% - 211px);
     }
 }

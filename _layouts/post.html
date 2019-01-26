@@ -46,6 +46,12 @@ class: 'post-template'
                     {% endif %}
                 {% endfor %}
                 {% endif %}
+
+                {% if page.level %}
+                <div class="post-optional-information">
+                    {% include degree-element.html level=page.level animated=true type="post-details" %}
+                </div>
+                {% endif %}
             </section>
         </header>
 
@@ -137,3 +143,9 @@ class: 'post-template'
 </aside>
 
 <!-- /post -->
+
+<style type="text/css">
+    .post-optional-information {
+        margin: 6em;
+    }
+</style>

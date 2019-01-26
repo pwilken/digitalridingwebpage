@@ -10,6 +10,7 @@ categories: sgoerzen
 subclass: 'post tag-fiction'
 navigation: true
 comments: true
+level: 1
 ---
 
 In diesem Artikel lernst du was Sprites sind und wie man sie in MonoGame sinnvoll einbindet.
