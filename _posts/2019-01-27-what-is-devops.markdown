@@ -18,7 +18,7 @@ Leider entspricht die tatsächlich auf die Straße gebrachte Leistung jedoch ehe
 
 Der Übeltäter ist leicht überführt, die Handbremse ist noch angezogen...
 
-Wodrauf möchte ich genau hinnaus, was hat das mit DevOps zutun? 
+Worauf möchte ich genau hinnaus, was hat das mit DevOps zutun? 
 
 Der Einsatz von <b>DevOps Denkweisen, Praktiken und Tools</b>, kann ein Lösen von solchen Handbremsen bewirken.
 
@@ -32,30 +32,30 @@ Mit dem Sicherheitsaspekt beschäftigen wir uns in einem späteren Artikel ausf�
 **Frage**: Was ist das Ziel von DevOps?
 
 Das Ziel von DevOps ist es, ein möglichst zeiteffektives entwickeln und verbessern von Produkten zu erzielen. 
-Zum einen zur besseren Bedienung der Kunden sowie Durchsetzung auf dem Markt und zum anderen zur Erleichterung des Arbeitsalltags der Entwicklungs- und Operations-Teams.
+Zum einen zur besseren Bedienung der Kunden, sowie Durchsetzung auf dem Markt. Zum anderen zur Erleichterung des Arbeitsalltags der Entwicklungs- und Operations-Teams.
 
 <a title="Rajiv.Pant [CC BY 3.0 (https://creativecommons.org/licenses/by/3.0)], from Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Devops.png"><img width="512" alt="Devops" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Devops.png"></a>
 
-Die Grafik veranschaulicht relativ gut den Schnitt den DevOps bewerkstelligt. Wie Stark der Schnitt zwischen den einzelnen Bereichen ist, ist von der individuellen Situation abhängig.
+Die Grafik veranschaulicht relativ gut den Schnitt den DevOps bewerkstelligt. Wie Stark der Schnitt zwischen den einzelnen Bereichen ist, hängt von der individuellen Situation ab.
 
 ## Wie funktioniert DevOps?
 Es gibt verschiedenste Möglichkeiten DevOps anzuwenden, die Basis ist jedoch die Selbe.
 
-Durch die endisolierung der Entwicklungs- und Operations-Teams wird neben der Schließung von Fach- und Kommunikationslücken ein agileres Vorgehen ermöglicht. Dieses Vorgehen kombiniert mit einer möglichst hohen Automatisierung von bisher manuellen Prozessen ermöglicht eine effektivere und autonomere Vorgehensweise.
+Durch die Endisolierung der Entwicklungs- und Operations-Teams wird neben der Schließung von Fach- und Kommunikationslücken ein agileres Vorgehen ermöglicht. Dieses Vorgehen kombiniert mit einer möglichst hohen Automatisierung von bisher manuellen Prozessen ermöglicht eine effektivere und autonomere Vorgehensweise.
 
 **Frage**: Wie könnte das beispielsweise aussehen?
 
-Wenn beispielsweise per Knopfdruck oder per Commit in einen Branch, eine realitätsnahe Testumgebung des ausgeführten Quellcodes auf den Unternehmensserven bereitgestellt wird,
+Wenn per Knopfdruck oder per Commit in einen Branch, eine realitätsnahe Testumgebung des ausgeführten Quellcodes auf den Unternehmensserven bereitgestellt wird,
 dann ermöglicht dies ein effektiveres und zufriedenstellenderes Arbeiten für die Entwickler als die klassische Vorgehensweise.
 
 Integrieren wir jetzt in diesen Ablauf automatisierte Tests, dann erhalten wir bereits vor den abschließenden manuellen Tests aussagekräftige Feedbacks. 
 
-Das Ganze nennt sich in der Form Continuous Deployment kurz. CD und kann noch weiter aufgeführt werden, ein paar weitere Stichwörter hierzu sind: Skalierbar, Container, Quality Gates bzw. Continuous Inspection, Staging-Area, Deployment Strategien.
+Das Ganze nennt sich in der Form Continuous Deployment kurz. CD und kann noch weiter aufgeführt werden. Ein paar weitere Stichwörter hierzu sind: Skalierbar, Container, Quality Gates bzw. Continuous Inspection, Staging-Area, Deployment Strategien.
 
 **Grafik**: Darstellung eines Continuous Deployment Ablaufs
 <a title="Jouasse [CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)], from Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:DevOps_from_Integration_to_Deployment.jpg"><img width="710" alt="DevOps from Integration to Deployment" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/DevOps_from_Integration_to_Deployment.jpg/1024px-DevOps_from_Integration_to_Deployment.jpg"></a>
 
-**Frage**: In jedem Team zwingend Dev & Ops?
+**Frage**: Ist in jedem Team Dev & Ops erforderlich?
 
 Es ist nicht zwingend erforderlich das jedes Team den Schnitt zwischen Entwicklung & Operations abbildet, gerade in kleineren Teams oder monolithischen Software-Architekturen kann dies uneffektiv bis nicht möglich sein. 
 
@@ -64,16 +64,17 @@ Hier bietet sich eventuell ein Team übergreifender DevOps-Part als die beste M�
 ## Kann und sollte DevOps überall eingeführt werden?
 Ganz klar, nein.
 
-Zum einen eignet sich nicht jede Unternehmensstruktur sowie nicht alle Technologien für den Einsatz von DevOps herangehensweisen und zum anderen erfordert der Einsatz von entsprechenden Denkweisen, Methodiken und Werkzeugen in der Einführung ausreichend Ressourcen. Auf lange Sicht werden jedoch wenn gut angewendet Ressourcen eingespart.
+Zum einen eignet sich nicht jede Unternehmensstruktur, sowie nicht alle Technologien für den Einsatz von DevOps herangehensweisen und zum anderen erfordert der Einsatz von entsprechenden Denkweisen, Methodiken und Werkzeugen in der Einführung ausreichend Ressourcen. Auf lange Sicht werden jedoch wenn gut angewendet Ressourcen eingespart.
 
 **Frage**: Woher weiß ich ob unsere Unternehmensstruktur passt?
 
-Einfach ausgedrückt kann man sagen, desdo agiler ein Unternehmen agiert desdo geeigneter und effektiver kann die Etablierung von DevOps werden.
-Das ist natürlich sehr vereinfacht ausgedrückt, die Umstellung auf DevOps entspricht einer gewissen Kulturumstellung im Unternehmen, hier ist Erfahrung und Feingefühl gefragt.
+Einfach ausgedrückt kann man sagen, desto agiler ein Unternehmen agiert desto geeigneter und effektiver kann die Etablierung von DevOps werden.
+Das ist natürlich sehr vereinfacht ausgedrückt. Die Umstellung auf DevOps entspricht einer gewissen Kulturumstellung im Unternehmen, hier ist Erfahrung und Feingefühl gefragt.
 
 In einem dynamischen Unternehmen mit flachen Hierarchien lässt sich dies grundsätzlich einfacher umsetzen als in einem großen Konzern mit einem Wasserfallartigen Projektmanagement. Dafür ist wahrscheinlich die Anforderung der Ressourcen im zweiteren ein kleineres Problem. 
 
 **Frage**: Was muss der Technologie-Stack erfüllen?
+
 Folgende Punkte sind zu erfüllen:
 * Einsatz einer Quellcodeverwaltung bspw. Git
 * Automatisiertes Builden möglich
@@ -86,10 +87,10 @@ Zum einen erfordert die Einführungsphase einen gewissen Lernprozess der Zeit ko
 
 ### Die potentiellen Handbremsen kurzgefasst
 Weniger manuelle Abläufe, daraus folgt:
-* geringerer Zeitaufwand
-* transparentere Vorgänge
-* schnellere und häufigere Bereitstellung
-* geringere Fehleranfälligkeit und erhöhte Zuverlässigkeit
+* Geringerer Zeitaufwand
+* Transparentere Vorgänge
+* Schnellere und häufigere Bereitstellung
+* Geringere Fehleranfälligkeit und erhöhte Zuverlässigkeit
 
 Weitere:
 * Bessere Reproduzierbarkeit
@@ -97,13 +98,13 @@ Weitere:
 * Verbesserte Überwachung und Protokollierung
 * Mehr Zusammenarbeit und weniger Kompetenz-Silos
 
-Zusätzlich kann eine DevOps-Vorgehensweise eine effektive Skalierbarkeit ermöglichen, näheres hierzu in dem nächsten Blog-Artikel "Skalierbare Container-Infrastrukturen.
+Zusätzlich kann eine DevOps-Vorgehensweise eine effektive Skalierbarkeit ermöglichen. Näheres hierzu in dem nächsten Blog-Artikel "Skalierbare Container-Infrastrukturen.
 
 # Ende
 Aus der <a href="https://digitalriding.de/DevOps%20Beginner/">DevOps für Beginner</a> Reihe.
 
 Ich hoffe der Artikel hat dir gefallen.
-Falls du Anregungen, Kritiken oder weitere Vorschläge hast welche Themen wir als nächstes behandeln sollen, geb uns bitte bescheid.
+Falls du Anregungen, Kritiken oder weitere Vorschläge hast welche Themen wir als nächstes behandeln sollen, gib uns bitte Bescheid.
  
 Der nächste Artikel aus der Reihe <a href="https://digitalriding.de/DevOps%20Beginner/">DevOps für Beginner</a> erscheint in Kürze.
 
