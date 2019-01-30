@@ -12,6 +12,122 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Was ist DevOps?</title>
+	  <link>//what-is-devops</link>
+	  <author></author>
+	  <pubDate>2019-01-27T00:00:00+00:00</pubDate>
+	  <guid>//what-is-devops</guid>
+	  <description><![CDATA[
+	     <p>Wer kennt es nicht, der Motor brummt, der Gang sitzt und das Gaspedal ist etwas mehr als von nöten Richtung Boden gedrückt.
+Normalerweise würde unser Auto uns nun beim Anfahren, RED BULL ALPHA JET artig in den Rücksitz pressen.
+Leider entspricht die tatsächlich auf die Straße gebrachte Leistung jedoch eher der eines Bobbycars.</p>
+
+<p>Der Übeltäter ist leicht überführt, die Handbremse ist noch angezogen…</p>
+
+<p>Wodrauf möchte ich genau hinnaus, was hat das mit DevOps zutun?</p>
+
+<p>Der Einsatz von <b>DevOps Denkweisen, Praktiken und Tools</b>, kann ein Lösen von solchen Handbremsen bewirken.</p>
+
+<hr />
+<p>In diesem Artikel erkläre ich was DevOps ist und welche potentiellen Handbremsen gelöst werden können.</p>
+
+<h1 id="was-ist-devops">Was ist DevOps?</h1>
+<p>Bei DevOps geht es kurzgefasst darum Services und Anwendungen möglichst einfach, schnell und hoffentlich auch sicher bereitzustellen.
+Mit dem Sicherheitsaspekt beschäftigen wir uns in einem späteren Artikel ausführlicher, Stichwort DevSecOps, scheinbar hängen nicht nur die Deutschen gerne Wörter aneinander.</p>
+
+<p><strong>Frage</strong>: Was ist das Ziel von DevOps?</p>
+
+<p>Das Ziel von DevOps ist es, ein möglichst zeiteffektives entwickeln und verbessern von Produkten zu erzielen. 
+Zum einen zur besseren Bedienung der Kunden sowie Durchsetzung auf dem Markt und zum anderen zur Erleichterung des Arbeitsalltags der Entwicklungs- und Operations-Teams.</p>
+
+<p><a title="Rajiv.Pant [CC BY 3.0 (https://creativecommons.org/licenses/by/3.0)], from Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Devops.png"><img width="512" alt="Devops" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Devops.png" /></a></p>
+
+<p>Die Grafik veranschaulicht relativ gut den Schnitt den DevOps bewerkstelligt. Wie Stark der Schnitt zwischen den einzelnen Bereichen ist, ist von der individuellen Situation abhängig.</p>
+
+<h2 id="wie-funktioniert-devops">Wie funktioniert DevOps?</h2>
+<p>Es gibt verschiedenste Möglichkeiten DevOps anzuwenden, die Basis ist jedoch die Selbe.</p>
+
+<p>Durch die endisolierung der Entwicklungs- und Operations-Teams wird neben der Schließung von Fach- und Kommunikationslücken ein agileres Vorgehen ermöglicht. Dieses Vorgehen kombiniert mit einer möglichst hohen Automatisierung von bisher manuellen Prozessen ermöglicht eine effektivere und autonomere Vorgehensweise.</p>
+
+<p><strong>Frage</strong>: Wie könnte das beispielsweise aussehen?</p>
+
+<p>Wenn beispielsweise per Knopfdruck oder per Commit in einen Branch, eine realitätsnahe Testumgebung des ausgeführten Quellcodes auf den Unternehmensserven bereitgestellt wird,
+dann ermöglicht dies ein effektiveres und zufriedenstellenderes Arbeiten für die Entwickler als die klassische Vorgehensweise.</p>
+
+<p>Integrieren wir jetzt in diesen Ablauf automatisierte Tests, dann erhalten wir bereits vor den abschließenden manuellen Tests aussagekräftige Feedbacks.</p>
+
+<p>Das Ganze nennt sich in der Form Continuous Deployment kurz. CD und kann noch weiter aufgeführt werden, ein paar weitere Stichwörter hierzu sind: Skalierbar, Container, Quality Gates bzw. Continuous Inspection, Staging-Area, Deployment Strategien.</p>
+
+<p><strong>Grafik</strong>: Darstellung eines Continuous Deployment Ablaufs
+<a title="Jouasse [CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)], from Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:DevOps_from_Integration_to_Deployment.jpg"><img width="710" alt="DevOps from Integration to Deployment" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/DevOps_from_Integration_to_Deployment.jpg/1024px-DevOps_from_Integration_to_Deployment.jpg" /></a></p>
+
+<p><strong>Frage</strong>: In jedem Team zwingend Dev &amp; Ops?</p>
+
+<p>Es ist nicht zwingend erforderlich das jedes Team den Schnitt zwischen Entwicklung &amp; Operations abbildet, gerade in kleineren Teams oder monolithischen Software-Architekturen kann dies uneffektiv bis nicht möglich sein.</p>
+
+<p>Hier bietet sich eventuell ein Team übergreifender DevOps-Part als die beste Möglichkeit an.</p>
+
+<h2 id="kann-und-sollte-devops-überall-eingeführt-werden">Kann und sollte DevOps überall eingeführt werden?</h2>
+<p>Ganz klar, nein.</p>
+
+<p>Zum einen eignet sich nicht jede Unternehmensstruktur sowie nicht alle Technologien für den Einsatz von DevOps herangehensweisen und zum anderen erfordert der Einsatz von entsprechenden Denkweisen, Methodiken und Werkzeugen in der Einführung ausreichend Ressourcen. Auf lange Sicht werden jedoch wenn gut angewendet Ressourcen eingespart.</p>
+
+<p><strong>Frage</strong>: Woher weiß ich ob unsere Unternehmensstruktur passt?</p>
+
+<p>Einfach ausgedrückt kann man sagen, desdo agiler ein Unternehmen agiert desdo geeigneter und effektiver kann die Etablierung von DevOps werden.
+Das ist natürlich sehr vereinfacht ausgedrückt, die Umstellung auf DevOps entspricht einer gewissen Kulturumstellung im Unternehmen, hier ist Erfahrung und Feingefühl gefragt.</p>
+
+<p>In einem dynamischen Unternehmen mit flachen Hierarchien lässt sich dies grundsätzlich einfacher umsetzen als in einem großen Konzern mit einem Wasserfallartigen Projektmanagement. Dafür ist wahrscheinlich die Anforderung der Ressourcen im zweiteren ein kleineres Problem.</p>
+
+<p><strong>Frage</strong>: Was muss der Technologie-Stack erfüllen?
+Folgende Punkte sind zu erfüllen:</p>
+<ul>
+  <li>Einsatz einer Quellcodeverwaltung bspw. Git</li>
+  <li>Automatisiertes Builden möglich</li>
+  <li>Containerization / Virtualization (bspw. für gute Skalierbarkeit)</li>
+  <li>Automatisierte Tests möglich</li>
+</ul>
+
+<p><strong>Frage</strong>: Was ist mit den Ressourcen genau gemeint?</p>
+
+<p>Zum einen erfordert die Einführungsphase einen gewissen Lernprozess der Zeit kostet und zum anderen werden anfangs auch vermehrt Fehler gemacht oder Fehlentscheidungen getroffen. Zusätzlich können weitere Ressourcen für Infrastruktur und Cloud oder Lizenzkosten anfallen.</p>
+
+<h3 id="die-potentiellen-handbremsen-kurzgefasst">Die potentiellen Handbremsen kurzgefasst</h3>
+<p>Weniger manuelle Abläufe, daraus folgt:</p>
+<ul>
+  <li>geringerer Zeitaufwand</li>
+  <li>transparentere Vorgänge</li>
+  <li>schnellere und häufigere Bereitstellung</li>
+  <li>geringere Fehleranfälligkeit und erhöhte Zuverlässigkeit</li>
+</ul>
+
+<p>Weitere:</p>
+<ul>
+  <li>Bessere Reproduzierbarkeit</li>
+  <li>Erhöhte Autonomie von Teams</li>
+  <li>Verbesserte Überwachung und Protokollierung</li>
+  <li>Mehr Zusammenarbeit und weniger Kompetenz-Silos</li>
+</ul>
+
+<p>Zusätzlich kann eine DevOps-Vorgehensweise eine effektive Skalierbarkeit ermöglichen, näheres hierzu in dem nächsten Blog-Artikel “Skalierbare Container-Infrastrukturen.</p>
+
+<h1 id="ende">Ende</h1>
+<p>Aus der <a href="https://digitalriding.de/DevOps%20Beginner/">DevOps für Beginner</a> Reihe.</p>
+
+<p>Ich hoffe der Artikel hat dir gefallen.
+Falls du Anregungen, Kritiken oder weitere Vorschläge hast welche Themen wir als nächstes behandeln sollen, geb uns bitte bescheid.</p>
+
+<p>Der nächste Artikel aus der Reihe <a href="https://digitalriding.de/DevOps%20Beginner/">DevOps für Beginner</a> erscheint in Kürze.</p>
+
+<hr />
+
+<h2><center>Buchempfehlungen DevOps</center></h2>
+<p><a href="https://www.amazon.de/dp/3836263858/ref=as_li_ss_il?&amp;hvadid=310686337877&amp;hvpos=1o2&amp;hvnetw=g&amp;hvrand=14313623090287937732&amp;hvpone=&amp;hvptwo=&amp;hvqmt=&amp;hvdev=c&amp;hvdvcmdl=&amp;hvlocint=&amp;hvlocphy=9044654&amp;hvtargid=pla-562466967806&amp;th=1&amp;psc=1&amp;tag=&amp;ref=&amp;adgrpid=63478267842&amp;hvpone=&amp;hvptwo=&amp;hvadid=310686337877&amp;hvpos=1o2&amp;hvnetw=g&amp;hvrand=14313623090287937732&amp;hvqmt=&amp;hvdev=c&amp;hvdvcmdl=&amp;hvlocint=&amp;hvlocphy=9044654&amp;hvtargid=pla-562466967806&amp;linkCode=li3&amp;tag=digitalriding-21&amp;linkId=d95945ea9d086daf769e0403bc38ffeb&amp;language=de_DE" target="_blank"><img border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=3836263858&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=DE&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=digitalriding-21&amp;language=de_DE" /></a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=digitalriding-21&amp;language=de_DE&amp;l=li3&amp;o=3&amp;a=3836263858" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Lifehack - In-Ear-Kopfhörer Klang günstig verbessern + Abschirmung</title>
 	  <link>//Earphone-Lifehack-de</link>
 	  <author></author>
