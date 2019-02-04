@@ -12,18 +12,18 @@ navigation: true
 comments: true
 level: 1
 ---
-Wer kennt es nicht, der Motor brummt, der Gang sitzt und das Gaspedal ist etwas mehr als von nöten Richtung Boden gedrückt.
+Wer kennt es nicht, der Motor brummt, der Gang sitzt und das Gaspedal ist etwas mehr als vonnöten Richtung Boden gedrückt.
 Normalerweise würde unser Auto uns nun beim Anfahren, RED BULL ALPHA JET artig in den Rücksitz pressen.
 Leider entspricht die tatsächlich auf die Straße gebrachte Leistung jedoch eher der eines Bobbycars.
 
 Der Übeltäter ist leicht überführt, die Handbremse ist noch angezogen...
 
-Worauf möchte ich genau hinnaus, was hat das mit DevOps zutun? 
+Worauf möchte ich genau hinaus, was hat das mit DevOps zutun? 
 
 Der Einsatz von <b>DevOps Denkweisen, Praktiken und Tools</b>, kann ein Lösen von solchen Handbremsen bewirken.
 
 ---
-In diesem Artikel erkläre ich was DevOps ist und welche potentiellen Handbremsen gelöst werden können.
+In diesem Artikel erkläre ich, was DevOps ist und welche potenziellen Handbremsen gelöst werden können.
 
 # Was ist DevOps?
 Bei DevOps geht es kurzgefasst darum Services und Anwendungen möglichst einfach, schnell und hoffentlich auch sicher bereitzustellen.
@@ -32,20 +32,20 @@ Mit dem Sicherheitsaspekt beschäftigen wir uns in einem späteren Artikel ausf�
 **Frage**: Was ist das Ziel von DevOps?
 
 Das Ziel von DevOps ist es, ein möglichst zeiteffektives entwickeln und verbessern von Produkten zu erzielen. 
-Zum einen zur besseren Bedienung der Kunden, sowie Durchsetzung auf dem Markt. Zum anderen zur Erleichterung des Arbeitsalltags der Entwicklungs- und Operations-Teams.
+Zum einen zur besseren Bedienung der Kunden sowie Durchsetzung auf dem Markt. Zum anderen zur Erleichterung des Arbeitsalltags der Entwicklungs- und Operations-Teams.
 
 <a title="Rajiv.Pant [CC BY 3.0 (https://creativecommons.org/licenses/by/3.0)], from Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Devops.png"><img width="512" alt="Devops" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Devops.png"></a>
 
-Die Grafik veranschaulicht relativ gut den Schnitt den DevOps bewerkstelligt. Wie Stark der Schnitt zwischen den einzelnen Bereichen ist, hängt von der individuellen Situation ab.
+Die Grafik veranschaulicht relativ gut den Schnitt den DevOps bewerkstelligt. Wie stark der Schnitt zwischen den einzelnen Bereichen ist, hängt von der individuellen Situation ab.
 
 ## Wie funktioniert DevOps?
-Es gibt verschiedenste Möglichkeiten DevOps anzuwenden, die Basis ist jedoch die Selbe.
+Es gibt verschiedenste Möglichkeiten DevOps anzuwenden, die Basis ist jedoch dieselbe.
 
 Durch die Endisolierung der Entwicklungs- und Operations-Teams wird neben der Schließung von Fach- und Kommunikationslücken ein agileres Vorgehen ermöglicht. Dieses Vorgehen kombiniert mit einer möglichst hohen Automatisierung von bisher manuellen Prozessen ermöglicht eine effektivere und autonomere Vorgehensweise.
 
 **Frage**: Wie könnte das beispielsweise aussehen?
 
-Wenn per Knopfdruck oder per Commit in einen Branch, eine realitätsnahe Testumgebung des ausgeführten Quellcodes auf den Unternehmensserven bereitgestellt wird,
+Wenn per Knopfdruck oder per Commit in einen Branch, eine realitätsnahe Testumgebung des ausgeführten Quellcodes auf der Infrastruktur bereitgestellt wird,
 dann ermöglicht dies ein effektiveres und zufriedenstellenderes Arbeiten für die Entwickler als die klassische Vorgehensweise.
 
 Integrieren wir jetzt in diesen Ablauf automatisierte Tests, dann erhalten wir bereits vor den abschließenden manuellen Tests aussagekräftige Feedbacks. 
@@ -57,21 +57,21 @@ Das Ganze nennt sich in der Form Continuous Deployment kurz. CD und kann noch we
 
 **Frage**: Ist in jedem Team Dev & Ops erforderlich?
 
-Es ist nicht zwingend erforderlich das jedes Team den Schnitt zwischen Entwicklung & Operations abbildet, gerade in kleineren Teams oder monolithischen Software-Architekturen kann dies uneffektiv bis nicht möglich sein. 
+Es ist nicht zwingend erforderlich das jedes Team den Schnitt zwischen Entwicklung & Operations abbildet, gerade in kleineren Teams oder monolithischen Softwarearchitekturen kann dies uneffektiv bis nicht möglich sein. 
 
 Hier bietet sich eventuell ein Team übergreifender DevOps-Part als die beste Möglichkeit an. 
 
 ## Kann und sollte DevOps überall eingeführt werden?
 Ganz klar, nein.
 
-Zum einen eignet sich nicht jede Unternehmensstruktur, sowie nicht alle Technologien für den Einsatz von DevOps herangehensweisen und zum anderen erfordert der Einsatz von entsprechenden Denkweisen, Methodiken und Werkzeugen in der Einführung ausreichend Ressourcen. Auf lange Sicht werden jedoch wenn gut angewendet Ressourcen eingespart.
+Zum einen eignet sich nicht jede Unternehmensstruktur, sowie nicht alle Technologien für den Einsatz von DevOps Herangehensweisen und zum anderen erfordert der Einsatz von entsprechenden Denkweisen, Methodiken und Werkzeugen in der Einführung ausreichend Ressourcen. Auf lange Sicht werden jedoch wenn gut angewendet Ressourcen eingespart.
 
 **Frage**: Woher weiß ich ob unsere Unternehmensstruktur passt?
 
 Einfach ausgedrückt kann man sagen, desto agiler ein Unternehmen agiert desto geeigneter und effektiver kann die Etablierung von DevOps werden.
 Das ist natürlich sehr vereinfacht ausgedrückt. Die Umstellung auf DevOps entspricht einer gewissen Kulturumstellung im Unternehmen, hier ist Erfahrung und Feingefühl gefragt.
 
-In einem dynamischen Unternehmen mit flachen Hierarchien lässt sich dies grundsätzlich einfacher umsetzen als in einem großen Konzern mit einem Wasserfallartigen Projektmanagement. Dafür ist wahrscheinlich die Anforderung der Ressourcen im zweiteren ein kleineres Problem. 
+In einem dynamischen Unternehmen mit flachen Hierarchien lässt sich dies grundsätzlich einfacher umsetzen als in einem großen Konzern mit einem wasserfallartigen Projektmanagement. Dafür ist wahrscheinlich die Anforderung der Ressourcen im größeren Unternehmen ein kleineres Problem. 
 
 **Frage**: Was muss der Technologie-Stack erfüllen?
 
